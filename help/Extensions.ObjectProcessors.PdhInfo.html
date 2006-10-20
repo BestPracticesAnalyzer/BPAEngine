@@ -1,0 +1,126 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The PdhInfo Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The PdhInfo Object Processor</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This is 
+		used to break up a previously collected performance file into smaller 
+		chunks for more efficient and accurate processing.&nbsp; Such a file can be created with the
+		<a href="Extensions.ObjectProcessors.PdhCollect.html">PdhCollect</a> 
+		object processor.</span></p>
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		will create <a href="Schema.Instance.html">Instance</a> 
+		elements for each server and time interval in the blg file.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<p><font size="2">
+			<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;PdhInfo&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.ConfigCollector.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.PdhInfoObjectProcessor&quot;
+			<br>
+			/&gt;</font><br>
+			</font><p>An example object:</p>
+			<p><font size="2"><font color="#0000FF">&lt;</font>Object<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Type</font><font color="#0000FF">=&quot;PdhInfo&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Key1</font><font color="#0000FF">=&quot;%SRVNAME%&quot; <br>
+&nbsp;&nbsp; </font><font color="#FF0000">Key2</font><font color="#0000FF">=&quot;600&quot; <br>
+&nbsp;&nbsp; </font><font color="#FF0000">Key3</font><font color="#0000FF">=&quot;datafile.blg&quot; <br>
+			&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font>Setting<font color="#0000FF">
+			</font><font color="#FF0000">Key1</font><font color="#0000FF">=&quot;StartTime&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font>Setting<font color="#0000FF">
+			</font><font color="#FF0000">Key1</font><font color="#0000FF">=&quot;EndTime&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font>Setting<font color="#0000FF">
+			</font><font color="#FF0000">Key1</font><font color="#0000FF">=&quot;Duration&quot;/&gt;<br>
+			</font><font size="2" color="#0000FF">&lt;/</font><font size="2">Object</font><font size="2" color="#0000FF">&gt;</font><br>
+			</font></td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				The name of the server to access.&nbsp; If processing an already 
+				created blg file, this can also be set to &quot;*&quot;, in which case it 
+				will </span><span style="font-family: Times New Roman">process 
+				all servers in the file.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">This is the desired segment duration, in 
+				seconds.&nbsp; Each segment of that duration will be broken into 
+				a separate instance.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">The name of the blg file to process.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;PdhInfo&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">This can be one of the following:<ul>
+					<li><b>Duration</b>.&nbsp; This is the length of the 
+					segment, in seconds.</li>
+					<li><b>EndSample</b>.&nbsp; This is the ending sample index.</li>
+					<li><b>EndTime</b>.&nbsp; This is the ending time of the 
+					segment.</li>
+					<li><b>Server</b>.&nbsp; This is the name of the server.</li>
+					<li><b>StartSample</b>.&nbsp; This is the starting sample 
+					index.</li>
+					<li><b>StartTime</b>.&nbsp; This is the starting time of the 
+					segment.</li>
+				</ul>
+				</td>
+			</tr>
+			</table>
+    	</div>
+  </body>
+</html>

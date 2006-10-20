@@ -1,0 +1,196 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>Sample Command Line Wrapper</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+span.m1
+	{color:blue}
+span.t1
+	{color:#990000}
+span.b1
+	{font-family:"Courier New";
+	color:red;
+	font-weight:bold;
+	text-decoration:none;
+	text-underline:none;
+	text-decoration:none;
+	text-line-through:none}
+span.tx1
+	{font-weight:bold}
+ div.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table1">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">Sample Command Line Wrapper</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <font size="5"><b>Overview</b></font></p>
+		<p>This topic describes the sample command line wrapper that is supplied 
+		with the BPA SDK: BPACmd.exe.&nbsp; This wrapper is designed as a code 
+		sample only.&nbsp; It is not intended that product teams ship this 
+		directly to customers - you should take a snapshot of the code, make any 
+		needed customizations, and build it yourself.&nbsp; The purpose of 
+		providing a command line version of a BPA application is to allow it to 
+		be scripted, enable automated scheduling of the run (this feature is 
+		supported by BPA.UserInterface.dll, but it only works if a command line 
+		exe exists), and to enable MOM integration (MOM would execute this 
+		periodically).&nbsp;&nbsp; </p>
+      <p> <font size="5"><b>BPACmd.cs</b></font></p>
+		<p>This file contains all of the standard code that drives the common 
+		command line logic.&nbsp; Most of this file can be used as is<span style="font-family: Times New Roman">.&nbsp; 
+		The following are the things that need to be done to customize it for a 
+		given implementation:</span></p>
+		<ul>
+			<li><span style="font-family: Times New Roman"><b>BPACmd.Initialize</b>.&nbsp; 
+			This method sets the properties in the BPACustomizations class 
+			(which is defined in BPA.UserInterface.dll).&nbsp; These properties 
+			are used to control the behavior of both the common GUI and the core 
+			engine.&nbsp; They are all fully documented within the code 
+			comments.&nbsp; There are several strings defined here that should 
+			be changed for each individual implementation.&nbsp; There are also 
+			a number of flags that control things like whether code and XML 
+			files should be verified for proper signing, whether 
+			auto-downloading is enabled, etc.&nbsp; Another thing that is 
+			controlled here are the custom screen definitions.&nbsp; Custom 
+			screens are used to allow you to add your own screens to present to 
+			the user to get run time parameters that will affect the run. For 
+			more information on how to create these yourself, see the
+			<a href="GUIExtensions.Example1.html">Creating a New Selection 
+			Screen</a> topic for an example.&nbsp; The BPA sample GUI provides 
+			one generic custom screen (described below).</span></li>
+			<li><span style="font-family: Times New Roman"><b>
+			BPACmd.GetBPAScanInfo</b>.&nbsp; This method is called before a scan 
+			is run and is meant to handle setting custom information for the 
+			run.&nbsp; This would be used to handle processing any special 
+			command line parameters and passing them to the run.&nbsp; See the 
+			function of the same name in BPA.cs for examples on how to pass run 
+			time data to the core engine. </span></li>
+			<li><span style="font-family: Times New Roman"><b>GenericStrings</b>.&nbsp; 
+			This class contains all the strings used by the application that are 
+			displayed to users.&nbsp; This is kind of a halfway point towards 
+			globalization of the tool.&nbsp; All of these strings should be 
+			moved to a resource file to properly globalize the tool, and then 
+			they can be localized as required.</span></li>
+		</ul>
+      <p> <font size="5"><b>Standard Command Line Parameters</b></font></p>
+		<p>Here are all the command line parameters currently understood by the 
+		core engine (these may be preceded by a dash or slash):</p>
+		<ul>
+			<li><b>-A</b>.&nbsp; This enables the analysis pass to occur for the 
+			run.&nbsp; This is on by default if no flags (-C or -E) are 
+			specified, and off by default if any one is and this one is not.</li>
+			<li><b>-C</b>.&nbsp; This enables the collection pass to occur for 
+			the run.&nbsp; This is on by default if no flags (-A or -E) are 
+			specified, and off by default if any one is and this one is not.</li>
+			<li><b>-CFG &lt;file&gt;</b>.&nbsp; This provides a configuration file to 
+			use.&nbsp; It will default to &lt;appname&gt;.Config.xml, in the directory 
+			for the appropriate language under the exe directory.</li>
+			<li><b>-DAT &lt;file&gt;</b>.&nbsp; This provides a location of where to 
+			write the data file to.&nbsp; It will default to &quot;%APPDATA%\Microsoft\&lt;appname&gt;\&lt;appname&gt;.&lt;label 
+			or timestamp&gt;.data.xml&quot;.</li>
+			<li><b>-DEBUG or -D</b>.&nbsp; This parameter is intended for 
+			internal use only.&nbsp; It causes all reported exceptions to 
+			include call stacks.</li>
+			<li><b>-E</b>.&nbsp; This enables the export pass to occur for the 
+			run.&nbsp; This is of by default.&nbsp; This pass is used to remove 
+			the contents of any data that has been marked with a NotForExport 
+			attribute.</li>
+			<li><b>-H or -?</b>.&nbsp; This generates the command line help 
+			text.</li>
+			<li><b>-IN &lt;file&gt;</b>.&nbsp; This provides a data file to use at the 
+			start of a pass.&nbsp; The purposes of this to rerun the analysis 
+			pass on an existing data file.&nbsp; This may be done to update it 
+			with a newer set of rules, or to translate the output from one 
+			language to another.</li>
+			<li><b>-L &lt;label&gt;</b>.&nbsp; This is the label to assign to the run.</li>
+			<li><b>-MAJOR &lt;number&gt;</b>.&nbsp; This parameter is intended for 
+			internal use only.&nbsp; This overrides the major version number of 
+			the application.&nbsp; It is used to facilitate auto-download logic 
+			testing. </li>
+			<li><b>-MINOR &lt;number&gt;</b>.&nbsp; This parameter is intended for 
+			internal use only.&nbsp; This overrides the minor version number of 
+			the application.&nbsp; It is used to facilitate auto-download logic 
+			testing. </li>
+			<li><b>-ND</b>.&nbsp; This disables the auto-download logic.</li>
+			<li><b>-NOCCS</b>.&nbsp; This parameter is intended for internal use 
+			only.&nbsp; This disables verification of signatures in the 
+			configuration files.</li>
+			<li><b>-P &lt;processor name&gt;:&lt;property&gt;[=&lt;value&gt;][,...] [...]</b>.&nbsp; 
+			This allows you to assign values to properties that will get passed 
+			into the extension of the given name.</li>
+			<li><b>-R &lt;option&gt;[=&lt;value&gt;] [...]</b>.&nbsp; This allows you to 
+			specify restrictions and options to apply to the run.</li>
+			<li><b>-S</b>.&nbsp; This is used in conjunction with the -UK option 
+			to run a previously scheduled BPA scan.&nbsp; It is intended for use 
+			with the Windows scheduler, and not for direct use by a user.</li>
+			<li><b>-SI &lt;seconds&gt;</b>.&nbsp; This is the save interval time.&nbsp; 
+			The engine will automatically save the current output periodically 
+			as a safe-storage mechanism in case something goes wrong during the 
+			run.&nbsp; Setting this to 0 will disable that logic.</li>
+			<li><b>-TH &lt;max number of threads&gt;</b>.&nbsp; This is the maximum 
+			number of threads per processor to allow running at one time.&nbsp; 
+			This defaults to 25.&nbsp; </li>
+			<li><b>-TO &lt;seconds&gt;</b>.&nbsp; This is the default timeout to use 
+			for processing any given object.&nbsp; This defaults to 300 seconds.</li>
+			<li><b>-TRACE or -T</b>.&nbsp; This parameter is intended for 
+			internal use only.&nbsp; It turns on additional tracing messages 
+			that can be used for debugging problems.</li>
+			<li><b>-U &lt;context name&gt; &lt;domain&gt;\&lt;user&gt; &lt;password&gt;</b>.&nbsp; This 
+			provides a list of credentials to apply to the run.&nbsp; Since it 
+			requires passwords to be specified in clear text, this is not safe 
+			to use.</li>
+			<li><b>-UK &lt;user key name&gt;</b>.&nbsp; This is used in conjunction 
+			with the -S option to run a previously scheduled BPA scan.&nbsp; It 
+			is intended for use with the Windows scheduler, and not for direct 
+			use by a user.</li>
+		</ul>
+      <p> <font size="5"><b>Creating Custom Command Line Parameters</b></font></p>
+		<p>These should be parsed before the MainCmd object is created (this is 
+		because any command line parameters left over after that completes will 
+		cause the run to terminate with an error).&nbsp; You can use the 
+		following methods to parse command line parameters yourself:</p>
+		<ul>
+			<li><b>CommandLineParameters.ArgumentSet</b>.&nbsp; This tests if a 
+			flag is set or not.</li>
+			<li><b>CommandLineParameters.GetArgumentValues</b>.&nbsp; This is 
+			used to retrieve the value(s) specified for a command line 
+			parameter.&nbsp; It will return all the values prior to the next 
+			parameter (values and parameters are differentiated because 
+			parameters start with a dash or slash and values do not).</li>
+		</ul>
+		<p>These methods can be used by both the command line wrapper and the 
+		GUI wrapper.</p>
+		<p>&nbsp;</p>
+		</div>
+	<div id="nstext">
+		<p>&nbsp;</p>
+		</div>
+	<p class="MsoNormal">&nbsp;</p>
+  </body>
+</html>

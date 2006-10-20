@@ -1,0 +1,96 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The list-average Function Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The list-percentile Function Processor</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		function processor can be used to get the value at or above the 
+		specified percentile of the integer 
+		nodes in a comma-separated list.</span>
+		<span style="font-size: 12.0pt; font-family: Times New Roman">
+		&nbsp;This was designed specifically for use with the
+		<a href="Extensions.ObjectProcessors.Pdh.html">Pdh object processor</a>, but it can be 
+		applied to any list of integers.</span><p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><p>The FunctionProcessor definition:</p><p>
+			<font SIZE="2" COLOR="#0000ff">&lt;</font><font SIZE="2" COLOR="#800000">ExtFunction</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Name</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">list-</font><font SIZE="2"><font color="#0000FF">percentile</font>&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Assembly</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">BPA.ConfigCollector.dll</font><font SIZE="2">&quot;</font><br>
+			<font SIZE="2" color="#0000FF">&nbsp;&nbsp; </font>
+			<font SIZE="2" COLOR="#ff0000">Class</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.PdhObjectProcessor</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Function</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;<font color="#0000FF">ListPercentile</font>&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Returns</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;<font color="#0000FF">String</font>&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp; Parameters</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">String,Number</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+			/&gt;</font><p>An example usage:</p>
+			<p>
+			<font SIZE="2" COLOR="#808080">
+			<font SIZE="2">
+			&lt;Setting Key1=&quot;SMTP Server&quot; Key2=&quot;Cat: Messages Categorized&quot; 
+			Key3=&quot;_Total&quot; &gt;</font><font SIZE="2" COLOR="#0000ff"><br>
+&nbsp;&nbsp; </font><font SIZE="2">&lt;Rule Name=&quot;fMessCatBottom10Percent&quot; </font>
+			<font SIZE="2" COLOR="#ff0000">Query</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">list-percentile($.,10))</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2">/&gt;</font><font SIZE="2" COLOR="#0000ff"><br>
+			</font><font SIZE="2">&lt;/Setting&gt;</font></font></td></tr></table>
+      <h4 class="dtH4">Specific ExtFunction Attributes (see
+		<a href="Schema.Object.html">ExtFunction</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top"><td width="29%">Function</td>
+				<td width="70%">
+				<p class="MsoNormal" style="margin-right:.05in">This 
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				must be set to &quot;ListPercentile&quot;.</span></p>
+				</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">Returns</td>
+				<td width="70%">This must be set to &quot;String&quot;.&nbsp; 
+				This returns the value at or above of the specified percentage 
+				of values of the list given.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%">Parameters</td>
+				<td width="70%">This must be set to &quot;String,Number&quot;.&nbsp; 
+				This takes a comma-separated list of integers.</td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

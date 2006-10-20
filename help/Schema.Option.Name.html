@@ -1,0 +1,82 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Name Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Name Attribute </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-family: Times New Roman">This is a unique name to 
+		apply to this option.&nbsp; Note that this should be unique across all 
+		restrictions.&nbsp; This name also represents the name of the attribute 
+		to use when applying this restriction.&nbsp; Restriction attributes can 
+		be specified on <a href="Schema.Object.html">Objects</a>,
+		<a href="Schema.Setting.html">Settings</a>, <a href="Schema.Rule.html">
+		Rules</a>, <a href="Schema.Template.html">Templates</a>, and
+		<a href="Schema.Pivot.html">Pivots</a>.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font size="2" color="#800080">&lt;Option <br>
+			&nbsp;&nbsp; </font><font size="2" color="#FF0000">Name</font><font size="2" color="#0000FF">=&quot;Health&quot; </font>
+			<font size="2" color="#800080"> <br>
+			&nbsp;&nbsp; Display=&quot;Health Check&quot; </font><font size="2" color="#0000FF"> <br>
+			&nbsp;</font><font size="2" color="#800080">&nbsp; Description=&quot;Perform checks for 
+			common problems and misconfiguration.&quot; <br>
+			&nbsp;&nbsp; Cost=&quot;90&quot; <br>
+			&nbsp;&nbsp; Includes=&quot;General,3&quot; <br>
+			/&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr>
+	<td width="29%"><a href="Schema.Option.html">Option</a></td><td width="70%">
+        This element identifies an option of a restriction.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Value</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">&lt;string&gt;</td><td width="70%">
+        This should start with a letter and consist of letters, digits, and dashes.</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

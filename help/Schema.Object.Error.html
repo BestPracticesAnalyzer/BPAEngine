@@ -1,0 +1,106 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Error Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Error Attribute</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		attribute indicates the level of importance assigned to a particular 
+		issue.&nbsp;&nbsp;&nbsp; This can be used for reporting purposes.&nbsp; 
+		Note that the possible values listed for this attribute are recognized 
+		by the Common UI layer, but not by the engine.&nbsp; If you are not 
+		using the common UI, then you can set these values to anything you want.&nbsp; 
+		One caveat: &quot;Error&quot;, &quot;Warning&quot; and &quot;Info&quot; are also recognized by the 
+		Events issue processor (see the
+		<a href="Extensions.IssueProcessors.html">Issue Processors</a> topic) 
+		and determine what level is assigned to the event.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font size="2" color="#800080">&lt;Rule <br>
+&nbsp;&nbsp; Name=&quot;fCTFoundAdminGroup&quot; <br>
+&nbsp;&nbsp; Query=&quot;$.&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Error</font><font size="2" color="#0000FF">=&quot;None&quot;
+			</font><font size="2" color="#800080"><br>
+&nbsp;&nbsp; Text=&quot;Found Admin Group {1} in the directory.&quot; P1=&quot;$.&quot; <br>
+			/&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Schema.Message.html">Message</a></td><td width="70%">
+        This is copied from the rule that created it.</td>
+</tr>
+<tr>
+	<td width="29%"><a href="Schema.Rule.html">Rule</a></td><td width="70%">
+        This is defined on input and indicates the error level to apply to this 
+		rule.</td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Value</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">&quot;Error&quot;</td><td width="70%">
+        This means the issue is of the highest importance and very likely 
+		represents a real problem that needs to be corrected.</td></tr>
+<tr VALIGN="top"><td width="29%">&quot;Warning&quot; </td><td width="70%">
+        This is slightly less severe and indicates something that may be wrong 
+		in certain circumstances, but not all.</td></tr>
+<tr VALIGN="top"><td width="29%">&quot;BestPractice&quot;</td><td width="70%">
+        This indicates a best practice to get the most optimal or reliable use 
+		out of a deployment.</td></tr>
+<tr VALIGN="top"><td width="29%">&quot;Baseline&quot;</td><td width="70%">
+        This is a special error type indicating a comparison of a property 
+		against a preset value has failed.</td></tr>
+<tr VALIGN="top"><td width="29%">&quot;Time&quot;</td><td width="70%">
+        This indicates a property that has been recently changed.</td></tr>
+<tr VALIGN="top"><td width="29%">&quot;NonDefault&quot;</td><td width="70%">
+        This indicates a property that, while not necessarily wrong, has been 
+		altered from its default value.</td></tr>
+<tr VALIGN="top"><td width="29%">&quot;None&quot;</td><td width="70%">
+        This indicates a purely informational message.</td></tr>
+<tr VALIGN="top"><td width="29%">&lt;not present&gt;</td><td width="70%">
+        This indicates no issues have been fired (on output), and on input Rule 
+		elements it indicates the rule is for internal use only.</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

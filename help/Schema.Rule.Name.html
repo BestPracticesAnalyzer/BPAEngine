@@ -1,0 +1,95 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Name Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Name Attribute </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		is a unique identifier of the rule, composed of only letters and digits.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#800080" size="2">&lt;Rule <br>
+&nbsp;&nbsp; </font><font color="#FF0000" size="2">Name</font><font color="#0000FF" size="2">=&quot;fExPhysicalMachineUp&quot;</font><font color="#800080" size="2"> <br>
+&nbsp;&nbsp; Query=&quot;$fClusterServiceRunning and not($szPSWinVer)&quot; <br>
+&nbsp;&nbsp; Error=&quot;Error&quot; <br>
+&nbsp;&nbsp; Sev=&quot;3&quot; <br>
+&nbsp;&nbsp; Title=&quot;Exchange cluster node could not be contacted&quot; <br>
+&nbsp;&nbsp; Text=&quot;Exchange cluster node {2} is down or unreachable. This could 
+			be due to a network or permissions problem.&quot;<br>
+&nbsp;&nbsp; P2=&quot;$szExchangeNodeName&quot; <br>
+&nbsp;&nbsp; GUID=&quot;fa727882-9fdd-4664-9d49-f0ef95193b49&quot; <br>
+&nbsp;&nbsp; AlwaysEvaluate=&quot;True&quot; 
+			<br>
+			/&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Pivot.html">
+	Pivot</a></td><td width="70%">
+        This element identifies a special case of a rule.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Rule.html">
+	Rule</a></td><td width="70%">
+        This element contains information about a rule to execute on the output data.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Template.html">
+	Template</a></td><td width="70%">
+        This element identifies a rule template that can be applied to other rules so similar rules don't need to be defined separately.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">&lt;string&gt;</td><td width="70%">
+		This is a unique name of the this rule, pivot or template.  This must begin with a letter, and contain only letters and digits.</td></tr>
+<tr VALIGN="top"><td width="29%">&lt;not present&gt;</td><td width="70%">
+        Names will be assigned by default if not given.</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

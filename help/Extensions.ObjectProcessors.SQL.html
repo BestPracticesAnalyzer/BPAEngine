@@ -1,0 +1,145 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The SQL Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The SQL Object Processor</td>
+          </tr>
+        </table>
+	</div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		retrieves data from a SQL database using the SqlClient managed 
+		namespace.&nbsp; It can also be used to retrieve data from any OleDb 
+		database, such as Microsoft Access. </span></p>
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">For 
+		each row found that matches the given query, an
+		<a href="Schema.Instance.html">Instance</a> element will be created and 
+		all the elements under the original <a href="Schema.Object.html">Object</a> 
+		will be duplicated in each Instance.&nbsp; The
+		<a href="Schema.Object.Name.html">Name</a> attribute for each instance 
+		will be set to the logical number of the row by default, but this may be 
+		overridden by specifying a column name in the Name attribute of the 
+		Object element.&nbsp; In that case, the instance names will be the data 
+		retrieved from that column for that row.&nbsp; Each <a href="Schema.Setting.html">Setting</a> 
+		will be processed separately per Instance and will have zero or one
+		<a href="Schema.Value.html">Value</a> element added to them based on 
+		the contents of the corresponding SQL cell.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<p><font size="2">
+			<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;SQL&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.ConfigCollector.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.SQLObjectProcessor&quot;
+			<br>
+			/&gt;</font><br>
+			<br>
+			</font>An example object:</p>
+			<p><font size="2" color="#0000FF">&lt;</font><font size="2">Object</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Type</font><font size="2" color="#0000FF">=&quot;SQL&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;Integrated 
+			Security=SSPI;database=northwind;server=mySQLServer&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key2</font><font size="2" color="#0000FF">=&quot;SELECT 
+			CategoryID, CategoryName, Description FROM Categories ORDER BY 
+			CategoryID&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Name</font><font size="2" color="#0000FF">=&quot;CategoryID&quot;<br>
+			&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font size="2">Setting</font><font size="2" color="#0000FF">
+			</font><font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;CategoryName&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font size="2">Setting</font><font size="2" color="#0000FF">
+			</font><font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;Description&quot;/&gt;</font></td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the connection string to use.&nbsp; See the 
+				SqlConnection.ConnectionString and 
+				OleDbConnection.ConnectionString topics in MSDN for full details on 
+				the syntax.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This can be any T-SQL code that results in a rowset.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%"><span style="font-family: Times New Roman">This 
+				identifies the provider to use.&nbsp; There are two options:</span><ul>
+					<li><span style="font-family: Times New Roman"><b>SQL</b>.&nbsp; 
+					This should be used for accessing SQL Server 7.0 and later 
+					databases.</span></li>
+					<li><span style="font-family: Times New Roman"><b>OleDb</b>.&nbsp; 
+					This should be used for accessing Access databases, SQL 
+					Server 6.5 and earlier, or any other database that has an 
+					OleDb interface.</span></li>
+				</ul>
+				</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Name.html">Name</a></td>
+				<td width="70%"><span style="font-family: Times New Roman">This 
+				defines the column that will be used to fill in the Name 
+				attributes of each instance element.&nbsp; If not given, the 
+				Name attribute values will be set to logical row numbers.</span></td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;SQL&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the name of the SQL column display.&nbsp; What data is 
+				actually retrieved from the data source is determined by Key2 on 
+				the Object.&nbsp; If data is retrieved that is not referenced by 
+				a Setting element, it will be discarded.</span></td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

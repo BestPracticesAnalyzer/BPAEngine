@@ -1,0 +1,206 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Certificate Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Certificate Object Processor</td>
+          </tr>
+        </table>
+	</div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		retrieves data from certificates.&nbsp; It retrieves certificates via 
+		several mechanisms, including: querying secure web sites; examining a 
+		certificate file; connecting over an SMTP port and starting an SSL 
+		session (.NET 2.0 and later builds only); and retrieving certificates 
+		from a certificate store (also only supported for .NET 2.0 and later 
+		builds).</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<p><font size="2">
+			<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;Certificate&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.NetworkCollector.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.CertificateObjectProcessor&quot;
+			<br>
+			/&gt;</font><br>
+			<br>
+			</font>An example object:</p>
+			<p><font size="2" color="#0000FF">&lt;</font><font size="2">Object</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Type</font><font size="2" color="#0000FF">=&quot;Certificate&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;Https&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key2</font><font size="2" color="#0000FF">=&quot;https://exchange.microsoft.com&quot; <br>
+			&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font size="2">Setting</font><font size="2" color="#0000FF">
+			</font><font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;ExpirationDate&quot;/&gt;</font></td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the type of interface to get the certificate from.&nbsp; 
+				The supported types are:</span><ul>
+					<li><span style="font-family: Times New Roman">&quot;Https&quot; means 
+					that it will access a web site and get its certificate.&nbsp;
+					</span></li>
+					<li><span style="font-family: Times New Roman">&quot;File&quot;&nbsp; 
+					means it will look at a certificate object stored in a file.</span></li>
+					<li><span style="font-family: Times New Roman">&quot;Store&quot; means 
+					it will retrieve it from a certificate store.&nbsp; Note: 
+					this is not supported on .NET 1.1 builds.&nbsp; Note 2: this 
+					may create more than one instance if more than one 
+					certificate matches the specified query.</span></li>
+					<li><span style="font-family: Times New Roman">&quot;SMTP&quot; means 
+					it will access a server port.&nbsp; Note: this is not 
+					supported on .NET 1.1 builds.</span></li>
+				</ul>
+				<p><span style="font-family: Times New Roman">The rest of the 
+				Object attributes have different meanings depending on the type 
+				of interface specified.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This will have a different meaning depending on the value of 
+				Key1:</span><ul>
+					<li><span style="font-family: Times New Roman">Key1=&quot;Https&quot; 
+					means this should be set to a URL.</span></li>
+					<li><span style="font-family: Times New Roman">Key1=&quot;File&quot; 
+					means this should be set to a file name.</span></li>
+					<li><span style="font-family: Times New Roman">Key1=&quot;Store&quot; 
+					means this should be set to a StoreName enumerator.&nbsp; 
+					Valid values are: &quot;AddressBook&quot;, &quot;Authroot&quot;, &quot;CertificateAuthority&quot;, 
+					&quot;Disallowed&quot;, &quot;My&quot;, &quot;Root&quot;, &quot;TrustedPeople&quot;, &quot;TrustedPublisher&quot;.&nbsp; 
+					The default is &quot;My&quot;.</span></li>
+					<li><span style="font-family: Times New Roman">Key1=&quot;SMTP&quot; 
+					means this should be set to a server name.</span></li>
+				</ul>
+				</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This will have a different meaning depending on the value of 
+				Key1:</span><ul>
+					<li><span style="font-family: Times New Roman">Key1=&quot;Store&quot; 
+					means this should be set to a StoreLocation enumerator.&nbsp; 
+					Valid values are: &quot;CurrentUser&quot;, &quot;LocalMachine&quot;.&nbsp; The 
+					default is &quot;LocationMachine&quot;.</span></li>
+					<li><span style="font-family: Times New Roman">Key1=&quot;SMTP&quot; 
+					means this should be set to a port number.</span></li>
+				</ul>
+				<p><span style="font-family: Times New Roman">This key is not 
+				used by other interface types.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key4</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This will have a different meaning depending on the value of 
+				Key1:</span><ul>
+					<li><span style="font-family: Times New Roman">Key1=&quot;Store&quot; 
+					means this should be set to an X509FindType enumerator.&nbsp; 
+					Valid values are: &quot;FindByApplicationPolicy&quot;, &quot;FindByCertificatePolicy&quot;, 
+					&quot;FindByExtension&quot;, &quot;FindByIssuerDistinguishedName&quot;, &quot;FindByIssuerName&quot;, 
+					&quot;FindByKeyUsage&quot;, &quot;FindBySerialNumber&quot;, &quot;FindBySubjectDistinguishedName&quot;, 
+					&quot;FindBySubjectKeyIdentifier&quot;, &quot;FindBySubjectName&quot;, &quot;FindByTemplateName&quot;, 
+					&quot;FindByThumbprint&quot;, &quot;FindByTimeExpired&quot;, &quot;FindByTimeNotYetValid&quot;, 
+					&quot;FindByTimeValid&quot;.&nbsp; The default is &quot;FindBySubjectName&quot;.</span></li>
+				</ul>
+				<p><span style="font-family: Times New Roman">This key is not 
+				used by other interface types.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key5</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This will have a different meaning depending on the value of 
+				Key1:</span><ul>
+					<li><span style="font-family: Times New Roman">Key1=&quot;Store&quot; 
+					means this should be set to a property value that matches 
+					the find type specified in Key4.</span></li>
+				</ul>
+				<p><span style="font-family: Times New Roman">This key is not 
+				used by other interface types.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;Certificate&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the name of the Certificate property to retrieve.&nbsp; 
+				The following values are currently supported:</span><ul>
+					<li><span style="font-family: Times New Roman">
+					“EffectiveDate” </span></li>
+					<li><span style="font-family: Times New Roman">
+					“ExpirationDate&quot;</span></li>
+					<li><span style="font-family: Times New Roman">&quot;Issuer”</span></li>
+					<li><span style="font-family: Times New Roman">“Principal”</span></li>
+					<li><span style="font-family: Times New Roman">“Hash” </span>
+					</li>
+					<li><span style="font-family: Times New Roman">“Format”
+					</span></li>
+					<li><span style="font-family: Times New Roman">“KeyAlgorithm”</span></li>
+					<li><span style="font-family: Times New Roman">
+					“KeyAlgorithmParameters” </span></li>
+					<li><span style="font-family: Times New Roman">“PublicKey”</span></li>
+					<li><span style="font-family: Times New Roman">“RawData”</span></li>
+					<li><span style="font-family: Times New Roman">
+					“SerialNumber”</span></li>
+					<li><span style="font-family: Times New Roman">“Subject” - 
+					.NET 2.0 ONLY</span></li>
+					<li><span style="font-family: Times New Roman">“ErrorCode” – 
+					this will be non zero if the cert retrieval failed </span>
+					</li>
+				</ul>
+				</td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The ExpandGroup Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The ExpandGroup Object Processor</td>
+          </tr>
+        </table>
+	</div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		returns all the members of an Active Directory group. </span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<p><font size="2">
+			<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;ExpandGroup&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.ConfigCollector.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.ExpandGroupObjectProcessor&quot;
+			<br>
+			/&gt;</font></font></p>
+			</td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the prefix to apply to the given DN.&nbsp; For root level 
+				entries, this will default to LDAP://&lt;gc&gt;/rootDSE, and LDAP:// 
+				for other entries.&nbsp; The &lt;gc&gt; value comes from a global 
+				substitution.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">
+				This is the DN of the group to be expanded.&nbsp; It will get appended to Key1.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This can be one of the following:</span><ul>
+					<li><span style="font-family: Times New Roman">&quot;Leaf&quot; means 
+					that only non-group members should be included in the 
+					output.&nbsp; This is the default.</span></li>
+					<li><span style="font-family: Times New Roman">&quot;Inner&quot; means 
+					that only group members should be included in the output.</span></li>
+					<li><span style="font-family: Times New Roman">&quot;Both&quot; means 
+					that all members should be included in the output.</span></li>
+				</ul>
+				</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;ExpandGroup&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">
+				This is the name of the property to retrieve.</td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

@@ -1,0 +1,257 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Object Element</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Object Element</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		element identifies an entity to be processed by an object processor.&nbsp; 
+		This might represent something like an AD query (such as give me all 
+		Exchange servers in the configuration container), or it may be a test 
+		type (such as a protocol test).&nbsp; The specific definition is up to the 
+		object processor.&nbsp; </span> </p>
+		<p> <span style="font-family: Times New Roman">Objects are nested under 
+		each other and form an object hierarchy.&nbsp; The object hierarchy 
+		forms the basis of the configuration structure.&nbsp; When an Object is 
+		processed by an object processor, that processor will return zero or 
+		more instances of that object, and for each instance it will fill in the 
+		values of the settings defined for the object.&nbsp; The setting values 
+		retrieved can be further used in a variable which is called a
+		<a href="Schema.Setting.Substitution.html">Substitution</a>.&nbsp; Through 
+		judicious use of nested objects and substitutions, the configuration can 
+		be made to be very flexible and powerful.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>In the configuration file:<p><font size="2">
+			<font color="#0000FF">&lt;</font>Object<font color="#0000FF"> <br>
+&nbsp;&nbsp; </font><font color="#FF0000">Type</font><font color="#0000FF">=&quot;Directory&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Key2</font><font color="#0000FF">=&quot;cn=Exchange 
+			Enterprise Servers,cn=Users,%DOMAINDN%&quot;<br>
+			&gt;</font><br>
+			<br>
+			</font>In an output data file:</p>
+			<p><font color="#0000FF"><font size="2">&lt;</font>Object<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Type</font><font color="#0000FF">=&quot;Directory&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Key2</font><font color="#0000FF">=&quot;cn=Exchange 
+			Enterprise Servers,cn=Users,%DOMAINDN%&quot; <br>
+&nbsp;&nbsp; </font><font color="#FF0000">ProcessTime</font><font color="#0000FF">=&quot;10.0376&quot;<br>
+			&gt;</font></font><font color="#0000FF"><br>
+			</font><font color="#800080">&nbsp;&nbsp;&nbsp;&nbsp; <font size="2">&lt;</font>Instance</font><font color="#800080">
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type=&quot;Directory&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Key2=&quot;cn=Exchange 
+			Enterprise Servers,cn=Users,DC=contop,DC=com&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name=&quot;Exchange 
+			Enterprise Servers&quot;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...</font></td></tr></table>
+      <h4 class="dtH4">Parent Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">root</td><td width="70%">
+        This element can be just below the XML root node.</td></tr>
+<tr valign="top">
+	<td width="29%"><a href="Schema.Instance.html">Instance</a></td><td width="70%">
+        On output, Object elements are nested under Instance elements of their 
+		parent Object.</td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        On input, Object elements can only be nested under another Object 
+		element, or at the root of the document.</td>
+</tr>
+<tr>
+	<td width="29%"><a href="Schema.Reference.html">Reference</a></td><td width="70%">
+        This element refers to a <a href="Schema.Type.html">Type</a> element to be included in that position.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Child Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Setting.html">Instance</a></td><td width="70%">
+        On output, Instance elements are created under Object elements (one per 
+		matching instance).</td>
+</tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Setting.html">Setting</a></td><td width="70%">
+        On input, Setting elements are nested directly under Object elements.&nbsp; 
+		These elements contain data about a particular property to be retrieved.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Attributes</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Async.html">Async</a></td>
+				<td width="70%">This indicates how many threads 
+				should be spun up to process the instances of this object.</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Class.html">Class</a></td>
+				<td width="70%">This provides a display hint to the GUI for showing the object.</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Count.html">Count</a></td>
+				<td width="70%">Identifies a property to count over.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%">
+				<a href="Schema.Reference.CustomId.html">CustomId</a></td>
+				<td width="70%">This is an identifier that can be referenced by 
+				a <a href="Schema.Customize.html">Customize</a> element to 
+				override its properties.&nbsp; This is only meaningful if the 
+				Object is nested under a Type.&nbsp; This defaults to the 
+				Name of the Object.</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Display.html">Display</a></td>
+				<td width="70%">This property is used as a display hint for the object.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Object.Filter.html">Filter</a></td>
+				<td width="70%">This is an internal attribute, only set on output, that acts
+				as a filter on the Name of instances (based on Scope).</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.GroupingClass.html">GroupingClass</a></td>
+				<td width="70%">This indicates that the object should be used to group issues for display purposes.</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1 - Key5</a></td>
+				<td width="70%">These values can be given any 
+				meaning by the object processor associated with this type of object.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.LogText.html">LogText</a></td>
+				<td width="70%">This is informational text to log 
+				when this object is dispatched for processing.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.MaxFailures.html">MaxFailures</a></td>
+				<td width="70%">This can be used to limit the 
+				number of failures that will be tolerated on any queries 
+				underneath this object.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.MaxTime.html">MaxTime</a></td>
+				<td width="70%">This can be used to limit the 
+				total time that will be tolerated to process all the queries 
+				underneath this object.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.MaxTimeouts.html">MaxTimeouts</a></td>
+				<td width="70%">This can be used to limit the 
+				total timeout failures that will be tolerated to process all the queries 
+				underneath this object.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Name.html">Name</a></td>
+				<td width="70%">This provides information on the name of the object.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.ProcessTime.html">ProcessTime</a></td>
+				<td width="70%">This output only attribute contains the amount of time it took 
+				to process the object.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Range.html">Range</a></td>
+				<td width="70%">This identifies the maximum number of instances 
+				to include in the output.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Object.Restrict.html">Restrict</a></td>
+				<td width="70%">This is an internal attribute, only set on output, denoting an
+				whether an element should be ignored durring processing due to restrictions
+				(e.g., Category, Scope, or Level).</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Restriction.html">
+				&lt;restriction&gt;</a></td>
+				<td width="70%">This is a custom-defined restriction attribute.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.SDMElement.html">
+				SDMElement</a></td>
+				<td width="70%">This provides a hint to be used during 
+				conversion of a BPA Object element to an SDM element.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.SDMMultiplicity.html">
+				SDMMultiplicity</a></td>
+				<td width="70%">This provides a hint to be used during 
+				conversion of a BPA Object element to an SDM element.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.SDMName.html">SDMName</a></td>
+				<td width="70%">This provides a hint to be used during 
+				conversion of a BPA Object element to an SDM element.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.SecurityContext.html">SecurityContext</a></td>
+				<td width="70%">This specifies the security context to use when processing this object.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Sort.html">Sort</a></td>
+				<td width="70%">This determines how to order the instances in 
+				the output.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Timeout.html">Timeout</a></td>
+				<td width="70%">This is the timeout to be used for 
+				this object.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.TrackProgress.html">TrackProgress</a></td>
+				<td width="70%">This indicates that the core engine 
+				should track the progress of this object and provide status 
+				updates as processing occurs.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This is the type of the object 
+				which is used to determine which object processor will process 
+				it.</td>
+			</tr>
+		</table>
+    </div>
+  </body>
+</html>

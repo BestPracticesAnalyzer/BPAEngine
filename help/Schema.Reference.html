@@ -1,0 +1,175 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Reference Element</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Reference Element</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		element refers to a <a href="Schema.Type.html">Type</a> definition.&nbsp; 
+		The elements nested under the Type will be copied to the location 
+		identified by the Reference.&nbsp; This is useful for defining reusable 
+		entities such as servers, files, disks, etc.&nbsp; It is also useful for 
+		creating standard definitions that can be used by multiple applications.&nbsp; 
+		A set of <a href="CommonModels.html">Common Models</a> is provided as 
+		part of the SDK. These standard definitions will also come into play in 
+		the future when BPA configurations need to be converted to SDM 
+		configurations (the Systems Definition Model is a strategic effort being 
+		driven out of System Center that is being designed to handle best 
+		practice definitions and much more).&nbsp; See the
+		<a href="http://team/sites/wssbpa/Shared%20Documents/Specs/BPA%20to%20DCM%20and%20SDM%20Conversion.doc">BPA to SDM Conversion Document</a> for details.&nbsp; </span> </p>
+		<p> <span style="font-family: Times New Roman">Note that Type, 
+		Reference, and <a href="Schema.Customize.html">Customize</a> elements 
+		are only processed when the Type Configuration Preprocessor is 
+		configured.&nbsp; See the <a href="Extensions.ConfigPreprocessors.html">
+		built-in Configuration Preprocessor extensions</a> for details.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>In the configuration file:<p><font size="2">
+			<font color="#0000FF">&lt;</font>Reference<font color="#0000FF"> <br>
+&nbsp;&nbsp; </font><font color="#FF0000">Type</font><font color="#0000FF">=&quot;File&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">File</font><font color="#0000FF">=&quot;BPA.CommonModels.xml&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Name</font><font color="#0000FF">=&quot;NOTEPAD.EXE 
+			file&quot;<br>
+			&gt;<br>
+&nbsp;</font><font color="#808080">&nbsp; &lt;Substitution Name=&quot;SRVNAME&quot;&gt;&lt;/Substitution&gt;<br>
+			&nbsp;&nbsp; &lt;Substitution Name=&quot;FILENAME&quot;&gt;NOTEPAD.EXE&lt;/Substitution&gt;</font><br>
+			<font color="#0000FF">&lt;/</font>Reference<font color="#0000FF">&gt;</font></font></p></td></tr></table>
+      <h4 class="dtH4">Parent Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">root</td><td width="70%">
+        This element can be just below the XML root node.</td></tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Customize.html">Customize</a></td><td width="70%">
+        This element can be used to alter specific portions of referenced types.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        On input, Object elements can only be nested under another Object 
+		element, or at the root of the document.</td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Setting.html">
+	Setting</a></td><td width="70%">
+        This element identifies a property to be retrieved from an <a href="Schema.Object.html">Object</a>.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Type.html">Type</a></td><td width="70%">
+        This element defines a reusable configuration fragment.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Child Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Customize.html">Customize</a></td><td width="70%">
+        This element can be used to alter specific portions of referenced types.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Substitution.html">
+	Substitution</a></td><td width="70%">
+        This element contains a parameter value that can be references elsewhere in the configuration.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Attributes</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%">
+				<a href="Schema.Reference.CustomId.html">CustomId</a></td>
+				<td width="70%">This is an identifier that can be referenced by 
+				a <a href="Schema.Customize.html">Customize</a> element to 
+				override its properties.&nbsp; This is only meaningful if the 
+				Reference is nested under a Type.&nbsp; This defaults to the 
+				Name of the Reference.</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">
+				<a href="Schema.Reference.File.html">File</a></td>
+				<td width="70%">This identifies the file to look for the
+				<a href="Schema.Type.html">Type</a> in.&nbsp; This defaults to 
+				the current file.&nbsp; If this is not the current file, then 
+				this name must also be included in the
+				<a href="Schema.Configuration.ReferencedFiles.html">
+				ReferencedFiles</a> attribute so updates can be detected.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Reference.Name.html">Name</a></td>
+				<td width="70%">This provides information on the name of the 
+				Reference.&nbsp; This name will be appended to the
+				<a href="Schema.Rule.Name.html">Rule Names</a> and
+				<a href="Schema.Reference.CustomId.html">CustomIds</a> of all 
+				elements in that <a href="Schema.Type.html">Type</a>.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.SDMElement.html">
+				SDMElement</a></td>
+				<td width="70%">This provides a hint to be used during 
+				conversion of a BPA Object element to an SDM element.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.SDMMultiplicity.html">
+				SDMMultiplicity</a></td>
+				<td width="70%">This provides a hint to be used during 
+				conversion of a BPA Object element to an SDM element.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.SDMName.html">SDMName</a></td>
+				<td width="70%">This provides a hint to be used during 
+				conversion of a BPA Object element to an SDM element.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Reference.Type.html">Type</a></td>
+				<td width="70%">This is the name of the
+				<a href="Schema.Type.html">Type</a> this Reference refers to.</td>
+			</tr>
+		</table>
+    </div>
+  </body>
+</html>

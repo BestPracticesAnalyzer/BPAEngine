@@ -1,0 +1,207 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" >
+    <title>Object Processors</title>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>AttributeName Class</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table15">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">Object Processors</td>
+          </tr>
+        </table>
+    </div>
+    <div id="nstext">
+  </body>
+</html>
+	<html dir="LTR" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+  <body id="bodyID" class="dtBODY">
+      <p>Object processors are used to access data from a data source of some 
+		kind.&nbsp; They are also referred to as data source collectors or just 
+		collectors in some cases.&nbsp; Object processors are defined at the 
+		start of a configuration document using
+		<a href="Schema.ObjectProcessor.html">ObjectProcessor</a> elements, and 
+		then <a href="Schema.Object.html">Object</a> elements may be defined 
+		throughout the document that reference that processor.&nbsp; The 
+		definition of an object processor is quite flexible.&nbsp; In addition 
+		to the classic usage, which is to retrieve data from store of some kind 
+		(i.e. the registry, Active Directory, etc), they can take pretty much 
+		any action and can return various types of data.&nbsp; For instance, the 
+		supplied Protocol object processor identifies a port number and commands 
+		to be sent rather than a query and properties to retrieve, and instance 
+		of return the values of properties it returns the responses to the 
+		commands.&nbsp; Meta-type logic can also be implemented, such as in the 
+		supplied Group object processor, which provides a place holder that can 
+		be used to organize the configuration.</p>
+	<p>A number of different object processors have been created and can be 
+		used by all the product teams.&nbsp; Together, these should cover most 
+		product needs.&nbsp; The available common object processors are:</p>
+	<table class="dtTABLE" cellspacing="0" id="table11" border="1" style="margin-left: 16"  width="600">
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.Cache.html">Cache</a></td>
+			<td width="70%">This is a special processor that will cache data gathered during a run.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%">
+			<a href="Extensions.ObjectProcessors.Certificate.html">Certificate</a></td>
+			<td width="70%">This extracts data from certificates via several 
+			mechanisms.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%">
+			<a href="Extensions.ObjectProcessors.CheckTokenMembership.html">
+			CheckTokenMembership</a></td>
+			<td width="70%">This determines if a SID is a member of the logged 
+			on token.</td>
+		</tr>
+		<tr>
+			<td width="29%">
+			<a href="Extensions.ObjectProcessors.CommandLine.html">CommandLine</a></td>
+			<td width="70%">This executes a command line application.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.Directory.html">Directory</a></td>
+			<td width="70%">This enables access to Active Directory data.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.DNS.html">DNS</a></td>
+			<td width="70%">This enables DNS queries.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.DsGet.html">DsGet</a></td>
+			<td width="70%">Can be used to get the site name for a server using 
+			the DsGetSiteName API (from netapi32.dll).</td>
+		</tr>
+		<tr>
+			<td width="29%">
+			<a href="Extensions.ObjectProcessors.Engine.html">Engine</a></td>
+			<td width="70%">This retrieves information about the run itself.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%">
+			<a href="Extensions.ObjectProcessors.Enumerator.html">Enumerator</a></td>
+			<td width="70%">This is a special object processor that creates a 
+			specified number of instances.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%">
+			<a href="Extensions.ObjectProcessors.ExpandGroup.html">ExpandGroup</a></td>
+			<td width="70%">This gets all the security groups a user is a member 
+			of.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.File.html">File</a></td>
+			<td width="70%">This enables access to flat files, XML files, and INI files.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%">
+			<a href="Extensions.ObjectProcessors.GetUserNameEx.html">
+			GetUserNameEx</a></td>
+			<td width="70%">This retrieves the currently logged on user name.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.Group.html">Group</a></td>
+			<td width="70%">This is a special processor that allows a configuration to be better 
+		organized.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.If.html">If</a></td>
+			<td width="70%">This is a special processor that creates an instance if a condition evaluates to true.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.LookupAccount.html">LookupAccount</a></td>
+			<td width="70%">This converts a SID to a user name.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.Metabase.html">Metabase</a></td>
+			<td width="70%">This enables access to IIS metabase data.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.Pdh.html">Pdh</a></td>
+			<td width="70%">This allows for basic Perfmon sampling.</td>
+		</tr>
+		<tr>
+			<td width="29%">
+			<a href="Extensions.ObjectProcessors.PdhCollect.html">PdhCollect</a></td>
+			<td width="70%">This enables collecting perfmon data to a blg file.</td>
+		</tr>
+		<tr>
+			<td width="29%"><a href="Extensions.ObjectProcessors.PdhInfo.html">PdhInfo</a></td>
+			<td width="70%">This breaks up a large blg file into smaller chunks.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.Perfmon.html">Perfmon</a></td>
+			<td width="70%">This allows for basic single time access to Perfmon counters.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.Port.html">Port</a></td>
+			<td width="70%">
+			<span style="font-size: 12.0pt; font-family: Times New Roman">This is 
+		used to measure whether we can connect to a remote port or not. </span>
+			</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.Protocol.html">Protocol</a></td>
+			<td width="70%">
+			<span style="font-size: 12.0pt; font-family: Times New Roman">This is 
+		used to measure whether the internet protocols are working properly
+			</span><span style="font-family: Times New Roman">or not.</span></td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.Registry.html">Registry</a></td>
+			<td width="70%">This enables access to information from the registry.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.Resolve.html">Resolve</a></td>
+			<td width="70%">
+			<span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		object can be used to automatically choose between resolution methods 
+		(WINS or DNS) depending on which one succeeds.</span></td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.Routing.html">
+			Routing</a></td>
+			<td width="70%">This retrieves routing information (such as hop 
+			count) to a given machine.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.SQL.html">SQL</a></td>
+			<td width="70%">This enables access to SQL databases.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%"><a href="Extensions.ObjectProcessors.WMI.html">WMI</a></td>
+			<td width="70%">This enables access to Windows Management Interface classes.</td>
+		</tr>
+		</table>
+		<p> <font size="5"><b>Examples</b></font></p>
+		<p> <a href="Extensions.ObjectProcessors.Example1.html">Example 1: Creating an Object 
+		Processor</a>&nbsp; </p>
+		<p>&nbsp;</div>
+      </body>
+</html>

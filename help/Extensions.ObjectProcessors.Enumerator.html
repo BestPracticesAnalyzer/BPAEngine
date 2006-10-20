@@ -1,0 +1,115 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Enumerator Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Enumerator Object Processor</td>
+          </tr>
+        </table>
+	</div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		enumerator object processor will simply create a certain number of 
+		instances.&nbsp; A setting value at each instance will represent that 
+		number of that particular instance.&nbsp; This basically mirrors how a 
+		FOR loop works.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<font SIZE="2" COLOR="#0000ff"><p>
+			&lt;</font><font SIZE="2" COLOR="#800000">ObjectProcessor</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">ObjectType</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Enumerator</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Assembly</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">BPA.Common.dll</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff"><br>
+&nbsp;&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Class</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Common.EnumeratorObjectProcessor</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+			/&gt;</font><font size="2"><br>
+			<br>
+			</font>An example object:</p>
+			<font SIZE="2" COLOR="#0000ff">
+			<p>&lt;</font><font SIZE="2" COLOR="#800000">Object</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp; Type</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Enumerator</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Key1</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">1</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Key2</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">25</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Key3</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">1</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+			&gt;<br>
+&nbsp;&nbsp; &lt;</font><font SIZE="2" COLOR="#800000">Setting</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000">Key1</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Number</font><font SIZE="2">&quot;<font color="#0000FF"> 
+			/&gt;</font></font></td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the starting value to use.&nbsp; It must be an integer.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the ending value to use.&nbsp; It must be an integer 
+				greater than or equal to Key1.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the increment to use.&nbsp; It must be a positive 
+				integer.&nbsp; If the value is below 1, it will be forced to 
+				equal 1.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;Enumerator&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This can be any name, but the result will be the same: the value 
+				of the number for that instance.</span></td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

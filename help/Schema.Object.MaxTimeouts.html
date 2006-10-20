@@ -1,0 +1,93 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The MaxTimeouts Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner0">
+      <div id="bannerrow2">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table7">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The MaxTimeouts Attribute</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <span style="font-size: 12.0pt; font-family: Times New Roman"><br>
+		This indicates how many timeout failures will be allowed before the engine 
+		gives up processing this object and all objects underneath it</span><span style="font-family: Times New Roman">.&nbsp; 
+		This can be used to keep a&nbsp; non-responsive machine or 
+		interface from holding up a run too much.&nbsp; Other similar object 
+		attributes are <a href="Schema.Object.MaxTime.html">MaxTime</a> 
+		and <a href="Schema.Object.MaxFailures.html">MaxFailures</a> and another 
+		attribute that can be used for this is the
+		<a href="Schema.Setting.Retrieve.html">Retrieve</a> attribute on a
+		<a href="Schema.Setting.html">Setting</a>.</span><p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table8" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#800080" size="2">&lt;Object <br>
+&nbsp;&nbsp; Type=&quot;Directory&quot; <br>
+&nbsp;&nbsp; Key2=&quot;%DN%&quot; <br>
+&nbsp;&nbsp; Key3=&quot;(&amp;amp;(objectCategory=msExchExchangeServer)%SERVER%)&quot; <br>
+&nbsp;&nbsp; Class=&quot;Server&quot; <br>
+&nbsp;&nbsp; GroupingClass=&quot;True&quot; <br>
+&nbsp;&nbsp; Async=&quot;%65&quot; <br>
+&nbsp;&nbsp; TrackProgress=&quot;TrackProgress&quot; <br>
+&nbsp;&nbsp; MaxTime=&quot;ALL,1&quot;
+			<br>
+&nbsp;&nbsp; MaxFailures=&quot;WMI,1&quot; <br>
+&nbsp;&nbsp; </font><font color="#FF0000" size="2">MaxTimeouts</font><font color="#0000FF" size="2">=&quot;ALL,1&quot;</font><font color="#800080" size="2"><br>
+			&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table9" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        This attribute is specified on input Object elements.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table10" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Value</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">&quot;&lt;object&gt;,&lt;count&gt;[;...]&quot;</td><td width="70%">
+        <p class="MsoNormal" style="margin-right:.05in">This is a semi-colon 
+		separated list of comma separated pairs that each define a single object 
+		type and a max timeout failure count.&nbsp; The
+		<a href="Schema.Object.Type.html">object type</a> can be any type that 
+		has been defined by an object processor in the configuration file.&nbsp; 
+		It can also be &quot;ALL&quot; to indicate that this applies to all types of 
+		objects.&nbsp; When &lt;count&gt; timeouts have occurred on objects of the 
+		specified type, any further objects of that type defined in the same 
+		hierarchy will be skipped.&nbsp; </td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

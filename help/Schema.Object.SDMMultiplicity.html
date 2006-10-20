@@ -1,0 +1,109 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The SDMMultiplicity Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The SDMMultiplicity Attribute</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">SDM 
+		(Systems Definition Model) is a strategic initiative to create an all 
+		encompassing language and processing engine for modeling applications.&nbsp; 
+		This will be a key part of System Center and will be used for 
+		configuration management, system monitoring, performance analysis, 
+		security verification, and other similar functions.&nbsp; BPA is 
+		considered an interim solution until this broad system is delivered 
+		(this will likely be several years down the road).&nbsp; To avoid having 
+		to redo all the knowledge that will be encoded in BPA configurations 
+		during the interim, it is desirable to be able automatically convert BPA 
+		configurations to SDM documents.&nbsp; While this can be done without 
+		additional hints, the SDM document that gets created will likely not be 
+		optimal for SDM, although it will be functional.&nbsp; </span></p>
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">To 
+		enable better conversions, a set of hinting attributes have been 
+		created.&nbsp; These attributes are optional and not recognized by the 
+		BPA engine, but it is recommended that they be applied so that the 
+		future conversion to SDM goes as smoothly as possible.&nbsp; </span></p>
+		<p> <span style="font-family: Times New Roman">
+		In BPA, both <a href="Schema.Setting.html">Settings</a> and
+		<a href="Schema.Object.html">Objects</a> can have zero or more values 
+		(in the case of Settings) or instances (in the case of Objects).&nbsp; 
+		In SDM, you can specify a Multiplicity attribute on the equivalent 
+		elements.&nbsp; This attribute can be used to define how many values or 
+		instances are expected.&nbsp; By default, this will be set to &quot;*&quot;, which 
+		indicates zero or more are allowed.&nbsp; The SDMMultiplicity attribute 
+		can be used to override this.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#800080" size="2">&lt;Object <br>
+&nbsp;&nbsp; Type=&quot;WMI&quot; <br>
+&nbsp;&nbsp; Key2=&quot;root\directory\ldap&quot;
+			<br>
+&nbsp;&nbsp; Key3=&quot;rootDSE&quot;
+			<br>
+&nbsp;&nbsp; Key5=&quot;*&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000" size="2">SDMMultiplicity</font><font color="#0000FF" size="2">=&quot;0..1&quot;</font><font color="#800080" size="2"><br>
+			&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr>
+	<td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        This attribute is specified on input Object elements.</td>
+</tr>
+<tr>
+	<td width="29%"><a href="Schema.Setting.html">Setting</a></td><td width="70%">
+        This attribute is specified on input Setting elements.</td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">&lt;lower..upper&gt;</td><td width="70%">
+        This provides the lower bound and upper bound of valid number of 
+		instances or values.</td></tr>
+<tr VALIGN="top"><td width="29%">&lt;upper&gt;</td><td width="70%">
+        This provides the upper bound of valid number instances or values (the 
+		lower bound is 0).</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

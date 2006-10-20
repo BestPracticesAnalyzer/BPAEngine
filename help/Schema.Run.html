@@ -1,0 +1,148 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Run Element</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Run Element</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		element is generated on output and it identifies a particular run that 
+		generated the data file and contains specific parameters that were 
+		specified in that run.&nbsp; A data file may be reprocessed multiple 
+		times, for instance to reanalyze data that was previously collected and 
+		analyzed with an earlier set of rules.&nbsp; There will be one Run 
+		element for each of these runs.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>In an output data file:<p><font size="2" color="#0000FF">&lt;</font><font size="2">Run</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">ConfigName</font><font size="2" color="#0000FF">=&quot;ExBPA 
+			Master Input File&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">ConfigVersion</font><font size="2" color="#0000FF">=&quot;1.5.6.1&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">AppVersion</font><font size="2" color="#0000FF">=&quot;1.0.7408.1&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">StartTime</font><font size="2" color="#0000FF">=&quot;09/30/2004 
+			23:20:39&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Timeout</font><font size="2" color="#0000FF">=&quot;240&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Threads</font><font size="2" color="#0000FF">=&quot;25&quot;
+			<br>
+&nbsp;&nbsp;&nbsp; </font><font size="2" color="#FF0000">Operations</font><font size="2" color="#0000FF">=&quot;collect,analyze&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">EndTime</font><font size="2" color="#0000FF">=&quot;09/30/2004 
+			23:25:48&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Completed</font><font size="2" color="#0000FF">=&quot;OK&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">ObjectsTracked</font><font size="2" color="#0000FF">=&quot;9&quot;<br>
+			&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Configuration.html">
+	Configuration</a></td><td width="70%">
+        This element contains some general meta-information about the input configuration or the output data.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Child Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr>
+	<td width="29%"><a href="Schema.Log.html">
+	Log</a></td><td width="70%">
+        This output element contains the text of a single logged message.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Attributes</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Run.AppVersion.html">AppVersion</a></td><td width="70%">
+	This is the version of the application that ran the scan.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Configuration.Completed.html">Completed</a></td><td width="70%">This indicates 
+	the results of the scan done. </td>
+			</tr>
+			<tr>
+	<td width="29%"><a href="Schema.Configuration.ConfigName.html">
+	ConfigName</a></td><td width="70%">This is name of the configuration file at 
+				the time the run was started. </td>
+			</tr>
+			<tr>
+	<td width="29%"><a href="Schema.Configuration.ConfigVersion.html">
+	ConfigVersion</a></td><td width="70%">This is the version of the 
+				configuration file at the time the run was started.</td>
+			</tr>
+			<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Run.EndTime.html">EndTime</a></td><td width="70%">
+	This indicates the time the run completed.</td>
+			</tr>
+			<tr>
+	<td width="29%"><a href="Schema.Configuration.ObjectsTracked.html">
+	ObjectsTracked</a></td><td width="70%">This  
+				indicates how many objects were marked for tracking in the 
+				latest run.</td>
+			</tr>
+			<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Run.Operations.html">Operations</a></td><td width="70%">
+	This is a list of operations that were selected for the run.</td>
+			</tr>
+			<tr>
+	<td width="29%"><a href="Schema.Configuration.StartTime.html">
+	StartTime</a></td><td width="70%">This indicates the time the run was begun.</td>
+			</tr>
+			<tr>
+	<td width="29%"><a href="Schema.Run.Threads.html">Threads</a></td><td width="70%">
+				This is the maximum number of threads specified for the run.</td>
+			</tr>
+			<tr>
+	<td width="29%"><a href="Schema.Run.Timeout.html">Timeout</a></td><td width="70%">
+				This is the default timeout specified for the run.</td>
+			</tr>
+		</table>
+    </div>
+  </body>
+</html>

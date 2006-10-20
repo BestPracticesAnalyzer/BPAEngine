@@ -1,0 +1,988 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="Window Styles" value="0x800025">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Overview">
+		<param name="Local" value="overview.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Components">
+		<param name="Local" value="Components.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GUI Extensions">
+		<param name="Local" value="GUIExtensions.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Example 1: Creating a Server Selection Screen">
+			<param name="Local" value="GUIExtensions.Example1.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Extensions">
+		<param name="Local" value="Extensions.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Configuration Preprocessors">
+			<param name="Local" value="Extensions.ConfigPreprocessors.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Data Postprocessors">
+			<param name="Local" value="Extensions.DataPostprocessors.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Format Processors">
+			<param name="Local" value="Extensions.FormatProcessors.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="AverageFormat FormatProcessor">
+				<param name="Local" value="Extensions.FormatProcessors.AverageFormat.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="LowerCase FormatProcessor">
+				<param name="Local" value="Extensions.FormatProcessors.LowerCase.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="MaxFormat FormatProcessor">
+				<param name="Local" value="Extensions.FormatProcessors.MaxFormat.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="MinFormat FormatProcessor">
+				<param name="Local" value="Extensions.FormatProcessors.MinFormat.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="MInNonZeroFormat FormatProcessor">
+				<param name="Local" value="Extensions.FormatProcessors.MinNonZeroFormat.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="NineteeithPercentileFormat FormatProcessor">
+				<param name="Local" value="Extensions.FormatProcessors.NineteeithPercentileFormat.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SigmaFormat FormatProcessor">
+				<param name="Local" value="Extensions.FormatProcessors.SigmaFormat.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Function Processors">
+			<param name="Local" value="Extensions.FunctionProcessors.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="list-average FunctionProcessor">
+				<param name="Local" value="Extensions.FunctionProcessors.list-average.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="list-max FunctionProcessor">
+				<param name="Local" value="Extensions.FunctionProcessors.list-max.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="list-median FunctionProcessor">
+				<param name="Local" value="Extensions.FunctionProcessors.list-median.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="list-min FunctionProcessor">
+				<param name="Local" value="Extensions.FunctionProcessors.list-min.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="list-percentile FunctionProcessor">
+				<param name="Local" value="Extensions.FunctionProcessors.list-percentile.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="list-sigma FunctionProcessor">
+				<param name="Local" value="Extensions.FunctionProcessors.list-sigma.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Issue Processors">
+			<param name="Local" value="Extensions.IssueProcessors.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Object Processors">
+			<param name="Local" value="Extensions.ObjectProcessors.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Cache ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Cache.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Certificate ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Certificate.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CheckTokenMembership ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.CheckTokenMembership.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CommandLine ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.CommandLine.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Directory ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Directory.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="DNS ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.DNS.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="DsGet ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.DsGet.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Engine ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Engine.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Enumerator ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Enumerator.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ExpandGroup ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.ExpandGroup.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="File ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.File.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="GetUserNameEx ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.GetUserNameEx.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Group ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Group.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="If ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.If.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="LookupAccount ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.LookupAccount.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Metabase ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Metabase.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Pdh ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Pdh.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="PdhCollect ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.PdhCollect.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="PdhInfo ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.PdhInfo.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Perfmon ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Perfmon.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Port ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Port.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Protocol ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Protocol.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Registry ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Registry.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Resolve ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Resolve.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Routing ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.Routing.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SQL ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.SQL.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="WMI ObjectProcessor">
+				<param name="Local" value="Extensions.ObjectProcessors.WMI.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Example 1: Creating an Object Processor">
+				<param name="Local" value="Extensions.ObjectProcessors.Example1.html">
+				</OBJECT>
+		</UL>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Miscellaneous Topics">
+		<param name="Local" value="MiscTopics.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Auto-Upload Control">
+			<param name="Local" value="AutoUploadControl.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="BPA Configuration Authoring Tool Overview">
+			<param name="Local" value="bpaauthor.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Common Models">
+			<param name="Local" value="CommonModels.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Things to Consider Before Shipping a BPA">
+			<param name="Local" value="FinalPreparation.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="The Sample GUI wrapper">
+			<param name="Local" value="BPAExe.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="The Sample Command Line wrapper">
+			<param name="Local" value="BPACmdExe.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Schema">
+		<param name="Local" value="Schema.html">
+		<param name="URL" value="Schema.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="ConfigPreprocessor Element">
+			<param name="Local" value="Schema.ConfigProcessor.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Assembly Attribute">
+				<param name="Local" value="Schema.Processors.Assembly.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Class Attribute">
+				<param name="Local" value="Schema.Processors.Class.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Processors.Name.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ObjectType Attribute">
+				<param name="Local" value="Schema.Processors.ObjectType.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Configuration Element">
+			<param name="Local" value="Schema.Configuration.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ArticleURL Attribute">
+				<param name="Local" value="Schema.Configuration.ArticleURL.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ChangeDescription Attribute">
+				<param name="Local" value="Schema.Configuration.ChangeDescription.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Completed Attribute">
+				<param name="Local" value="Schema.Configuration.Completed.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ConfigName Attribute">
+				<param name="Local" value="Schema.Configuration.ConfigName.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ConfigVersion Attribute">
+				<param name="Local" value="Schema.Configuration.ConfigVersion.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="DownloadURL Attribute">
+				<param name="Local" value="Schema.Configuration.DownloadURL.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Label Attribute">
+				<param name="Local" value="Schema.Configuration.Label.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ObjectsTracked Attribute">
+				<param name="Local" value="Schema.Configuration.ObjectsTracked.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ReferencedFiles Attribute">
+				<param name="Local" value="Schema.Configuration.ReferencedFiles.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="StartTime Attribute">
+				<param name="Local" value="Schema.Configuration.StartTime.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Customize Element">
+			<param name="Local" value="Schema.Customize.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ID Attribute">
+				<param name="Local" value="Schema.Customize.ID.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Type Attribute">
+				<param name="Local" value="Schema.Customize.Type.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="DataPostprocessor Element">
+			<param name="Local" value="Schema.DataPostprocessor.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Assembly Attribute">
+				<param name="Local" value="Schema.Processors.Assembly.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Class Attribute">
+				<param name="Local" value="Schema.Processors.Class.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Processors.Name.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ObjectType Attribute">
+				<param name="Local" value="Schema.Processors.ObjectType.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="ExtFormat Element">
+			<param name="Local" value="Schema.ExtFormat.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Assembly Attribute">
+				<param name="Local" value="Schema.Processors.Assembly.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Class Attribute">
+				<param name="Local" value="Schema.Processors.Class.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Processors.Name.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="ExtFunction Element">
+			<param name="Local" value="Schema.ExtFunction.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Assembly Attribute">
+				<param name="Local" value="Schema.Processors.Assembly.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Class Attribute">
+				<param name="Local" value="Schema.Processors.Class.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Processors.Name.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Instance Element">
+			<param name="Local" value="Schema.Instance.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Key Attributes">
+				<param name="Local" value="Schema.Object.Key.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Object.Name.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Type Attribute">
+				<param name="Local" value="Schema.Object.Type.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="IssueProcessor Element">
+			<param name="Local" value="Schema.IssueProcessor.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Assembly Attribute">
+				<param name="Local" value="Schema.Processors.Assembly.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Class Attribute">
+				<param name="Local" value="Schema.Processors.Class.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Processors.Name.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Log Element">
+			<param name="Local" value="Schema.Log.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Time Attribute">
+				<param name="Local" value="Schema.Log.Time.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Message Element">
+			<param name="Local" value="Schema.Message.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Error Attribute">
+				<param name="Local" value="Schema.Object.Error.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="GUID Attribute">
+				<param name="Local" value="Schema.Rule.GUID.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Rule.Name.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Sev Attribute">
+				<param name="Local" value="Schema.Rule.Sev.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Title Attribute">
+				<param name="Local" value="Schema.Rule.Title.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Object Element">
+			<param name="Local" value="Schema.Object.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Async Attribute">
+				<param name="Local" value="Schema.Object.Async.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Class Attribute">
+				<param name="Local" value="Schema.Object.Class.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Count Attribute">
+				<param name="Local" value="Schema.Object.Count.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CustomId Attribute">
+				<param name="Local" value="Schema.Reference.CustomId.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Display Attribute">
+				<param name="Local" value="Schema.Object.Display.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="GroupingClass Attribute">
+				<param name="Local" value="Schema.Object.GroupingClass.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Key Attributes">
+				<param name="Local" value="Schema.Object.Key.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="LogText Attribute">
+				<param name="Local" value="Schema.Object.LogText.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="MaxFailures Attribute">
+				<param name="Local" value="Schema.Object.MaxFailures.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="MaxTime Attribute">
+				<param name="Local" value="Schema.Object.MaxTime.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="MaxTimeouts Attribute">
+				<param name="Local" value="Schema.Object.MaxTimeouts.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Object.Name.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ProcessTime Attribute">
+				<param name="Local" value="Schema.Object.ProcessTime.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Range Attribute">
+				<param name="Local" value="Schema.Object.Range.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Restrict Attributes">
+				<param name="Local" value="Schema.Object.Restrict.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Restriction Attributes">
+				<param name="Local" value="Schema.Object.Restriction.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SDMElement Attribute">
+				<param name="Local" value="Schema.Object.SDMElement.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SDMMultiplicity Attribute">
+				<param name="Local" value="Schema.Object.SDMMultiplicity.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SDMName Attribute">
+				<param name="Local" value="Schema.Object.SDMName.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SecurityContext Attribute">
+				<param name="Local" value="Schema.Object.SecurityContext.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Sort Attribute">
+				<param name="Local" value="Schema.Object.Sort.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Timeout Attribute">
+				<param name="Local" value="Schema.Object.Timeout.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="TrackProgress Attribute">
+				<param name="Local" value="Schema.Object.TrackProgress.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Type Attribute">
+				<param name="Local" value="Schema.Object.Type.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="ObjectProcessor Element">
+			<param name="Local" value="Schema.ObjectProcessor.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Assembly Attribute">
+				<param name="Local" value="Schema.Processors.Assembly.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Class Attribute">
+				<param name="Local" value="Schema.Processors.Class.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Processors.Name.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ObjectType Attribute">
+				<param name="Local" value="Schema.Processors.ObjectType.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Option Element">
+			<param name="Local" value="Schema.Option.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Cost Attribute">
+				<param name="Local" value="Schema.Option.Cost.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Description Attribute">
+				<param name="Local" value="Schema.Option.Description.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Display Attribute">
+				<param name="Local" value="Schema.Option.Display.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Group Attribute">
+				<param name="Local" value="Schema.Option.Group.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Includes Attribute">
+				<param name="Local" value="Schema.Option.Includes.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Option.Name.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Pivot Element">
+			<param name="Local" value="Schema.Pivot.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="AlwaysEvaluate Attribute">
+				<param name="Local" value="Schema.Rule.AlwaysEvaluate.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Key Attribute">
+				<param name="Local" value="Schema.Pivot.Key.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="KeyRef Attribute">
+				<param name="Local" value="Schema.Pivot.KeyRef.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="KeyRefValue Attribute">
+				<param name="Local" value="Schema.Pivot.KeyRefValue.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="KeyValue Attribute">
+				<param name="Local" value="Schema.Pivot.KeyValue.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Key Attribute">
+				<param name="Local" value="Schema.Pivot.Key.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Pivot.Name.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Remote Attribute">
+				<param name="Local" value="Schema.Pivot.Remote.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Restriction Attributes">
+				<param name="Local" value="Schema.Object.Restriction.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Reference Element">
+			<param name="Local" value="Schema.Reference.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CustomId Attribute">
+				<param name="Local" value="Schema.Reference.CustomId.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="File Attribute">
+				<param name="Local" value="Schema.Reference.File.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Reference.Name.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SDMElement Attribute">
+				<param name="Local" value="Schema.Object.SDMElement.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SDMMultiplicity Attribute">
+				<param name="Local" value="Schema.Object.SDMMultiplicity.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SDMName Attribute">
+				<param name="Local" value="Schema.Object.sDMName.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Type Attribute">
+				<param name="Local" value="Schema.Reference.Type.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="RestrictionType Element">
+			<param name="Local" value="Schema.RestrictionType.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Collapse Attribute">
+				<param name="Local" value="Schema.RestrictionType.Collapse.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Description Attribute">
+				<param name="Local" value="Schema.RestrictionType.Description.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Display Attribute">
+				<param name="Local" value="Schema.RestrictionType.Display.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.RestrictionType.Name.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Result Element">
+			<param name="Local" value="Schema.Result.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Rule Element">
+			<param name="Local" value="Schema.Rule.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="AlwaysEvaluate Attribute">
+				<param name="Local" value="Schema.Rule.AlwaysEvaluate.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CustomId Attribute">
+				<param name="Local" value="Schema.Reference.CustomId.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Error Attribute">
+				<param name="Local" value="Schema.Object.Error.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="EventID Attribute">
+				<param name="Local" value="Schema.Rule.EventID.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="GUID Attribute">
+				<param name="Local" value="Schema.Rule.GUID.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Rule.Name.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Pass Attribute">
+				<param name="Local" value="Schema.Rule.Pass.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="P Attributes">
+				<param name="Local" value="Schema.Rule.Pn.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Query Attribute">
+				<param name="Local" value="Schema.Rule.Query.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Restriction Attributes">
+				<param name="Local" value="Schema.Object.Restriction.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="S Attributes">
+				<param name="Local" value="Schema.Rule.Sn.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SDMName Attribute">
+				<param name="Local" value="Schema.Object.SDMName.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Sev Attribute">
+				<param name="Local" value="Schema.Rule.Sev.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Template Attributes">
+				<param name="Local" value="Schema.Rule.Template.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Text Attribute">
+				<param name="Local" value="Schema.Rule.Text.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Title Attribute">
+				<param name="Local" value="Schema.Rule.Title.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Run Element">
+			<param name="Local" value="Schema.Run.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="AppVersion Attribute">
+				<param name="Local" value="Schema.Run.AppVersion.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Completed Attribute">
+				<param name="Local" value="Schema.Configuration.Completed.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ConfigName Attribute">
+				<param name="Local" value="Schema.Configuration.ConfigName.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ConfigVersion Attribute">
+				<param name="Local" value="Schema.Configuration.ConfigVersion.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="EndTime Attribute">
+				<param name="Local" value="Schema.Run.EndTime.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ObjectsTracked Attribute">
+				<param name="Local" value="Schema.Configuration.ObjectsTracked.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Operations Attribute">
+				<param name="Local" value="Schema.Run.Operations.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="StartTime Attribute">
+				<param name="Local" value="Schema.Configuration.StartTime.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Threads Attribute">
+				<param name="Local" value="Schema.Run.Threads.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Timeout Attribute">
+				<param name="Local" value="Schema.Run.Timeout.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Setting Element">
+			<param name="Local" value="Schema.Setting.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CustomId Attribute">
+				<param name="Local" value="Schema.Reference.CustomId.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Display Attribute">
+				<param name="Local" value="Schema.Object.Display.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Key Attributes">
+				<param name="Local" value="Schema.Object.Key.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="NotForExport Attribute">
+				<param name="Local" value="Schema.Setting.NotForExport.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Retrieve Attribute">
+				<param name="Local" value="Schema.Setting.Retrieve.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Restrict Attribute">
+				<param name="Local" value="Schema.Object.Restrict.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Restriction Attributes">
+				<param name="Local" value="Schema.Object.Restriction.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SDMDataType Attribute">
+				<param name="Local" value="Schema.Setting.SDMDataType.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SDMMultiplicity Attribute">
+				<param name="Local" value="Schema.Object.SDMMultiplicity.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="SDMName Attribute">
+				<param name="Local" value="Schema.Object.SDMName.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Substitution Attribute">
+				<param name="Local" value="Schema.Setting.Substitution.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Substitution Element">
+			<param name="Local" value="Schema.Substitution.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Substitution.Name.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Template Element">
+			<param name="Local" value="Schema.Template.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="AlwaysEvaluate Attribute">
+				<param name="Local" value="Schema.Rule.AlwaysEvaluate.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Error Attribute">
+				<param name="Local" value="Schema.Object.Error.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="EventID Attribute">
+				<param name="Local" value="Schema.Rule.EventID.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="GUID Attribute">
+				<param name="Local" value="Schema.Rule.GUID.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Rule.Name.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Pass Attribute">
+				<param name="Local" value="Schema.Rule.Pass.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="P Attributes">
+				<param name="Local" value="Schema.Rule.Pn.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Query Attribute">
+				<param name="Local" value="Schema.Rule.Query.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Restriction Attributes">
+				<param name="Local" value="Schema.Object.Restriction.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="S Attributes">
+				<param name="Local" value="Schema.Rule.Sn.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Sev Attribute">
+				<param name="Local" value="Schema.Rule.Sev.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Template Attributes">
+				<param name="Local" value="Schema.Rule.Template.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Text Attribute">
+				<param name="Local" value="Schema.Rule.Text.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Title Attribute">
+				<param name="Local" value="Schema.Rule.Title.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Type Element">
+			<param name="Local" value="Schema.Type.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Name Attribute">
+				<param name="Local" value="Schema.Type.Name.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Value Element">
+			<param name="Local" value="Schema.Value.html">
+			</OBJECT>
+	</UL>
+</UL>
+</BODY></HTML>

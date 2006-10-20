@@ -1,0 +1,104 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Assembly Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Assembly Attribute </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-family: Times New Roman">This attribute is defined 
+		on processor elements and identifies the assembly that contains the 
+		class to be used.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font size="2" color="#800080">&lt;ConfigPreprocessor <br>
+&nbsp;&nbsp; ObjectType=&quot;1 Baseline Preprocessor&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Assembly</font><font size="2" color="#0000FF">=&quot;ExBPA.Shared.dll&quot;</font><font size="2" color="#800080"><br>
+&nbsp;&nbsp; Class=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Exchange.BaselineConfigPreprocessor&quot;
+			<br>
+			/&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.ConfigProcessor.html">ConfigPreprocessor</a></td><td width="70%">
+        This element identifies a managed class that will be used to preprocess the configuration.</td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.DataPostprocessor.html">
+	DataPostprocessor</a></td><td width="70%">
+        This element identifies a managed class that will be used to postprocess 
+		the data document after collection and analysis has been completed.</td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.ExtFormat.html">
+	ExtFormat</a></td><td width="70%">
+        This element maps an <a href="Schema.Setting.Format.html">Setting.Format</a> to a managed class.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.ExtFunction.html">
+	ExtFunction</a></td><td width="70%">
+        This element maps a <a href="Schema.ExtFunction.html">Rule.Function</a> to a managed class.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.IssueProcessor.html">
+	IssueProcessor</a></td><td width="70%">
+        This element identifies a managed class that will be invoked when a rule fires.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.ObjectProcessor.html">
+	ObjectProcessor</a></td><td width="70%">
+        This element maps an <a href="Schema.Object.Type.html">Object.Type</a> to a managed class.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Value</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">&lt;DLL name&gt;</td><td width="70%">
+        This can be any executable that contains a processor to be loaded into 
+		the engine.</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

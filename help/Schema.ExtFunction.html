@@ -1,0 +1,130 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The ExtFunction Element</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The ExtFunction Element</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		element identifies a function to be loaded at run time 
+		and associates that function with a name.&nbsp; These are used to  
+		define custom functions for use in rule queries.</span></p>
+		<p> <span style="font-family: Times New Roman">Several functions 
+		are provided by default.&nbsp; See the
+		<a href="Extensions.FunctionProcessors.html">Function Processors </a>
+		section&nbsp; 
+		for a complete description of these.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>In the configuration file:<p><font size="2" color="#0000FF">&lt;</font><font size="2">ExtFunction</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Name</font><font size="2" color="#0000FF">=&quot;list-average&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Assembly</font><font size="2" color="#0000FF">=&quot;BPA.ConfigCollector.dll&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Class</font><font size="2" color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.PdhObjectProcessor&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Function</font><font size="2" color="#0000FF">=&quot;Average&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Returns</font><font size="2" color="#0000FF">=&quot;String&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Parameters</font><font size="2" color="#0000FF">=&quot;String&quot;
+			<br>
+			/&gt;</font><br>
+&nbsp;</td></tr></table>
+      <h4 class="dtH4">Parent Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Configuration.html">
+	Configuration</a></td><td width="70%">
+        ExtFunction elements only exist in the input configuration.&nbsp; 
+		They are not echoed to the output data file.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Child Elements</h4>
+        <table class="dtTABLE" cellspacing="0" id="table8" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">none</td><td width="70%">
+        This element has no children.</td></tr>
+		</table>
+      <h4 class="dtH4">Attributes</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%">
+				<a href="Schema.Processors.Name.html">Name</a></td>
+				<td width="70%">
+				<span style="font-family: Times New Roman">This is the 
+				name used in a query to invoke the function.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">
+				<a href="Schema.Processors.Assembly.html">Assembly</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This should point to a DLL that contains a managed assembly which implements
+				the function.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">
+				<a href="Schema.Processors.Class.html">Class</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the name of the managed class that implements the 
+				function.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">
+				<a>Function</a></td>
+				<td width="70%">
+				<span style="font-family: Times New Roman">This is the name  
+				of the managed function that implements the function.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">
+				<a>Returns</a></td>
+				<td width="70%">
+				<span style="font-family: Times New Roman">This identifies  
+				what the function returns.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">
+				<a>Parameters</a></td>
+				<td width="70%">
+				<span style="font-family: Times New Roman">This identifies  
+				what parameters the function expects.</span></td>
+			</tr>
+			</table>
+    </div>
+  </body>
+</html>

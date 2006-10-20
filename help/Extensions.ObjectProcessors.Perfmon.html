@@ -1,0 +1,107 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Perfmon Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Perfmon Object Processor</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This is 
+		used to do simple queries of performance counters.&nbsp; For some purposes 
+		this is useful and more straightforward to use than
+		<a href="Extensions.Pdh.html">Pdh</a>, but it is a point in time 
+		snapshot of a counter value, so it is somewhat limited.</span></p>
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">One
+		<a href="Schema.Instance.html">Instance</a> element per Perfmon instance 
+		will be created and the <a href="Schema.Setting.html">Setting</a> 
+		elements will be processed separate for each one.&nbsp; The
+		<a href="Schema.Value.html">Value</a> elements will contain the Perfmon 
+		counter values retrieved in each case.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<p><font size="2">
+			<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;Perfmon&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.ConfigCollector.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.PerfmonObjectProcessor&quot;
+			<br>
+			/&gt;</font><br>
+			<br>
+			</font>An example object:</p>
+			<p><font size="2">Example not yet available.</font></td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<p class="MsoNormal" style="margin-right:.05in">This is the 
+				name of the server to access.</p>
+				</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">This is the name of the Perfmon category to 
+				access.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">If 
+				this is blank or not given and the category has only one 
+				instance, then this will match that one instance.&nbsp; Otherwise, it 
+				will match against all instances of the category that match the 
+				regular expression. This can also be set to a specific instance 
+				name in which case it will only match against that instance.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;Cache&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">I<span style="font-size: 12.0pt; font-family: Times New Roman">his 
+				is the name of the performance counter to retrieve.</span></td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

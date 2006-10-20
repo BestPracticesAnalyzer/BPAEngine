@@ -1,0 +1,188 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Configuration Element</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Configuration Element</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		element is the root element of the metadata information for an input 
+		configuration or output data file.&nbsp; It contains general information 
+		about the file.&nbsp; On output, it will contain information from the 
+		most recent run that processed the file.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>In the configuration file:<p><font color="#0000FF" size="2">&lt;</font><font size="2">Configuration</font><font color="#0000FF" size="2">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">ConfigVersion</font><font color="#0000FF" size="2">=&quot;1.6.7.3&quot;<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">ConfigName</font><font color="#0000FF" size="2">=&quot;ExBPA 
+			Master Input File&quot; <br>
+			</font><font size="2" color="#FF0000">&nbsp;&nbsp; DownloadURL</font><font color="#0000FF" size="2">=&quot;<a href="http://www.microsoft.com/exchange/code/ExBPA">http://www.microsoft.com/exchange/code/ExBPA</a>&quot;
+			<br>
+			</font><font size="2" color="#FF0000">&nbsp;&nbsp; ArticleURL</font><font color="#0000FF" size="2">=&quot;<a href="http://go.microsoft.com/fwlink/?linkid=30939&amp;l={0}&amp;v=ExBPA.{1}&amp;id={2}">http://go.microsoft.com/fwlink/?linkid=30939&amp;amp;l={0}&amp;amp;v=ExBPA.{1}&amp;amp;id={2}</a>&quot;
+			<br>
+			</font><font size="2" color="#FF0000">&nbsp;&nbsp; ChangeDescription</font><font color="#0000FF" size="2">=&quot;The 
+			changes made in this version are minor modifications to the 
+			configuration metadata.&quot;<br>
+			&gt;</font><br>
+			<br>
+			In an output data file:</p>
+			<p><font size="2" color="#0000FF">&lt;</font><font size="2">Configuration</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">CustomerName</font><font size="2" color="#0000FF">=&quot;&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">StartTime</font><font size="2" color="#0000FF">=&quot;09/30/2004 
+			23:20:39&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">ObjectsTracked</font><font size="2" color="#0000FF">=&quot;9&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Completed</font><font size="2" color="#0000FF">=&quot;OK&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">ConfigVersion</font><font size="2" color="#0000FF">=&quot;1.5.7.1&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Operations</font><font size="2" color="#0000FF">=&quot;analyze&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Label</font><font size="2" color="#0000FF">=&quot;Demo 
+			Data File&quot;<br>
+			&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">root</td><td width="70%">
+        It's only parent is the root most element of the XML.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Child Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" border="1" style="margin-left: 16" id="table7" width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.ConfigProcessor.html">ConfigPreprocessor</a></td><td width="70%">
+        This element identifies a managed class that will be used to preprocess the configuration.<b>&nbsp; This is not yet implemented.</b>
+      </td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.ExtFormat.html">
+	ExtFormat</a></td><td width="70%">
+        This element maps an <a href="Schema.Setting.Format.html">Setting.Format</a> to a managed class.
+      </td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.ExtFunction.html">
+	ExtFunction</a></td><td width="70%">
+        This element maps a custom rule function to a managed class.
+      </td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.IssueProcessor.html">
+	IssueProcessor</a></td><td width="70%">
+        This element identifies a managed class that will be invoked when a rule fires.
+      </td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.ObjectProcessor.html">
+	ObjectProcessor</a></td><td width="70%">
+        This element maps an <a href="Schema.Object.Type.html">Object.Type</a> to a managed class.
+      </td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.RestrictionType.html">
+	RestrictionType</a></td><td width="70%">
+        This element defines a restriction that can be applied to a run.
+      </td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Run.html">
+	Run</a></td><td width="70%">
+        This output element contains general information about a particular run.
+      </td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Substitution.html">
+	Substitution</a></td><td width="70%">
+        This element contains a parameter value that can be references elsewhere in the configuration.
+      </td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Template.html">
+	Template</a></td><td width="70%">
+        This element identifies a rule template that can be applied to other rules so similar rules don't need to be defined separately.
+      </td></tr>      
+      </table>
+      </div>
+      <h4 class="dtH4">Attributes</h4>
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Configuration.ArticleURL.html">
+	ArticleURL</a></td><td width="70%">This is the root URL to use for detailed 
+	article look ups (using the more info links).</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">
+				<a href="Schema.Configuration.ChangeDescription.html">
+				ChangeDescription</a></td><td width="70%">This contains some 
+				text that indicates what the latest changes are in this 
+				configuration.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Configuration.Completed.html">Completed</a></td><td width="70%">This is an output attribute that indicates 
+	the results of the last scan done. </td>
+			</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Configuration.ConfigName.html">
+	ConfigName</a></td><td width="70%">This is name of the configuration file. </td>
+			</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Configuration.ConfigVersion.html">
+	ConfigVersion</a></td><td width="70%">This is the version of the 
+				configuration file.</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">
+				<a href="Schema.Configuration.DownloadURL.html">DownloadURL</a></td><td width="70%">
+				This is where to look for configuration and binary updates.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Configuration.Label.html">
+	Label</a></td><td width="70%">This is an output attribute that 
+				can be set to logically identify the contents of a data file.</td>
+			</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Configuration.ObjectsTracked.html">
+	ObjectsTracked</a></td><td width="70%">This is an output attribute that 
+				indicates how many objects were marked for tracking in the 
+				latest run.</td>
+			</tr>
+<tr valign="top">
+				<td width="29%">
+				<a href="Schema.Configuration.ReferencedFiles.html">
+				ReferencedFiles</a></td><td width="70%">This is a comma 
+				separated list of file names that are given in Reference 
+				elements.</td>
+			</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Configuration.StartTime.html">
+	StartTime</a></td><td width="70%">This is an output attribute that 
+				indicates the time the last run was begun.</td>
+			</tr>
+		</table>
+		<p class="dtH4">&nbsp;</p>
+		<p class="dtH4">&nbsp;</div>
+  </body>
+</html>

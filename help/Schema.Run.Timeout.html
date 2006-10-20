@@ -1,0 +1,94 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Timeout Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Timeout Attribute </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-family: Times New Roman">This is the DefaultTimeout 
+		value (in seconds) that was specified for this run. </span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font size="2" color="#800080">&lt;Run
+			<br>
+&nbsp;&nbsp; ConfigName=&quot;ExBPA 
+			Master Input File&quot; <br>
+&nbsp;&nbsp; ConfigVersion=&quot;1.5.6.1&quot;
+			</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;</font><font size="2" color="#800080">&nbsp; AppVersion=&quot;1.0.7408.1&quot;
+			<br>
+			&nbsp;&nbsp; StartTime=&quot;09/30/2004 
+			23:20:39&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">
+			Timeout</font><font size="2" color="#0000FF">=&quot;240&quot;</font><font size="2" color="#800080">
+			<br>
+&nbsp;&nbsp; Threads=&quot;25&quot;
+			<br>
+&nbsp;&nbsp; Operations=&quot;collect,analyze&quot;
+			<br>
+&nbsp;&nbsp; EndTime=&quot;09/30/2004 
+			23:25:48&quot; <br>
+&nbsp;&nbsp; Completed=&quot;OK&quot;
+			<br>
+&nbsp;&nbsp; ObjectsTracked=&quot;9&quot;<br>
+			&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+        Description</td></tr>
+<tr>
+	<td width="29%"><a href="Schema.Run.html">
+	Run</a></td><td width="70%">
+        This output element contains general information about a particular run.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Value</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">&lt;seconds&gt;</td><td width="70%">
+        <p class="MsoNormal" style="margin-right:.05in">This is the number of 
+		seconds before an object processor will time out.</p>
+	</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

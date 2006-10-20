@@ -1,0 +1,142 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The RestrictionType Element</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The RestrictionType Element</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		element identifies a restriction that can be applied to the 
+		configuration on a run.&nbsp; It's used by the restriction built-in 
+		configuration preprocessor.&nbsp; See 
+		<a href="Extensions.ConfigPreprocessors.html">Configuration 
+		Preprocessors</a> for more details.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>In the configuration file:<p><font size="2" color="#0000FF">&lt;</font><font size="2">RestrictionType</font><font size="2" color="#800080">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Name</font><font size="2" color="#0000FF">=&quot;Task&quot;
+			</font><font size="2" color="#800080"><br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Display</font><font size="2" color="#0000FF">=&quot;Task&quot;
+			</font><font size="2" color="#800080"><br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Description</font><font size="2" color="#0000FF">=&quot;&quot;
+			</font><font size="2" color="#800080"><br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Collapse</font><font size="2" color="#0000FF">=&quot;False&quot;</font><font size="2" color="#800080"><br>
+			</font><font size="2" color="#0000FF">&gt;</font><font size="2" color="#800080"><br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;Option <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name=&quot;Health&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Display=&quot;Health Check&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Description=&quot;Perform checks for 
+			common problems and misconfiguration.&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cost=&quot;90&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Includes=&quot;General,3&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;Option <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name=&quot;ConnectivityTask&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Display=&quot;Connectivity Test&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Description=&quot;Perform a quick 
+			connection test to validate network access and permissions.&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cost=&quot;60&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Includes=&quot;Connectivity&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;Option <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name=&quot;BaselineTask&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Display=&quot;Baseline&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Description=&quot;Compare settings 
+			against user-specified values.&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cost=&quot;45&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Includes=&quot;CustomBaseline&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /&gt;<br>
+			</font><font size="2" color="#0000FF">&lt;/</font><font size="2">RestrictionType</font><font size="2" color="#0000FF">&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Configuration.html">
+	Configuration</a></td><td width="70%">
+        Restriction elements only exist in the input configuration.</td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Child Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Option.html">Option</a></td><td width="70%">
+        This element identifies an option of a restriction.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Attributes</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.RestrictionType.Collapse.html">Collapse</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+					This indicate whether the GUI should hide elements that are only collected because they are ancestors of elements that pass the restriction.		
+				</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%">
+				<a href="Schema.RestrictionType.Description.html">Description</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is an informational description of the purpose of this 
+				restriction.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">
+				<a href="Schema.RestrictionType.Display.html">Display</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the value that should be displayed through the UI when 
+				presenting the user a choice of options for this restriction.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.RestrictionType.Name.html">Name</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the unique name of the restriction.</span></td>
+			</tr>
+			</table>
+    </div>
+  </body>
+</html>

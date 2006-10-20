@@ -1,0 +1,100 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The ArticleURL Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The ArticleURL Attribute </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		indicates the root URL name that should be used to access detailed 
+		articles from the web.&nbsp; This is only needed if an application is 
+		supporting detailed article access in its UI.&nbsp; The customizable UI 
+		supplied by the library does support this by default but it can be 
+		disabled (this is controlled by
+		<a href="APIHELP.BPACustomizations.AllowDetailedArticleLinks">
+		BPACustimizations.AllowDetailedArticleLinks</a>).&nbsp; If enabled, it 
+		will use the value of this attribute to prefix the URL used to access 
+		the web articles.&nbsp; This URL is only used if web connectivity is 
+		detected.&nbsp; If no web access is found and this is still enabled, the 
+		customizable UI will direct &quot;Show Me More&quot; links to the local help file 
+		instead.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#800080" size="2">&lt;Configuration <br>
+&nbsp;&nbsp; ConfigVersion=&quot;1.6.7.3&quot; <br>
+&nbsp;&nbsp; ConfigName=&quot;ExBPA Master Input File&quot; <br>
+&nbsp;&nbsp; DefaultLevel=&quot;3&quot; <br>
+&nbsp;&nbsp; DownloadURL=&quot;http://www.microsoft.com/exchange/code/ExBPA&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">ArticleURL</font><font color="#800080" size="2">=&quot;<a href="http://go.microsoft.com/fwlink/?linkid=30939&amp;l={0}&amp;v=ExBPA.{1}&amp;id={2}">http://go.microsoft.com/fwlink/?linkid=30939&amp;amp;l={0}&amp;amp;v=ExBPA.{1}&amp;amp;id={2}</a>&quot;
+			<br>
+&nbsp;&nbsp; ChangeDescription=&quot;The changes made in this version are minor 
+			modifications to the configuration metadata.&quot;<br>
+			&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+        Description</td></tr>
+<tr valign="top">
+	<td width="29%"><a href="Schema.Configuration.html">
+	Configuration</a></td><td width="70%">
+        This element contains some general meta-information about the input configuration or the output data.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Value</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">URL string with three parameters</td><td width="70%">
+        <span style="font-size: 12.0pt; font-family: Times New Roman">For the 
+		customizable UI, this URL 
+		is expected to take three parameters (using .NET string format style, i.e &quot;{0}&quot;).&nbsp; The 
+		first parameter will be replaced with the locale of the system, second parameter will be 
+		replaced with the major version number 
+		of the application, and the third parameter will be replaced with the 
+		GUID of the particular issue being looked up.&nbsp; Note the UI also 
+		verifies that this URL name starts with &quot;<a href="http://go.microsoft.com">http://go.microsoft.com</a>&quot; 
+		to avoid possible spoofing issues.</span></td></tr>
+<tr VALIGN="top"><td width="29%">&lt;any&gt;</td><td width="70%">
+        If a separate UI implementation is used, this can be any format desired 
+		(or not used).</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

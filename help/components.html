@@ -1,0 +1,413 @@
+<html dir="LTR" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" >
+    <link rel="File-List" href="components_files/filelist.xml">
+    <title>Components</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<!--[if !mso]>
+	<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+	<![endif]--><!--[if gte mso 9]>
+	<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+	</xml><![endif]-->
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table1">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">Components</td>
+          </tr>
+        </table>
+      </div>
+		<p><font size="5"><b>The Components</b></font></p>
+		<p>The BPA core library is arranged into a number of components which 
+		each have well-defined boundaries.&nbsp; The following picture shows 
+		these components and the various ways they can be accessed by external 
+		code:</p>
+		<p><!--[if gte vml 1]><v:group id="_x0000_s1141"
+ alt="" style='width:526.5pt;height:332.25pt' coordorigin="480,1056"
+ coordsize="4368,2832">
+ <v:rect id="_x0000_s1142" style='position:absolute;left:480;top:1056;width:4368;
+  height:2832;v-text-anchor:middle' stroked="f"/>
+ <v:group id="_x0000_s1143" style='position:absolute;left:624;top:1104;width:4080;
+  height:2640' coordorigin="624,1104" coordsize="4080,2640">
+  <v:rect id="_x0000_s1144" style='position:absolute;left:1728;top:2976;
+   width:1776;height:768;v-text-anchor:middle' fillcolor="lime">
+   <v:textbox>
+<font FACE="Arial" SIZE="5">
+<p ALIGN="CENTER">&nbsp;</p>
+</font><font FACE="Arial" size="2">
+<p ALIGN="CENTER">&nbsp;</p>
+<p ALIGN="CENTER">&nbsp;</p>
+<p ALIGN="CENTER">&nbsp;</p>
+<p ALIGN="CENTER">&nbsp;</p>
+<p ALIGN="CENTER">&nbsp;</p>
+<p ALIGN="CENTER">&nbsp;</p>
+<p ALIGN="CENTER">&nbsp;</p>
+</font></v:textbox>
+  </v:rect><v:rect id="_x0000_s1145" style='position:absolute;left:1728;top:1920;
+   width:1776;height:720;v-text-anchor:middle' fillcolor="lime">
+   <v:textbox>
+<font FACE="Arial" SIZE="5">
+<p ALIGN="CENTER">&nbsp;</p>
+</font><font FACE="Arial" size="2">
+<p ALIGN="CENTER">&nbsp;</p>
+<p ALIGN="CENTER">&nbsp;</p>
+<p ALIGN="CENTER">&nbsp;</p>
+<p ALIGN="CENTER">&nbsp;</p>
+<p ALIGN="CENTER">&nbsp;</p>
+<p ALIGN="CENTER">&nbsp;</p>
+<p ALIGN="CENTER">&nbsp;</p>
+</font></v:textbox>
+  </v:rect><v:rect id="_x0000_s1146" style='position:absolute;left:1776;top:1968;
+   width:816;height:240;v-text-anchor:middle' fillcolor="lime">
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p ALIGN="CENTER">Dispatcher</p>
+</font></v:textbox>
+  </v:rect><v:rect id="_x0000_s1147" style='position:absolute;left:2640;top:1968;
+   width:816;height:240;v-text-anchor:middle' fillcolor="lime">
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p ALIGN="CENTER">Analyzer</p>
+</font></v:textbox>
+  </v:rect><v:rect id="_x0000_s1148" style='position:absolute;left:2016;top:2352;
+   width:1200;height:240;v-text-anchor:middle' fillcolor="lime">
+   <v:textbox>
+<font FACE="Arial">
+<p ALIGN="CENTER"><font size="2">Execution Engine</p>
+</font></font></v:textbox>
+  </v:rect><v:line id="_x0000_s1149" style='position:absolute;flip:y' from="2160,2208"
+   to="2160,2352">
+   <v:stroke endarrow="block"/>
+  </v:line><v:line id="_x0000_s1150" style='position:absolute;flip:y' from="3072,2208"
+   to="3072,2352">
+   <v:stroke endarrow="block"/>
+  </v:line><v:shapetype id="_x0000_t114" coordsize="21600,21600" o:spt="114"
+   path="m,20172v945,400,1887,628,2795,913c3587,21312,4342,21370,5060,21597v2037,,2567,-227,3095,-285c8722,21197,9325,20970,9855,20800v490,-228,945,-400,1472,-740c11817,19887,12347,19660,12875,19375v567,-228,1095,-513,1700,-740c15177,18462,15782,18122,16537,17950v718,-113,1398,-398,2228,-513c19635,17437,20577,17322,21597,17322l21597,,,xe">
+   <v:stroke joinstyle="miter"/>
+   <v:path o:connecttype="custom" o:connectlocs="10800,0;0,10800;10800,20400;21600,10800"
+    textboxrect="0,0,21600,17322"/>
+  </v:shapetype><v:shape id="_x0000_s1151" type="#_x0000_t114" style='position:absolute;
+   left:1872;top:1152;width:624;height:480;v-text-anchor:middle' fillcolor="#fc0">
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p ALIGN="CENTER"><br>
+Config</p>
+</font></v:textbox>
+  </v:shape><v:shape id="_x0000_s1152" type="#_x0000_t114" style='position:absolute;
+   left:2784;top:1152;width:624;height:480;v-text-anchor:middle' fillcolor="#0cf">
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p ALIGN="CENTER"><br>
+Data</p>
+</font></v:textbox>
+  </v:shape><v:line id="_x0000_s1153" style='position:absolute' from="2160,1632"
+   to="2160,1968">
+   <v:stroke endarrow="block"/>
+  </v:line><v:line id="_x0000_s1154" style='position:absolute' from="3072,1632"
+   to="3072,1968">
+   <v:stroke startarrow="block"/>
+  </v:line><v:rect id="_x0000_s1155" style='position:absolute;left:1776;top:3024;
+   width:1680;height:240;v-text-anchor:middle' fillcolor="lime">
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p ALIGN="CENTER">Common UI</p>
+</font></v:textbox>
+  </v:rect><v:line id="_x0000_s1156" style='position:absolute;flip:y' from="2592,2592"
+   to="2592,2976">
+   <v:stroke endarrow="block"/>
+  </v:line><v:line id="_x0000_s1157" style='position:absolute' from="1632,1344"
+   to="1872,1344"/>
+  <v:line id="_x0000_s1158" style='position:absolute' from="1632,1344" to="1632,3120"/>
+  <v:line id="_x0000_s1159" style='position:absolute' from="1632,3120" to="1776,3120">
+   <v:stroke endarrow="block"/>
+  </v:line><v:line id="_x0000_s1160" style='position:absolute' from="3456,3120"
+   to="3600,3120"/>
+  <v:line id="_x0000_s1161" style='position:absolute' from="3600,1344" to="3600,3120"/>
+  <v:line id="_x0000_s1162" style='position:absolute;flip:x' from="3408,1344"
+   to="3600,1344">
+   <v:stroke endarrow="block"/>
+  </v:line><v:rect id="_x0000_s1163" style='position:absolute;left:1776;top:3408;
+   width:816;height:288;v-text-anchor:middle' fillcolor="lime">
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p ALIGN="CENTER">Extensible GUI</p>
+</font></v:textbox>
+  </v:rect><v:rect id="_x0000_s1164" style='position:absolute;left:2640;top:3408;
+   width:816;height:288;v-text-anchor:middle' fillcolor="lime">
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p ALIGN="CENTER">Extensible Cmd</p>
+</font></v:textbox>
+  </v:rect><v:line id="_x0000_s1165" style='position:absolute;flip:y' from="2160,3264"
+   to="2160,3408">
+   <v:stroke endarrow="block"/>
+  </v:line><v:line id="_x0000_s1166" style='position:absolute;flip:y' from="3072,3264"
+   to="3072,3408">
+   <v:stroke endarrow="block"/>
+  </v:line><v:oval id="_x0000_s1167" style='position:absolute;left:624;top:2976;
+   width:624;height:720;v-text-anchor:middle' fillcolor="#fc0">
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p ALIGN="CENTER"><br>
+GUI<br>
+App</p>
+</font></v:textbox>
+  </v:oval><v:line id="_x0000_s1168" style='position:absolute' from="1152,3600"
+   to="1776,3600">
+   <v:stroke endarrow="block"/>
+  </v:line><v:line id="_x0000_s1169" style='position:absolute' from="1200,3168"
+   to="1776,3168">
+   <v:stroke endarrow="block"/>
+  </v:line><v:line id="_x0000_s1170" style='position:absolute;flip:y' from="912,2448"
+   to="912,2976"/>
+  <v:line id="_x0000_s1171" style='position:absolute' from="912,2448" to="2016,2448">
+   <v:stroke endarrow="block"/>
+  </v:line><v:oval id="_x0000_s1172" style='position:absolute;left:3984;top:2976;
+   width:624;height:720;v-text-anchor:middle' fillcolor="#fc0">
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p ALIGN="CENTER"><br>
+Console<br>
+App</p>
+</font></v:textbox>
+  </v:oval><v:line id="_x0000_s1173" style='position:absolute' from="3456,3600"
+   to="4080,3600">
+   <v:stroke startarrow="block"/>
+  </v:line><v:line id="_x0000_s1174" style='position:absolute' from="3456,3168"
+   to="4032,3168">
+   <v:stroke startarrow="block"/>
+  </v:line><v:line id="_x0000_s1175" style='position:absolute;flip:y' from="4272,2448"
+   to="4272,2976"/>
+  <v:line id="_x0000_s1176" style='position:absolute' from="3216,2448" to="4272,2448">
+   <v:stroke startarrow="block"/>
+  </v:line><v:rect id="_x0000_s1177" style='position:absolute;left:768;top:1776;
+   width:672;height:288;v-text-anchor:middle' fillcolor="lime">
+   <v:textbox>
+<font FACE="Arial" SIZE="1">
+<p ALIGN="CENTER">Common Extensions</p>
+</font></v:textbox>
+  </v:rect><v:rect id="_x0000_s1178" style='position:absolute;left:768;top:2112;
+   width:672;height:288;v-text-anchor:middle' fillcolor="#fc0">
+   <v:textbox>
+<font FACE="Arial" SIZE="1">
+<p ALIGN="CENTER">Custom Extensions</p>
+</font></v:textbox>
+  </v:rect><v:line id="_x0000_s1179" style='position:absolute' from="1440,2016"
+   to="1776,2016">
+   <v:stroke endarrow="block"/>
+  </v:line><v:line id="_x0000_s1180" style='position:absolute' from="1440,2160"
+   to="1776,2160">
+   <v:stroke endarrow="block"/>
+  </v:line><v:rect id="_x0000_s1181" style='position:absolute;left:3888;top:1776;
+   width:672;height:288;v-text-anchor:middle' fillcolor="lime">
+   <v:textbox>
+<font FACE="Arial" SIZE="1">
+<p ALIGN="CENTER">Common Extensions</p>
+</font></v:textbox>
+  </v:rect><v:rect id="_x0000_s1182" style='position:absolute;left:3888;top:2112;
+   width:672;height:288;v-text-anchor:middle' fillcolor="#fc0">
+   <v:textbox>
+<font FACE="Arial" SIZE="1">
+<p ALIGN="CENTER">Custom Extensions</p>
+</font></v:textbox>
+  </v:rect><v:line id="_x0000_s1183" style='position:absolute' from="3456,2016"
+   to="3888,2016">
+   <v:stroke startarrow="block"/>
+  </v:line><v:line id="_x0000_s1184" style='position:absolute' from="3456,2160"
+   to="3888,2160">
+   <v:stroke startarrow="block"/>
+  </v:line><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"
+   path="m,l,21600r21600,l21600,xe">
+   <v:stroke joinstyle="miter"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+  </v:shapetype><v:shape id="_x0000_s1185" type="#_x0000_t202" style='position:absolute;
+   left:1344;top:3504;width:192;height:198'>
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p>1</p>
+</font></v:textbox>
+  </v:shape><v:shape id="_x0000_s1186" type="#_x0000_t202" style='position:absolute;
+   left:3696;top:3504;width:184;height:198;v-text-anchor:top-baseline'>
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p>2</p>
+</font></v:textbox>
+  </v:shape><v:shape id="_x0000_s1187" type="#_x0000_t202" style='position:absolute;
+   left:1344;top:3072;width:192;height:198'>
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p>3</p>
+</font></v:textbox>
+  </v:shape><v:shape id="_x0000_s1188" type="#_x0000_t202" style='position:absolute;
+   left:3696;top:3072;width:192;height:198'>
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p>3</p>
+</font></v:textbox>
+  </v:shape><v:shape id="_x0000_s1189" type="#_x0000_t202" style='position:absolute;
+   left:816;top:2592;width:192;height:198'>
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p>4</p>
+</font></v:textbox>
+  </v:shape><v:shape id="_x0000_s1190" type="#_x0000_t202" style='position:absolute;
+   left:4176;top:2592;width:192;height:198'>
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p>4</p>
+</font></v:textbox>
+  </v:shape><v:shape id="_x0000_s1191" type="#_x0000_t202" style='position:absolute;
+   left:3648;top:2064;width:192;height:198'>
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p>5</p>
+</font></v:textbox>
+  </v:shape><v:shape id="_x0000_s1192" type="#_x0000_t202" style='position:absolute;
+   left:1488;top:2064;width:192;height:198'>
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p>5</p>
+</font></v:textbox>
+  </v:shape><v:line id="_x0000_s1193" style='position:absolute;flip:y' from="624,1248"
+   to="624,3168"/>
+  <v:line id="_x0000_s1194" style='position:absolute' from="624,1248" to="1872,1248">
+   <v:stroke endarrow="block"/>
+  </v:line><v:line id="_x0000_s1195" style='position:absolute;flip:y' from="4704,1200"
+   to="4704,3168"/>
+  <v:line id="_x0000_s1196" style='position:absolute' from="3408,1200" to="4704,1200">
+   <v:stroke startarrow="block"/>
+  </v:line><v:line id="_x0000_s1197" style='position:absolute;flip:x' from="4608,3168"
+   to="4704,3168"/>
+  <v:line id="_x0000_s1198" style='position:absolute' from="624,3168" to="672,3168"/>
+  <v:shape id="_x0000_s1199" type="#_x0000_t202" style='position:absolute;
+   left:3936;top:1104;width:192;height:198'>
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p>6</p>
+</font></v:textbox>
+  </v:shape><v:shape id="_x0000_s1200" type="#_x0000_t202" style='position:absolute;
+   left:1104;top:1152;width:192;height:198'>
+   <v:textbox>
+<font FACE="Arial" SIZE="2">
+<p>6</p>
+</font></v:textbox>
+  </v:shape></v:group></v:group><![endif]--><![if !vml]><img width=702
+height=443 src="components_files/image001.gif" v:shapes="_x0000_s1141 _x0000_s1142 _x0000_s1143 _x0000_s1144 _x0000_s1145 _x0000_s1146 _x0000_s1147 _x0000_s1148 _x0000_s1149 _x0000_s1150 _x0000_s1151 _x0000_s1152 _x0000_s1153 _x0000_s1154 _x0000_s1155 _x0000_s1156 _x0000_s1157 _x0000_s1158 _x0000_s1159 _x0000_s1160 _x0000_s1161 _x0000_s1162 _x0000_s1163 _x0000_s1164 _x0000_s1165 _x0000_s1166 _x0000_s1167 _x0000_s1168 _x0000_s1169 _x0000_s1170 _x0000_s1171 _x0000_s1172 _x0000_s1173 _x0000_s1174 _x0000_s1175 _x0000_s1176 _x0000_s1177 _x0000_s1178 _x0000_s1179 _x0000_s1180 _x0000_s1181 _x0000_s1182 _x0000_s1183 _x0000_s1184 _x0000_s1185 _x0000_s1186 _x0000_s1187 _x0000_s1188 _x0000_s1189 _x0000_s1190 _x0000_s1191 _x0000_s1192 _x0000_s1193 _x0000_s1194 _x0000_s1195 _x0000_s1196 _x0000_s1197 _x0000_s1198 _x0000_s1199 _x0000_s1200"><![endif]><font size="2"></font></p>
+		<p>The components can be broken down as follows:</p>
+		<ul>
+			<li><b>The Core Engine</b>.&nbsp; The top green box containing the 
+			Execution Engine, the Dispatcher, and the Analyzer comprise the core 
+			engine.&nbsp; This code is contained in BPA.Common.dll, and the 
+			namespace associated with all the classes in it is 
+			Microsoft.WindowsServerSystem.BestPracticesAnaylzer.Common.&nbsp; 
+			</li>
+			<li><b>The UI Code</b>.&nbsp; The bottom green box containing the 
+			Common UI, Extensible GUI, and Extensible Cmd comprise the common UI 
+			code.&nbsp; This is contained in BPA.UserInterface.dll, and the namespace 
+			associated with all the classes in it is 
+			Microsoft.WindowsServerSystem.BestPracticesAnalyzer.UserInterface.</li>
+			<li><b>The Common Extensions</b>.&nbsp; The two green side boxes 
+			labeled Common Extensions contain all the extensions that have 
+			already been developed.&nbsp; These include object processors, rule 
+			processors, event processors, format processors, and configuration 
+			preprocessors.&nbsp; More extensions may be added to this library as 
+			they get created, both by product teams and by the core BPA team.&nbsp; 
+			These are contained in a number of different dll's, but the 
+			namespace associated with all the classes is Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.</li>
+			<li><b>The Data Document</b>.&nbsp; The blue document icon labeled 
+			Data represents the output of a run.</li>
+			<li><b>A GUI Application</b>.&nbsp; This, like all the orange 
+			colored components is code that needs to be supplied by a product 
+			team (although as part of the SDK a skeleton will be provided).&nbsp; 
+			This is a GUI application that will execute best practices.&nbsp; 
+			This could be a independent tool that is designed solely for this 
+			purpose, or this may be an integrated part of a product.&nbsp; That 
+			is up to each team to decide.&nbsp; The GUI application can plug 
+			into the BPA library at a number of different points.&nbsp; These 
+			are labeled 1, 3, 4 and 6 and each one is described below.&nbsp; The 
+			provided skeleton code uses interface point number 1.&nbsp; See
+			<a href="GUIExtensions.html">GUI Extensions </a>for details on what 
+			the GUI looks like and what can be customized.</li>
+			<li><b>A Console Application</b>.&nbsp; This is a similar story to 
+			the GUI application in that a product team needs to create this.&nbsp; 
+			Note that certain functions, such as scheduling and any other things 
+			that need scripting, require a console version to exist in order to 
+			work.&nbsp; Like a GUI application this can access the library at 
+			several different points, which are labeled above and described 
+			below.</li>
+			<li><b>Custom Extensions</b>.&nbsp; These must be created by a 
+			product team as needed.&nbsp; If new custom extensions are created 
+			that are of general use, they may get incorporated into the common 
+			extensions library.</li>
+		</ul>
+		<p><font size="5"><b>The Interfaces</b></font></p>
+		<p>There are a number of different points at which external code can 
+		access the BPA library.&nbsp; These points are labeled 1 through 6 in 
+		the diagram above.&nbsp; Each point represents a well-defined and 
+		well-documented interface:</p>
+		<ol>
+			<li>This is the highest level a GUI application can access and it 
+			uses the most shared code from the BPA library.&nbsp; At this level, 
+			the GUI is basically all laid out and the application just needs to 
+			specify a few parameters on their specific needs.&nbsp; This main 
+			class is UserInterface.MainGUI, which defines the overall UI framework and logic 
+			flow.&nbsp; There are a number of other classes this uses, and they 
+			are fully described in the API documention.&nbsp; The major ones 
+			are:<ul>
+				<li>UserInterface.BPACustomizations.&nbsp; This allows the 
+				application to define customizations to the UI.</li>
+				<li>UserInterface.BPAScreen.&nbsp; This allows the application 
+				to create their own custom screens to be used for getting run 
+				time options.</li>
+				<li>UserInterface.BPAReport.&nbsp; This allows the application 
+				to create their own custom reports.</li>
+			</ul>
+			</li>
+			<li>This is the highest level a console application can access and 
+			it also uses the most shared code from the BPA library.&nbsp; The 
+			main class is UserInterface.MainCmd.&nbsp; This also uses 
+			UserInterface.BPACustomizations.</li>
+			<li>At this level, the application has much more freedom regarding 
+			how the UI will look (which also means it requires much more work to 
+			develop), but it still gains the benefit of some shared 
+			functionality such as parsing data from the configuration or data 
+			files, help in generating reports, auto-download logic, etc.&nbsp; 
+			There are many different classes available at this level and they 
+			are fully described in the API documentation.&nbsp; The main classes 
+			at this level are:<ul>
+				<li>UserInterface.ConfigurationInfo.&nbsp; This provides access 
+				to and information on a configuration file.</li>
+				<li>UserInterface.DataInfo.&nbsp; This provides access to and 
+				information on a data file.</li>
+				<li>UserInterface.UpdateInfo.&nbsp; This allows for checking for 
+				and auto-downloading updates.</li>
+			</ul>
+			</li>
+			<li>This is the lowest level an application can access the library 
+			at.&nbsp; It provides only the data gathering and analysis 
+			functionality.&nbsp; The main classes at this level are Common.ExecutionInterface 
+			and Common.ExecutionOptions and they are fully described in the API 
+			documentation, along with related classes.</li>
+			<li>These represent the classes that the core extensions use to 
+			provide specific functionality.&nbsp; These are also fully described 
+			in the API documentation.</li>
+			<li>This is direct access to the configuration and/or data files.&nbsp; 
+			These files are in XML format and can be access directly using .NET 
+			frameworks methods, or they can use the Common.BPADocument classes provided 
+			as part of the core engine.</li>
+		</ol>
+	</div>
+  </body>
+</html>

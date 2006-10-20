@@ -1,0 +1,186 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Cache Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Cache Object Processor</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		object processor can be used to collect a list of values in one 
+		section of the configuration, and iterate over that list in another 
+		section.&nbsp; It is typically used in conjunction with <a href="Schema.Setting.Substitution.html">substitutions</a>,
+		with the substitution used to capture a particular value, 
+		and the cache used to allow access to the value after the substitution is no longer in scope.&nbsp;
+		For example, while processing Exchange servers, ExBPA uses 
+		this to get a list of AD servers that Exchange servers use.&nbsp; After all the Exchange
+		servers are processed, it then 
+		iterates over this list to get additional data on just those AD servers.</span>
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">
+		One <a href="Schema.Instance.html">Instance</a> element
+		will be generated for each explicit value added, deleted or retrieved.&nbsp;
+		The <a href="Schema.Instance.Name.html">Name</a> attribute for each instance 
+		will be set to the associated value.&nbsp;
+		<a href="Schema.Setting.html">Setting</a> elements if present on the object
+		get a <a href="Schema.Value.html">Value</a> element also set to corresponding value.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><p>The ObjectProcessor definition:</p><p><font size="2">
+			<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;Cache&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.Common.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Common.CacheObjectProcessor&quot;
+			<br>
+			/&gt;</font><br>
+			<br>
+			</font><p>An example cache object (population):</p>
+			<font size="2" color="#0000FF">&lt;</font><font size="2">Object</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Type</font><font size="2" color="#0000FF">=&quot;WMI&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;%SRVNAME%&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key2</font><font size="2" color="#0000FF">=&quot;root\MicrosoftExchangeV2&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key3</font><font size="2" color="#0000FF">=&quot;Exchange_DSAccessDC&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key5</font><font size="2" color="#0000FF">=&quot;*&quot;<br>
+			&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting Key1=&quot;Name&quot; Substitution=&quot;DCNAME&quot; /&gt;</font><font size="2" color="#0000FF"><br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font size="2">Object</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+			<font size="2" color="#FF0000">Type</font><font size="2" color="#0000FF">=&quot;Cache&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+			<font size="2" color="#FF0000">Name</font><font size="2" color="#0000FF">=&quot;CT 
+			Cache&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+			<font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;Add&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+			<font size="2" color="#FF0000">Key2</font><font size="2" color="#0000FF">=&quot;DCs&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+			<font size="2" color="#FF0000">Key3</font><font size="2" color="#0000FF">=&quot;%DCNAME%&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; /&gt;<br>
+&lt;/</font><font size="2">Object</font><font size="2" color="#0000FF">&gt;
+			<br>
+			</font></p><p>An example cache object (iteration):</p>
+			<p><font size="2" color="#0000FF">&lt;</font><font size="2">Object</font><font color="#0000FF" size="2">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Type</font><font color="#0000FF" size="2">=&quot;Cache&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Name</font><font color="#0000FF" size="2">=&quot;CT 
+			Cache&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key1</font><font color="#0000FF" size="2">=&quot;Dump&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key2</font><font color="#0000FF" size="2">=&quot;DCs&quot;
+			<br>
+			&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting Key1=&quot;Name&quot; Substitution=&quot;DCNAME&quot;/&gt;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; ... <br>
+			&lt;/</font><font size="2">Object</font><font size="2" color="#0000FF">&gt;<br>
+			</font></td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<p class="MsoNormal" style="margin-right:.05in">This is the 
+				command.&nbsp; Possible values:</p>
+				<ul style="margin-top: 0in; margin-bottom: 0in" type="disc">
+					<li class="MsoNormal" style="margin-right: .05in">&quot;Add&quot; 
+					means to add the value specified in <b>Key3</b> 
+					to the list specified by <b>Key2</b> to the cache specified by <b>Name</b>.
+					If the value already exists in the list it is not added again.&nbsp;
+					The output will contain one Instance element per value added, and any Setting element specified
+					will get a Value element equal to the value added.
+					</li>
+					<li class="MsoNormal" style="margin-right: .05in">&quot;AddValue&quot; 
+					behaves in a similar fashion as &quot;Add&quot;, but no instances are 
+					created.</li>
+					<li class="MsoNormal" style="margin-right: .05in">&quot;Delete&quot; 
+					means to remove the value given in <b>Key3</b> from the list given
+					in <b>Key2</b> from the cache 
+					specified by <b>Name</b>.&nbsp; If <b>Key3</b> is omitted, the list
+					and all values in it are removed.</li>
+					<li>
+					<span style="font-size: 12.0pt; font-family: Times New Roman">
+					&quot;Dump&quot; means to dump all the values in the list specified by <b>Key2</b> in the 
+					cache specified by <b>Name</b>.&nbsp; It will create one Instance 
+					element per value, and any setting specified 
+					will be given a value of the value of the key.&nbsp; <b>Key3</b> 
+					is not used.</span></li>
+					<li>
+					<span style="font-family: Times New Roman">&quot;DumpValue&quot; acts 
+					like &quot;Dump&quot;, but is meant to be used in conjunction with &quot;AddValue&quot;.&nbsp; 
+					The splitting into multiple instances is done at this point, 
+					instead.</span></li>
+				</ul>
+				</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">This is the name of the key to create, delete or 
+				retrieve.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">This is the value of the key to create or delete (only 
+				used when <b>Key1</b>=&quot;Add&quot; or <b>Key1</b>=&quot;Delete&quot;).</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Key.html">Key4</a></td>
+				<td width="70%">This is an optional split pattern to apply to the contents of <b>Key3</b> (only 
+				used when <b>Key1</b>=&quot;Add&quot; or &quot;DumpValue&quot;).</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Name.html">Name</a></td>
+				<td width="70%">This identifies the cache to access.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;Cache&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top">
+				<td width="29%">None</td>
+				<td width="70%">The attributes on the settings are ignored.</td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

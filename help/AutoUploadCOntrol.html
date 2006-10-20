@@ -1,0 +1,173 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>Auto-Upload Control</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+span.m1
+	{color:blue}
+span.t1
+	{color:#990000}
+span.b1
+	{font-family:"Courier New";
+	color:red;
+	font-weight:bold;
+	text-decoration:none;
+	text-underline:none;
+	text-decoration:none;
+	text-line-through:none}
+span.tx1
+	{font-weight:bold}
+ div.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table1">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">Auto-Upload Control</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <font size="5"><b>Overview</b></font></p>
+		<p> The common user interface library (BPA.UserInterface.dll) contains 
+		logic that allows for easily configuring the tool to perform automatic 
+		checks and downloads of newer configuration or binary versions.&nbsp; 
+		These can be configured to run whenever the tool starts up, or just on 
+		demand.&nbsp; Allowing for auto-updates is a key part of delivering a 
+		successful BPA sit it can allow for continuous improvement of the rule 
+		set over time.</p>
+		<p> The logic that BPA is currently using is very simplistic: it just 
+		looks at a web site for a newer version of the config file, as well as 
+		for another file that indicates a newer binary version is available.&nbsp; 
+		If it is, it asks the user if they want to proceed with the download and 
+		then it pulls the needed information down.&nbsp; We are considering 
+		moving this to Windows Update in the future, but there are no solid 
+		plans to do that as of yet.&nbsp; &nbsp; </p>
+      <p> <font size="5"><b>Configuration Requirements</b></font></p>
+		<p> See the <a href="Schema.Configuration.DownloadURL.html">DownloadURL</a> 
+		attribute for details.</p>
+      <p> <font size="5"><b>Code Requirements</b></font></p>
+		</div>
+	<p class="MsoNormal"><span style="font-family: Times New Roman">There are 
+	several BPACustomization fields that control how DownloadURL is used:</span></p>
+	<ul>
+		<li><font size="3">If <b>AppendToDownloadURL</b> is set to false, then 
+		whatever URL you give it will be where it looks for the files.&nbsp; If you 
+		set it to true, then it will append the engine major and minor version 
+		number as well as the locale to the URL (i.e. “/2.0/en”).&nbsp; The engine 
+		version is controlled by us and is not currently overridable (we should 
+		probably do something different here to allow for individual 
+		implementations to control their own versions).</font></li>
+		<li><b><font size="3">DownloadURLStart</font></b><font size="3"> is the 
+		string that it will make sure the DownloadURL attribute starts with.&nbsp; 
+		This is a security feature to prevent a munged config from sending 
+		someone off to a bad site.&nbsp; This defaults to
+		<a style="color: blue; text-decoration: underline; text-underline: single" href="http://www.microsoft.com/">
+		http://www.microsoft.com</a>.&nbsp; </font></li>
+		<li><b><font size="3">AllowAutoDownloads </font></b><font size="3">
+		controls whether the download logic is enabled or not (not specifying a 
+		DownloadURL attribute will also disable this logic).</font></li>
+	</ul>
+	<p class="MsoNormal"><span style="font-family: Times New Roman">There is 
+	also a registry setting, VersionCheckAlways, that controls whether it will 
+	automatically check for a newer version every time you start the 
+	application.&nbsp; There is a checkbox on the version update screen that controls 
+	this value.&nbsp; If this is false, it will not perform the check at startup, but 
+	in any case there is a left pane link that a user can select to do an 
+	on-demand upload check.</span></p>
+      <p> <font size="5"><b>The Downloads Site</b></font></p>
+		<p class="MsoNormal"><span style="font-family: Times New Roman">On the 
+		download site, you should have two files: ?.config.xml, and ?.nextversion.xml 
+		(the ? should match the name of the BPA application you have built).&nbsp; It 
+		will first check the nextversion file, which looks like this (the filled 
+		in values are taken from the ExBPA implementation):</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="772" bgcolor=#CCCCCC>
+		<tr><td>
+			<p class="MsoNormal"><span class="m1">
+			<span style="font-size: 10.0pt; font-family: Times New Roman">&lt;</span></span><span class="t1"><span style="font-size: 10.0pt; font-family: Times New Roman"><font color="#000000">NextVersion</font><font color="#0000FF">
+			</font><font color="#FF0000">AppVersion</font></span></span><span class="m1"><span style="font-size: 10.0pt; font-family: Times New Roman">=&quot;</span></span><font color="#0000FF"><b><span style="font-size: 10.0pt; font-family: Times New Roman">2.1.7599.0</span></b></font><span class="m1"><span style="font-size: 10.0pt; font-family: Times New Roman">&quot;&gt;<br>
+&nbsp;&nbsp; </span></span>
+			<span style="font-size: 10.0pt; font-family: Times New Roman">
+			<span class="m1">&lt;</span><span class="t1"><font color="#000000">Description</font></span><span class="m1">&gt;</span><font color="#008000"><span class="tx1"><span style="font-weight: 400">The 
+			Microsoft Exchange Server Best Practices Analyzer v2.1 incorporates 
+			new features such as performance sampling, host bus adaptor 
+			collection, and enhancements to the user interface.</span></span></font><span class="m1">&lt;/</span><span class="t1"><font color="#000000">Description</font></span><span class="m1">&gt;<br>
+			&nbsp;&nbsp; &lt;</span><span class="t1"><font color="#000000">AutoMSI</font></span><span class="m1">&gt;</span><span class="tx1"><span style="font-weight:normal"><font color="#008000">http://download.microsoft.com/download/f/b/3/fb33b150-d3bc-4606-bcbe-d0a8ef1ccd07/ExBPA.MSI</font>&lt;/<font color="#000000">AutoMSI</font></span></span><span class="m1">&gt;<br>
+			</span><font color="#0000FF">&nbsp;&nbsp; </font></span>
+			<span class="m1">
+			<span style="font-size: 10.0pt; font-family: Times New Roman">&lt;</span></span><span class="t1"><span style="font-size: 10.0pt; font-family: Times New Roman"><font color="#000000">ManualMSI</font></span></span><span class="m1"><span style="font-size: 10.0pt; font-family: Times New Roman">&gt;</span></span><span class="tx1"><span style="font-weight: normal; font-size: 10.0pt; font-family: Times New Roman"><font color="#008000">http://www.microsoft.com/exchange/exbpa</font><font color="#0000FF">&lt;/</font><font color="#000000"><a style="text-decoration: underline; text-underline: single" href="http://www.microsoft.com/exchange/exbpa%3C/ManualMSI"><font color="#000000">ManualMSI</font></a></font></span></span><span class="m1"><span style="font-size: 10.0pt; font-family: Times New Roman">&gt;<br>
+			</span></span>
+			<span style="font-size: 10.0pt; font-family: Times New Roman">
+			<span class="m1">&lt;/</span><span class="t1"><font color="#000000">NextVersion</font></span><span class="m1">&gt;</span></span></td></tr></table>
+      <p class="MsoNormal"><span style="font-family: Times New Roman">The 
+		AppVersion is the version of the next available version.&nbsp; BPA will check 
+		this value against its own app version, and if this is newer it will 
+		flag it as needing a new binary download.&nbsp; Description just describes 
+		what’s in the new version (this will get displayed on the version 
+		download screen).&nbsp; AutoMSI is the location of the MSI to use for 
+		automatic downloads, and ManualMSI is the location to use for manual 
+		downloads.&nbsp; It will then check the config file on the web and 
+		extract the ConfigVersion from that file and compare it to its local 
+		ConfigVersion.&nbsp; If newer, it will flag that as needing download.&nbsp; There 
+		is also a ChangeDescription attribute that can be set of the 
+		Configuration element, and this text will be displayed on the version 
+		download screen.</span></p>
+	<p class="MsoNormal"><span style="font-family: Times New Roman">&nbsp;Once the 
+	checks have completed, the version download screen will be displayed.&nbsp; This 
+	may have the following options:</span></p>
+	<ul style="margin-top: 0in; margin-bottom: 0in" type="disc">
+		<li class="MsoNormal" style="color: navy">
+		<font color="#000000" size="3">Continue without downloading any changes 
+		(or just continue, if there are no updates available).</font></li>
+		<li class="MsoNormal" style="color: navy">
+		<font color="#000000" size="3">Download the new configuration.</font></li>
+		<li class="MsoNormal" style="color: navy">
+		<font color="#000000" size="3">Automatically download the MSI.&nbsp; If this 
+		option is chosen it will download the MSI specified by AutoMSI, and once 
+		it completes it will launch that MSI and then exit the tool.</font></li>
+		<li class="MsoNormal" style="color: navy">
+		<font color="#000000" size="3">Exit the application to manually download 
+		the MSI.&nbsp; This link displays the URL specified by ManualMSI, and the app 
+		will exit.</font></li>
+	</ul>
+	<p class="MsoNormal"><span style="font-family: Times New Roman">&nbsp;A couple 
+	things to note about our version download logic:</span></p>
+	<ul style="margin-top: 0in; margin-bottom: 0in" type="disc">
+		<li class="MsoNormal" style="color: navy">
+		<font color="#000000" size="3">There is no good way to detect if you 
+		have network connectivity other than to try to access something, and due 
+		to having to deal with spotty networks we need to timeout and retry 
+		before we completely give up on download checks.&nbsp; We are going to be 
+		tightening this logic up somewhat, but right now it may take several 
+		minutes before we completely abandon the effort.&nbsp; There is a cancel 
+		button on the version check in progress screen, so a user can abort it 
+		if they get impatient.</font></li>
+		<li class="MsoNormal" style="color: navy">
+		<font color="#000000" size="3">Some proxy configurations seem to give us 
+		a good deal of difficulty, and we haven’t figured out root cause or 
+		gotten any solid repro cases yet.</font></li>
+	</ul>
+  </body>
+</html>

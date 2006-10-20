@@ -1,0 +1,83 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Range Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Range Attribute</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		indicates the maximum number of instances to include in the output.&nbsp; 
+		If the Object resolves to more instances than this value, those 
+		excessive instances will be discarded</span><span style="font-family: Times New Roman">.&nbsp; 
+		This can be used in conjunction with the
+		<a href="Schema.Object.Sort.html">Sort</a> attribute to only process a 
+		definable set of instances.&nbsp; For example, if WMI is used to get 
+		event logs, Sort can order the logs by time written, and Range can limit 
+		it to just the last few event logs written.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font size="2" color="#800080">&lt;</font><font size="2">Object</font><font size="2" color="#800080">
+			<br>
+&nbsp;&nbsp; Type=&quot;WMI&quot; <br>
+&nbsp;&nbsp; Key3=&quot;Win32_NTLogEvent&quot; <br>
+&nbsp;&nbsp; Key4=&quot;Logfile='Application' and EventType=1&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">
+			Range</font><font size="2" color="#0000FF">=&quot;5&quot;</font><font size="2" color="#800080"><br>
+			&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        Range attributes are specified on input Object elements.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Value</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">0</td><td width="70%">
+        This is equivalent to not having a range at all.&nbsp; All instances 
+		found will be included in the output.&nbsp; This is the default value.</td></tr>
+<tr VALIGN="top"><td width="29%">&lt;any positive number&gt;</td><td width="70%">
+        The will cause all but the first x instances to be discarded.</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

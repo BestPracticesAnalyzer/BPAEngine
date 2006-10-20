@@ -1,0 +1,205 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The File Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The File Object Processor</td>
+          </tr>
+        </table>
+      <p><span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		object processor can be used to collect data from a file or from a set 
+		of files.&nbsp; It can 
+		get a few specific properties from flat file or directory, and it can 
+		also extract entries from an INI file or an XML file.</span></p>
+		<p><span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		will create one <a href="Schema.Instance.html">Instance</a> 
+		element in the output file per file found by the specified query.&nbsp;
+		The <a href="Schema.Instance.Name.html">Name</a> attribute for an instance
+		will be the file name.&nbsp;
+		Each <a href="Schema.Setting.html">Setting</a> will have a
+		<a href="Schema.Value.html">Value</a> element added to it that contains 
+		the value found for that property.</span></p>
+		<p><span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+		<table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+			<tr>
+				<td>The ObjectProcessor definition:<p><font size="2">
+				<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+				<br>&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;File&quot;
+				<br>&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.ConfigCollector.dll&quot;<br>&nbsp;&nbsp; 
+				</font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.FileObjectProcessor&quot;
+				<br>/&gt;</font><br><br></font>An example object:</p>
+				<p><font size="2" color="#0000FF">&lt;</font><font size="2">Object</font><font size="2" color="#0000FF">
+				<br>&nbsp;&nbsp; </font><font size="2" color="#FF0000">Type</font><font size="2" color="#0000FF">=&quot;File&quot;
+				<br>&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;%SRVNAME%&quot;
+				<br>&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key2</font><font size="2" color="#0000FF">=&quot;%EXCHBINPATH%&quot;<br>&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font size="2">Setting</font><font size="2" color="#0000FF">
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+				<font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;NTSD&quot;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+				<font size="2" color="#FF0000">Format</font><font size="2" color="#0000FF">=&quot;SecurityDescriptor&quot;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+				<font size="2" color="#FF0000">NotForExport</font><font size="2" color="#0000FF">=&quot;True&quot;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp; /&gt;<br>&lt;/</font><font size="2">Object</font><font size="2" color="#0000FF">&gt;</font></p>
+				</td>
+			</tr>
+		</table>
+		<h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+		<table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC>
+				<td width="29%">Attribute</td>
+				<td width="70%">Description</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%" height="24"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%" height="24">
+				<p class="MsoNormal" style="margin-right:.05in">This is the 
+				server to access the file from.</p></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">This is the name of a file or a directory 
+				(absolute path).</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">This is a file matching expression that will 
+				match any file names in the given directory.&nbsp; This 
+				attribute will be ignored if Key2 specifies a file.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key4</a></td>
+				<td width="70%">
+				<p class="MsoNormal">This is a search scope to use.&nbsp; It can have 
+				one of the following values:</p>
+				<ul style="margin-top: 0in; margin-bottom: 0in" type="disc">
+					<li class="MsoNormal">&quot;Base&quot; is just the exact 
+					directory or file given.&nbsp; This is the default if Key3 
+					is not specified. </li>
+					<li class="MsoNormal">&quot;OneLevel&quot; means to match entries 
+					directly under the given directory only.&nbsp; This is the 
+					default if Key3 contains a value.</li>
+					<li>
+					<span style="font-size: 12.0pt; font-family: Times New Roman">&quot;Subtree&quot; means to match against 
+					all entries in the directory and any subdirectories.&nbsp; 
+					Note: this is not implemented yet (this currently behaves 
+					the same as OneLevel).</span></li>
+				</ul><br>
+				This attribute will be ignored if Key2 specifies a file.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key5</a></td>
+				<td width="70%">This identifies what types of entries to include 
+				in the output:<br>
+&nbsp;<ul style="margin-top: 0in; margin-bottom: 0in" type="disc">
+					<li class="MsoNormal">&quot;Files&quot; means only files are to 
+					be output as instances.&nbsp; This is the default.</li>
+					<li>
+					<span style="font-size: 12.0pt; font-family: Times New Roman">&quot;Directories&quot; 
+					means only directories are to be output as instances.</span></li>
+					<li><span style="font-family: Times New Roman">&quot;All&quot; means 
+					both files and directories are to be output as instances.</span></li>
+				</ul><br>
+				This attribute will be ignored if Key2 specifies a file.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;File&quot;.</td>
+			</tr>
+		</table>
+		<h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+		<table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC>
+				<td width="29%">Attribute</td>
+				<td width="70%">Description</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<p class="MsoNormal">The following values are recognized:</p>
+				<ul style="margin-top: 0in; margin-bottom: 0in" type="disc">
+					<li class="MsoNormal">&quot;Files&quot; gets the list of files for the 
+					directory specified by <b>Object.Key2</b>.&nbsp; Each file 
+					name will be returned in a separate value.&nbsp; Note: this 
+					usage is being deprecated, but it will still work with a 
+					directory instance, but not a file instance.&nbsp; </li>
+					<li class="MsoNormal">&quot;FullName&quot; gets the full path name to 
+					the file or directory.</li>
+					<li class="MsoNormal">&quot;Ini&quot; will treat the file as a .ini 
+					file and <b>Key2</b> and <b>Key3</b> will indicate what 
+					values to retrieve.&nbsp; This will not work with a 
+					directory instance.</li>
+					<li class="MsoNormal">&quot;LastModifiedTime&quot; retrieves the time 
+					the file or directory was last written to.</li>
+					<li class="MsoNormal">&quot;NTSD&quot; retrieves the security 
+					descriptor for the file or directory.&nbsp; <a href="Schema.Setting.Format.html">Format</a>=&quot;SecurityDescriptor&quot; 
+					should be specified on this setting to assist displaying the data.</li>
+					<li class="MsoNormal">&quot;Version&quot; retrieves the version stamp 
+					on the file.&nbsp; This will not work with a directory 
+					instance.</li>
+					<li class="MsoNormal">&quot;MD5&quot; retrieves the md5 checksum
+					on the file.&nbsp; This will not work with a directory 
+					instance.</li>
+					<li class="MsoNormal">&quot;SHA1&quot; retrieves the sha1 checksum
+					on the file.&nbsp; This will not work with a directory 
+					instance.</li>
+					<li>
+					<span style="font-size: 12.0pt; font-family: Times New Roman">&quot;Xmlprop&quot; will treat the file as a .xml file and 
+					<b>Key2</b> 
+					and <b>Key3</b> will indicate what values to retrieve.&nbsp; </span>
+					This will not work with a directory instance.</li>
+				</ul></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">If
+				<b>Key1</b> is set to &quot;Ini&quot;, this will be the appname to lookup 
+				in the file. &nbsp;If <b>Key1</b> is set to &quot;Xmlprop&quot;, this will be 
+				an XPath query to perform on the contents of the specified 
+				file.&nbsp; If <b>Key1</b> is set to &quot;Files&quot;, this is the pattern of 
+				file names to match.&nbsp; For other values of <b>Key1</b>, this 
+				attribute is not used.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">If
+				<b>Key1</b> is set to &quot;Ini&quot;, this will be the propname to lookup 
+				in the file.&nbsp; If <b>Key1</b> is set to &quot;Files&quot;, this can specify 
+				an optional &quot;Generation&quot; hint which causes the processor to 
+				treat the files as Jet log files and find the last log 
+				generation from the names (this functionality is rather specific 
+				to Exchange).&nbsp; For other values of <b>Key1</b>, this attribute 
+				is not used.</span></td>
+			</tr>
+		</table>    </div>
+  </body>
+</html>

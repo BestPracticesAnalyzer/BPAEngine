@@ -1,0 +1,78 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The ID Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The ID Attribute</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		identifies the element to be customized within the referenced <a href="Schema.Type.html">Type</a></span><span style="font-family: Times New Roman">.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font size="2" color="#808080">&lt;</font><font color="#808080">Customize</font><font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ID</font><font color="#0000FF">=&quot;szRuleName_ReferenceName&quot;
+			<br>
+			</font><font color="#808080">&nbsp; </font> <font color="#808080">&nbsp;Type=&quot;Override&quot;
+			<br>
+			&gt;</font><font color="#808080" size="2"> </font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr>
+	<td width="29%"><a href="Schema.Customize.html">Customize</a></td><td width="70%">
+        This element can be used to alter specific portions of referenced types.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">&lt;a CustomId&gt;</td><td width="70%">
+        This should match an existing <a href="Schema.Reference.CustomId.html">
+		CustomId</a> that identifies an element within the
+		<a href="Schema.Type.html">Type</a> being referenced.&nbsp; Note that 
+		the CustomId will have the reference name prepended to it, so this should 
+		be included in this value.</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

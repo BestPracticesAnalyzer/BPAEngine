@@ -1,0 +1,79 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The MinFormat Format Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The MinFormat Format Processor</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		format processor will return the minimum value of all numeric values for a 
+		Setting.</span><span style="font-size: 12.0pt; ">&nbsp; </span>It is 
+		designed to work in conjunction with the <a href="Extensions.ObjectProcessors.Pdh.html">Pdh</a> 
+			object processor to reduce the amount of data that needs to be 
+			stored in the XML.
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><p>The FormatProcessor definition:</p>
+			<font SIZE="2" COLOR="#0000ff">
+			<p>&lt;</font><font SIZE="2" COLOR="#800000">ExtFormat</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Name</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;<font color="#0000FF">Min</font>&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Assembly</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">BPA.ConfigCollector.dll</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff"><br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Class</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.PdhObjectProcessor</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp; Convert</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;<font color="#0000FF">MinFormat</font>&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+			/&gt;</p>
+			</font><p>An example usage:</p>
+			<font SIZE="2" COLOR="#808080">
+			<p>&lt;Setting <br>
+&nbsp;&nbsp; Key1=&quot;PerfCounterA&quot; <br>
+&nbsp;&nbsp; Substitution=&quot;MinA&quot; </font><font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp; SubstitutionFormat</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;<font color="#0000FF">Min</font>&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+			</font><font SIZE="2" color="#808080">/&gt;</font></td></tr></table>
+      <h4 class="dtH4">Specific ExtFormat Attributes (see
+		<a href="Schema.ExtFormat.html">ExtFormat</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top"><td width="29%">Convert</td>
+				<td width="70%">
+				<p class="MsoNormal" style="margin-right:.05in">This
+				<span style="font-size: 12.0pt; ">should be set to &quot;MinFormat&quot;</span><span style="font-size: 12.0pt; font-family: Times New Roman">.</span></p>
+				</td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

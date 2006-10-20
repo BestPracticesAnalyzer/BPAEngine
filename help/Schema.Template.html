@@ -1,0 +1,163 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Template Element</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Template Element</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		element provides a standard set of attributes that can be referenced 
+		rules.&nbsp; This can be used to avoid redundancy.&nbsp; </span> </p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>In the configuration file:<p><font size="2" color="#0000FF">&lt;</font><font size="2">Template</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Name</font><font size="2" color="#0000FF">=&quot;tVirusConfig&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Query</font><font size="2" color="#0000FF">=&quot;false()&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Title</font><font size="2" color="#0000FF">=&quot;Anti-Virus 
+			configuration&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Text</font><font size="2" color="#0000FF">=&quot;{0} 
+			is installed on server {2} but file exclusions have not been 
+			properly configured.&quot; <br>
+			/</font>&gt;</p></td></tr></table>
+      <h4 class="dtH4">Parent Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr valign=top>
+	<td width="29%"><a href="Schema.Configuration.html">
+	Configuration</a></td><td width="70%">
+        This element contains some general meta-information about the input configuration or the output data.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Child Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">none</td><td width="70%">
+        This contains no child elements.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Attributes</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%">
+				<a href="Schema.Rule.AlwaysEvaluate.html">AlwaysEvaluate</a></td>
+				<td width="70%">
+				<span style="font-family: Times New Roman">If given, this is 
+				copied to any rules that reference it (unless the rule already 
+				defines this attribute).</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Class.html">
+				Error</a></td>
+				<td width="70%"><span style="font-family: Times New Roman">Same 
+				as above.</span></td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Rule.EventID.html">EventID</a></td>
+				<td width="70%">This indicates the event ID to be generated when 
+				this rule is fired.&nbsp; This is used by the events
+				<a href="Extensions.IssueProcessors.html">Issue Processor</a>.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Rule.GUID.html">
+				GUID</a></td>
+				<td width="70%"><span style="font-family: Times New Roman">Same 
+				as above.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Rule.Name.html">
+				Name</a></td>
+				<td width="70%">
+					<span style="font-family: Times New Roman">This is the unique name used to
+						reference the template.  Rules or other templates with their
+						<a href="Schema.Rule.Template.html">Template</a> attribute set to this
+						will copy its attributes.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Rule.Pass.html">
+				Pass</a></td>
+				<td width="70%"><span style="font-family: Times New Roman">If given, this is 
+				copied to any rules that reference it (unless the rule already 
+				defines this attribute).</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Rule.Pn.html">P0 - 
+				P9</a></td>
+				<td width="70%"><span style="font-family: Times New Roman">Same 
+				as above.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Rule.Query.html">
+				Query</a></td>
+				<td width="70%"><span style="font-family: Times New Roman">Same 
+				as above.</span></td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Restriction.html">
+				&lt;restriction&gt;</a></td>
+				<td width="70%">Same as above.</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Rule.Sn.html">S0 - 
+				S9</a></td>
+				<td width="70%"><span style="font-family: Times New Roman">Same 
+				as above.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Rule.Sev.html">Sev</a></td>
+				<td width="70%">
+				<span style="font-family: Times New Roman">Same as above.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Rule.Template.html">
+				Template</a></td>
+				<td width="70%">
+				<span style="font-family: Times New Roman">Same as above.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Rule.Text.html">
+				Text</a></td>
+				<td width="70%">
+				<span style="font-family: Times New Roman">Same as above.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Rule.Title.html">
+				Title</a></td>
+				<td width="70%">
+				<span style="font-family: Times New Roman">Same as above.</span></td>
+			</tr>
+			</table>
+    </div>
+  </body>
+</html>

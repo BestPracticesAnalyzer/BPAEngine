@@ -1,0 +1,90 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Async Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Async Attribute</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		indicates how many threads should be spun up to process the instances of 
+		this object.&nbsp; This value may not exceed the MaxThreads specified for the 
+		entire document</span><span style="font-family: Times New Roman">.&nbsp; 
+		Care should be taken when async objects are nested under other async 
+		objects since it could result in a thread starvation problem.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font size="2" color="#800080">&lt;</font><font size="2">Object</font><font size="2" color="#800080">
+			<br>
+&nbsp;&nbsp; Type=&quot;Directory&quot; <br>
+&nbsp;&nbsp; Key2=&quot;cn=Administrative Groups,%DN%&quot; <br>
+&nbsp;&nbsp; Key3=&quot;(&amp;amp;(objectCategory=msExchAdminGroup)%ADMINGROUP%)&quot; <br>
+&nbsp;&nbsp; Key4=&quot;OneLevel&quot; <br>
+&nbsp;&nbsp; Class=&quot;Admin Group&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Async</font><font size="2" color="#0000FF">=&quot;%35&quot;</font><font size="2" color="#800080"><br>
+			&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        Async attributes are specified on input Object elements.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Value</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">0</td><td width="70%">
+        This means to spin up one thread per instance, up to the specified 
+		maximum.&nbsp; If not all instances can be dispatched at once, they are 
+		queued until othes complete.</td></tr>
+<tr VALIGN="top"><td width="29%">1</td><td width="70%">
+        This is the default value.&nbsp; It indicates the instances should be 
+		processed one at a time.</td></tr>
+<tr VALIGN="top"><td width="29%">nn%</td><td width="70%">
+        This specifies a maximum number of threads as a percentage of the 
+		MaxThreads specified for the whole run.</td></tr>
+<tr VALIGN="top"><td width="29%">n</td><td width="70%">
+        This specifies a fixed number of threads to spin up at most.&nbsp; If 
+		this is great than the specified maximum, it will default to the 
+		specified maximum.</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The If Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The If Object Processor</td>
+          </tr>
+        </table>
+      <p><span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		object can be used to evaluate simple boolean conditions.&nbsp;
+		</span></p>
+		<p><span style="font-size: 12.0pt; font-family: Times New Roman">
+		This will create one <a href="Schema.Instance.html">Instance</a> element
+		if the condition is true, zero if false.
+		The <a href="Schema.Instance.Name.html">Name</a> attribute for the
+		instance is taken from the object.&nbsp;
+		<a href="Schema.Setting.html">Setting</a> elements are not required 
+		but if present will be copied to the data document with an empty value.</span></p>
+		<p><span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+		<table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+			<tr>
+				<td>The ObjectProcessor definition:<p><font size="2">
+				<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+				<br>&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;If&quot;
+				<br>&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.Common.dll&quot;<br>&nbsp;&nbsp; 
+				</font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Common.IfObjectProcessor&quot;
+				<br>/&gt;</font><br><br></font>An example object definition:</p>
+				<p><font size="2" color="#0000FF">&lt;</font><font size="2">Object</font><font size="2" color="#0000FF">
+				<br>&nbsp;&nbsp; </font><font size="2" color="#FF0000">Type</font><font size="2" color="#0000FF">=&quot;If&quot;
+				<br>&nbsp;&nbsp; </font><font size="2" color="#FF0000">Name</font><font size="2" color="#0000FF">=&quot;Test&quot;
+				<br>&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;'%SRVNAME'='myserver'&quot;
+				<br>&nbsp;&nbsp; </font>&gt;</font>
+				</td>
+			</tr>
+		</table>
+		<h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+		<table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC>
+				<td width="29%">Attribute</td>
+				<td width="70%">Description</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Name.html">Name</a></td>
+				<td width="70%">This is just used for informational purposes.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;If&quot;.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">This is the boolean condition to test.  It can contain an valid xpath or extension function, but must refer only
+				to <a href="Schema.Substitution.html">substitutions</a>, constants, and data on this object node.</td>
+			</tr>
+		</table>
+		<h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+		<table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC>
+				<td width="29%">Attribute</td>
+				<td width="70%">Description</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">This attribute is evaluated as xpath as stringified into a single value.  This is typically useful for capturing substitutions that can't be expressed simply as a format.</td>
+			</tr>
+		</table>    </div>
+  </body>
+</html>

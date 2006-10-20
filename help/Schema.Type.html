@@ -1,0 +1,172 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Type Element</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Type Element</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		element identifies a fragment of configuration that can be reused in 
+		multiple places in a configuration (either in the same file or in a 
+		different file).&nbsp; A Type element is referenced by a
+		<a href="Schema.Reference.html">Reference</a> element.&nbsp; The 
+		elements nested under the Type will be copied to the location identified 
+		by any Reference to it.&nbsp; This is useful for defining reusable 
+		entities such as servers, files, disks, etc.&nbsp; It is also useful for 
+		creating standard definitions that can be used by multiple applications.&nbsp; 
+		A set of <a href="CommonModels.html">Common Models</a> is provided as 
+		part of the SDK. These standard definitions will also come into play in 
+		the future when BPA configurations need to be converted to SDM 
+		configurations (the Systems Definition Model is a strategic effort being 
+		driven out of System Center that is being designed to handle best 
+		practice definitions and much more).&nbsp; See the
+		<a href="http://team/sites/wssbpa/Shared%20Documents/Specs/BPA%20to%20DCM%20and%20SDM%20Conversion.doc">BPA to SDM Conversion Document</a> for details.&nbsp;&nbsp; </span> </p>
+		<p> <span style="font-family: Times New Roman">There are a few things to 
+		understand when defining and using Types:</span></p>
+		<ul>
+			<li><span style="font-family: Times New Roman">Type, Reference, and
+			<a href="Schema.Customize.html">Customize</a> elements are only 
+			processed when the Type Configuration Preprocessor is configured.&nbsp; 
+			See the <a href="Extensions.ConfigPreprocessors.html">built-in 
+			Configuration Preprocessor extensions</a> for details.</span></li>
+			<li><span style="font-family: Times New Roman">Types can contain 
+			References to other Types.</span></li>
+			<li><span style="font-family: Times New Roman">All
+			<a href="Schema.Rule.Name.html">Rule.Name</a> attributes will be 
+			altered with the name of the references to keep them unique.&nbsp; 
+			For instance, if a Type defines a Rule named &quot;test1&quot;, and that Type 
+			is referenced by a Reference named &quot;ref1&quot;, then the Rule Name for 
+			that reference will be set to &quot;ref1_test1&quot;.&nbsp; Further, if the 
+			Reference is part of a Type and that parent Type is referenced, it 
+			will have multiple reference names appended to the Rule Name.&nbsp;
+			</span></li>
+			<li><span style="font-family: Times New Roman">The Name attributes 
+			of all <a href="Extensions.ObjectProcessors.Cache.html">Cache 
+			objects</a> will be altered in the same way that rule names are 
+			altered.</span></li>
+			<li><span style="font-family: Times New Roman">
+			<a href="Schema.Reference.CustomId.html">CustomIds</a> can be 
+			defined for each Setting, Object, Reference and Rule defined under 
+			the Type.&nbsp; If not given, these will default according to the 
+			rules defined for CustomIds.&nbsp; Regardless of whether they 
+			default or not, the values are subject to the same logic as Rule 
+			Names to keep them unique.</span></li>
+			<li><span style="font-family: Times New Roman">If there are any
+			<a href="Schema.Setting.Substitution.html">substitutions</a> that 
+			are needed external to the Type, they should be clearly called out.&nbsp; 
+			References can map either other substitutions or literals to the 
+			needed substitution names to ensure they work properly in each copy.</span></li>
+		</ul>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><p><font size="2">
+			<font color="#0000FF">&lt;</font>Type<font color="#0000FF">&nbsp; </font>
+			<font color="#FF0000">Name</font><font color="#0000FF">=&quot;File&quot;&gt;
+			<br>
+&nbsp;</font><font color="#808080">&nbsp; &lt;Object Type=&quot;WMI&quot; Key1=&quot;%SRVNAME%&quot; 
+			Key3=&quot;CIM_Datafile&quot; Key4=&quot;Name = '%FILENAME%'&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting Key1=&quot;Version&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rule Name=&quot;szFileVersion&quot; 
+			Query=&quot;$.&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Setting&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting Key1=&quot;LastModified&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rule Name=&quot;szFileLastModified&quot; 
+			Query=&quot;$.&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Setting&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting Key1=&quot;Description&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rule Name=&quot;szFileDescription&quot; 
+			Query=&quot;$.&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Setting&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Setting Key1=&quot;FileSize&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rule Name=&quot;szFileSize&quot; 
+			Query=&quot;$.&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Setting&gt;<br>
+&nbsp;&nbsp; &lt;/Object&gt;</font><font color="#0000FF"><br>
+			&lt;/</font>Type<font color="#0000FF">&gt;</font></font></p></td></tr></table>
+      <h4 class="dtH4">Parent Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">root</td><td width="70%">
+        This element can only be just below the XML root node.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Child Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr>
+	<td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        This element contains information about a single item to be 
+		processed.
+      </td>
+</tr>
+<tr>
+	<td width="29%"><a href="Schema.Reference.html">Reference</a></td><td width="70%">
+        This element refers to a <a href="Schema.Type.html">Type</a> element to be included in that position.
+      </td>
+</tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Setting.html">Setting</a></td><td width="70%">
+        On input, Setting elements are nested directly under Object elements.&nbsp; 
+		These elements contain data about a particular property to be retrieved.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Attributes</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Type.Name.html">Name</a></td>
+				<td width="70%">This provides information on the name of the 
+				Type.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.SDMElement.html">
+				SDMElement</a></td>
+				<td width="70%">This provides a hint to be used during 
+				conversion of a BPA Type element to an SDM element.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.SDMName.html">SDMName</a></td>
+				<td width="70%">This provides a hint to be used during 
+				conversion of a BPA Type element to an SDM element.</td>
+			</tr>
+			</table>
+    </div>
+  </body>
+</html>

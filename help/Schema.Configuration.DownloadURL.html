@@ -1,0 +1,131 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The DownloadURL Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The DownloadURL Attribute </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		indicates the root URL name that should be used to look for a new 
+		version of the configuration or binaries.&nbsp; This is only needed if an application is 
+		supporting auto-downloads.&nbsp; The customizable UI 
+		supplied by the library does support this by default but it can be 
+		disabled (this is controlled by
+		<a href="APIHELP.BPACustomizations.AllowAutoDownloads">BPACustimizations.AllowAutoDownloads</a>).</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#800080" size="2">&lt;Configuration <br>
+&nbsp;&nbsp; ConfigVersion=&quot;1.6.7.3&quot; <br>
+&nbsp;&nbsp; ConfigName=&quot;ExBPA Master Input File&quot; <br>
+&nbsp;&nbsp; </font><font color="#FF0000" size="2">DownloadURL</font><font color="#0000FF" size="2">=&quot;http://www.microsoft.com/exchange/code/ExBPA&quot;</font><font color="#800080" size="2"> <br>
+&nbsp;&nbsp; ArticleURL=&quot;<a href="http://go.microsoft.com/fwlink/?linkid=30939&amp;l={0}&amp;v=ExBPA.{1}&amp;id={2}"><font color="#800080">http://go.microsoft.com/fwlink/?linkid=30939&amp;amp;l={0}&amp;amp;v=ExBPA.{1}&amp;amp;id={2}</font></a>&quot;
+			<br>
+&nbsp;&nbsp; ChangeDescription=&quot;The changes made in this version are minor 
+			modifications to the configuration metadata.&quot;<br>
+			&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+        Description</td></tr>
+<tr valign="top">
+	<td width="29%"><a href="Schema.Configuration.html">
+	Configuration</a></td><td width="70%">
+        This element contains some general meta-information about the input 
+		configuration or the output data.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Value</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top">
+	<td width="29%">URL string</td><td width="70%">
+        <span style="font-size: 12.0pt; font-family: Times New Roman">For the 
+		customizable UI, this URL is expected to be the root of the download 
+		directory where the tool will check for updates.&nbsp; To check for new 
+		binaries, it will use the following URL:</span><p>
+		<span style="font-family: Times New Roman"><font size="2">&lt;DownloadURL&gt;/&lt;Version&gt;/&lt;Culture&gt;/<a href="APIHELP.BPACustomizations.ApplicationName">&lt;AppName&gt;</a>.nextversion.xml</font></span></p>
+		<p><span style="font-family: Times New Roman">Where:</span></p>
+		<p><span style="font-family: Times New Roman">&lt;DownloadURL&gt; is the value 
+		of this attribute<br>
+		&lt;Version&gt; should be major.minor for the application<br>
+		&lt;Culture&gt; is the local culture of the ExBPA machine<br>
+		&lt;AppName&gt; is the customized name of the application</span></p>
+		<p><span style="font-family: Times New Roman">The file is expected to 
+		have the following simple schema:</span></p>
+		<p><font face="Times New Roman"><font size="2" color="#0000FF">&lt;</font><font size="2">NextVersion</font><font size="2" color="#0000FF">
+		</font><font size="2" color="#FF0000">AppVersion</font><font size="2" color="#0000FF">=&quot;w.x.y.z&quot;&gt;<br>
+&nbsp;&nbsp; &lt;</font><font size="2">Description</font><font size="2" color="#0000FF">&gt;</font><font size="2" color="#808000">text 
+		explaining what is in this version</font><font size="2" color="#0000FF">&lt;/&gt;<br>
+&nbsp;&nbsp; &lt;</font><font size="2">AutoMSI</font><font size="2" color="#0000FF">&gt;</font><font size="2" color="#808000">url 
+		of new MSI package for auto download</font><font size="2" color="#0000FF">&lt;/&gt;<br>
+&nbsp;&nbsp; &lt;</font><font size="2">ManualMSI</font><font size="2" color="#0000FF">&gt;</font><font size="2" color="#808000">url 
+		of new MSI package for manual download</font><font size="2" color="#0000FF">&lt;/&gt;<br>
+		&lt;/</font><font size="2">NextVersion</font><font size="2" color="#0000FF">&gt;</font><br>
+		</font><span style="font-size: 12.0pt; font-family: Times New Roman">
+		<br>
+		If this file exists and contains an AppVersion greater than the current 
+		version than it will consider a new version of the binaries available.&nbsp; 
+		The value of the Description element will be displayed to the user so 
+		they know what they are getting.&nbsp; The user will also be given a 
+		choice whether they want to auto-download the binaries (in which case 
+		after the download completes they will be told to exit and restart the 
+		application) or to manually download the binaries.&nbsp; The above 
+		format allows for separate MSI packages to be used in both cases.</span></p>
+		<p><span style="font-size: 12.0pt; font-family: Times New Roman">The 
+		customizable UI will also look for a new version of the configuration.&nbsp; 
+		It will look for the following file:</span></p>
+		<p><span style="font-family: Times New Roman"><font size="2">&lt;DownloadURL&gt;/&lt;Version&gt;/&lt;Culture&gt;/<a href="APIHELP.BPACustomizations.ApplicationName">&lt;AppName&gt;</a>.config.xml</font></span></p>
+		<p><span style="font-family: Times New Roman">It will extract the
+		<a href="Schema.Configuration.ConfigVersion.html">ConfigVersion</a> from 
+		this file and compare it to the local copy.</span></p>
+		<p><span style="font-size: 12.0pt; font-family: Times New Roman">Note the UI also 
+		verifies that this URL name starts with &quot;<a href="http://go.microsoft.com">http://www.microsoft.com</a>&quot; 
+		to avoid possible spoofing issues.</span></td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%">&lt;any&gt;</td><td width="70%">
+        If a separate UI implementation is used, this can be any format desired 
+		(or not used).</td>
+</tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

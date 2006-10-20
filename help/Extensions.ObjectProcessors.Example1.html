@@ -1,0 +1,157 @@
+<html>
+<head>
+<title>Example 1: Creating an Object processor</title>
+</head>
+<body>
+
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table1">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">Example 1: Creating an Object processor</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <font size="5"><b><br>
+		Overview</b></font></div>
+
+<p>
+The Best Practices Analyzer (a.k.a. BPA) engine collects data using a standardized
+mechanism defined by the abstract class ObjectProcessor.  
+Each object processor's role is to translate an <a href="Schema.Object.html">
+Object</a> and its child <a href="Schema.Setting.html">Settings</a> into one or more
+<a href="Schema.Instance.html">Instances</a> each with the Settings
+filled in with <a href="Schema.Value.html">Values</a>, as appropriate.
+Currently there are a number
+of already written collectors (<a href="Extensions.WMI.html">WMI</a>,
+<a href="Extensions.Registry.html">Registry</a>,
+<a href="Extensions.Directory.html">Directory</a>, etc) available, but
+inevitably one runs into cases that aren't covered by the existing code.  Fortunately,
+you can write your own.  Once you add an appropriate
+<a href="Schema.ObjectProcessor.html">ObjectProcessor</a> to the top of the configuration xml file you can use it just like all the standard
+collectors.
+</p>
+
+      <p> <font size="5"><b>A Basic Object Processor</b></font></p>
+		<p>
+To help understand how to write a BPA collector, we'll start by dissecting the simplest
+of all current collectors, the "Group" collector.  The Group collector is essentially a
+no-op collector,
+but it is used extensively in the Exchange BPA to provide additional structure to the
+input document.  When this collector is invoked, it creates exactly one instance and fills in
+any settings present with a blank string.  Here's the entire implementation.
+</p>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#808000">/// &lt;summary&gt;<br>
+			/// Group processor<br>
+			/// &lt;/summary&gt;<br>
+			/// &lt;exclude/&gt;</font><br>
+			<font color="#0000FF">public</font> <font color="#0000FF">class</font> GroupObjectProcessor : ObjectProcessor<br>
+			{<br>
+			<font color="#808000">&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;summary&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; /// Constructor.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;/summary&gt;</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">public</font> GroupObjectProcessor(ExecutionInterface executionInterface, ObjectInstance objInstIn) :
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">base</font>(executionInterface,objInstIn)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			<br>
+			<font color="#808000">&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;summary&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; /// This copies the group object to the output file.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;/summary&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;returns&gt;A list of object instances (only one in this case).&lt;/returns&gt;</font><br>
+&nbsp;&nbsp; <font color="#0000FF">&nbsp; public override void</font> ProcessObject()<br>
+&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#808000">// Copy this object over.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ObjectInstance objInstOut =
+			<font color="#0000FF">new</font> ObjectInstance(executionInterface, objInstIn);<br>
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">foreach</font> (<font color="#0000FF">object</font> setting
+			<font color="#0000FF">in</font> objInstIn.SettingNodes)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objInstOut.AddSettingNode(setting,<font color="#0000FF">new</font>
+			<font color="#0000FF">object</font>[1]{String.Empty});<br>
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#808000">// Set it up.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objInstOutList.Add(objInstOut);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			}</td></tr></table>
+
+<p>
+All object processor's will follow this structure.  The noteworthy points are:
+<ul>
+<li>
+<b>Derives from ObjectProcessor</b>.  The engine expects to be able to create a class instance
+compatible with ObjectProcessor when running, so you have to derive from 
+ObjectProcessor
+or from a class that ultimately derives from it.
+</li>
+<li>
+<b>Constructor calls base(executionInterface,objInstIn)</b>.
+It is important to call the base constructor to set up the class, and to provide
+this two parameter constructor as that is what the dispatcher will call.
+</li>
+<li>
+<b>Implements ProcessObjects </b>.  This is the only method required.  This method should examine
+the input object (objInstIn) and settings (objInstIn.SettingNodes) to determine what
+actions to take, and write output by creating an ObjectInstance and calling 
+AddSettingNode
+for each setting it has values for.
+</li>
+</ul>
+</p>
+      <p> <font size="5"><b>More Complex Object Processors</b></font></p>
+
+<p>
+That's it for a minimal object processor .  More sophisticated ones need only
+to use a few more techniques.
+<ul>
+<li><b>Getting attributes from the input object/settings</b>.
+Group is so simple it never examines
+it's input.  Most object processors will almost certainly need to. To get an attribute from the object, use 
+objInstIn.GetObjectAttribute.
+To get an attribute from a setting (any of the elements of 
+objInstIn.SettingNodes),
+use objInstIn.GetSettingAttribute.  Note that you should know ahead of time
+which attributes are meaningful and query for them explicitly, as no facility for enumerating
+the attributes is currently provided.  All the existing collectors use 
+<a href="Schema.Object.Key.html">Key1</a>, Key2, etc.
+
+<li><b>Adding attributes to Instances</b>.
+Instances acquire all the attributes of the object, so
+you don't need to copy them explicitly.  The "Name" attribute however is special on an instance.
+When an object
+create multiple instances, each must have a unique name to distinguish it from its siblings.
+This can be set by calling objInstOut.SetObjectAttribute(&quot;Name&quot;,name) where name is a string.  Usually when designing
+the class, you have to decide if you will always create a name based on the data
+collected, or never create a name and require the input to provide one.  Other attributes
+can be added as well, but don't have any special meaning.</li>
+
+<li><b>Adding settings to instances</b>.&nbsp; AddSettingNode takes a CLR object array to specify the value to
+add.  If it is not called or is null, the setting will be dropped in the output.  This is
+intentional, empty nodes just make the output document bigger.</li>
+
+<li><b>Debug tracing</b>. It is often useful to add some debug tracing.&nbsp; 
+The ExecutionInterFace.Trace flag can be checked to determine if tracing has 
+been enabled.&nbsp; You can then use the ExecutionInterface.LogText method to do 
+the tracing if it is.
+
+</li>
+
+<li><b>Exception handling</b>.
+If you allow exceptions to escape the call to ProcessObject, the
+dispatcher will remove any instances you have created with a somewhat vague error message, so you should decide on a strategy
+that properly compartmentalizes any exceptions that might occur, and provide good error messages.
+The usual strategy is to have a try/catch around the call that queries for the data,
+a try/catch inside the loop creating instances, and a try/catch inside the
+loop creating settings on each instance.
+</li>
+
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Group Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Group Object Processor</td>
+          </tr>
+        </table>
+      <p><span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		object can be used to organize the XML document.&nbsp; It is basically a 
+		no-op that will group other objects into logical sets and hierarchies.</span></p>
+		<p><span style="font-size: 12.0pt; font-family: Times New Roman">
+		This will create exactly one <a href="Schema.Instance.html">Instance</a> element.
+		The <a href="Schema.Instance.Name.html">Name</a> attribute for the
+		instance is taken from the object.&nbsp;
+		<a href="Schema.Setting.html">Setting</a> elements are not required 
+		but if present will be copied to the data document with an empty value.</span></p>
+		<p><span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+		<table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+			<tr>
+				<td>The ObjectProcessor definition:<p><font size="2">
+				<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+				<br>&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;Group&quot;
+				<br>&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.Common.dll&quot;<br>&nbsp;&nbsp; 
+				</font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Common.GroupObjectProcessor&quot;
+				<br>/&gt;</font><br><br></font>An example object definition:</p>
+				<p><font size="2" color="#0000FF">&lt;</font><font size="2">Object</font><font size="2" color="#0000FF">
+				<br>&nbsp;&nbsp; </font><font size="2" color="#FF0000">Type</font><font size="2" color="#0000FF">=&quot;Group&quot;
+				<br>&nbsp;&nbsp; </font><font size="2" color="#FF0000">Name</font><font size="2" color="#0000FF">=&quot;AD 
+			Sites Connectivity&quot; <br>&nbsp;&nbsp; </font>
+				<font size="2" color="#FF0000">LogText</font><font size="2" color="#0000FF">=&quot;Processing 
+			Active Directory Sites...&quot; <br>&nbsp;&nbsp; </font>
+				<font size="2" color="#FF0000">SecurityContext</font><font size="2" color="#0000FF">=&quot;ADLOGON&quot;<br>&gt;</font></td>
+			</tr>
+		</table>
+		<h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+		<table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC>
+				<td width="29%">Attribute</td>
+				<td width="70%">Description</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Name.html">Name</a></td>
+				<td width="70%">This is just used for informational purposes.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;Group&quot;.</td>
+			</tr>
+		</table>
+		<h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+		<table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC>
+				<td width="29%">Attribute</td>
+				<td width="70%">Description</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%">None</td>
+				<td width="70%">Setting attributes are ignored on Group objects.</td>
+			</tr>
+		</table>    </div>
+  </body>
+</html>

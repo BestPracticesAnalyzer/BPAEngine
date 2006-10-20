@@ -1,0 +1,166 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Metabase Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Metabase Object Processor</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		retrieves data from the metabase (the IIS configuration store).&nbsp; Note 
+		that this access will only work if IIS Common Files exists on the 
+		machine that the BPA engine is running on (it uses COM interop to get 
+		these values, so the class must be registered locally).</span></p>
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">If a 
+		regular expression is given in <b>Key3</b> or a scope of &quot;OneLevel&quot; or &quot;Subtree&quot; 
+		is given in <b>Key4</b> on the <a href="Schema.Object.html">Object</a>, 
+		then this will create zero or more <a href="Schema.Instance.html">
+		Instance</a> elements.&nbsp; If neither is the case, it will create zero or 
+		one Instance elements.&nbsp; The <a href="Schema.Instance.Name.html">Name</a> attribute for each instance 
+		will be set to the path of the associated metabase key.&nbsp;
+		Each <a href="Schema.Setting.html">Setting</a> 
+		will be processed separately per Instance and will have zero or more
+		<a href="Schema.Value.html">Value</a> elements added to them based on 
+		the contents of the corresponding metabase property.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<p><font size="2">
+			<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;Metabase&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.ConfigCollector.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.MetabaseObjectProcessor&quot;
+			<br>
+			/&gt;</font><br>
+			<br>
+			</font>An example object:</p>
+			<p><font size="2" color="#0000FF">
+			&lt;</font><font size="2">Object</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp;
+			</font><font size="2" color="#FF0000">
+			Type</font><font size="2" color="#0000FF">=&quot;Metabase&quot; <br>
+&nbsp;&nbsp;
+			</font><font size="2" color="#FF0000">
+			Key1</font><font size="2" color="#0000FF">=&quot;%SRVNAME%&quot; <br>
+&nbsp;&nbsp;
+			</font><font size="2" color="#FF0000">
+			Key2</font><font size="2" color="#0000FF">=&quot;LM/SmtpSvc/%SMTPINSTANCE%&quot;
+			<br>
+&nbsp;&nbsp;
+			</font><font size="2" color="#FF0000">
+			Timeout</font><font size="2" color="#0000FF">=&quot;%300&quot;<br>
+			&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font size="2">Setting</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</font><font size="2" color="#FF0000">
+			Key1</font><font size="2" color="#0000FF">=&quot;1025&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</font><font size="2" color="#FF0000">
+			Key2</font><font size="2" color="#0000FF">=&quot;ClusterEnabled&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp; /&gt;<br>
+			&lt;/</font><font size="2">Object</font><font size="2" color="#0000FF">&gt;</font><br>
+			</font></td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				The name of the server to access.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				The key name to look for.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">If 
+				this is blank or not given, this object will match against the 
+				exact metabase key given.&nbsp; Otherwise, it will match against all 
+				the child keys of the given metabase key that match the regular 
+				expression given in this attribute.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key4</a></td>
+				<td width="70%">
+				<p class="MsoNormal">This is a search scope to use.&nbsp; It can have 
+				one of the following values:</p>
+				<ul style="margin-top: 0in; margin-bottom: 0in" type="disc">
+					<li class="MsoNormal">&quot;Base&quot; means just the exact object 
+					defined by the given key.&nbsp; This is the default if no filter 
+					is specified.</li>
+					<li class="MsoNormal">&quot;OneLevel&quot; means to just match against 
+					the immediate child keys under this one. &nbsp;This is the 
+					default if a filter is specified.</li>
+					<li>
+					<span style="font-size: 12.0pt; font-family: Times New Roman">
+					&quot;Subtree&quot; means to match against the whole tree under this 
+					key.&nbsp; </span></li>
+				</ul>
+				</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;Metabase&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the numeric ID (in decimal) of the property to retrieve.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key2</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">By 
+				convention, this is a string that identifies the property to be 
+				retrieved.&nbsp; It is optional and not used by the collector but it 
+				provides a more readable view of the data.</span></td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

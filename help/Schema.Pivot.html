@@ -1,0 +1,151 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Pivot Element</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Pivot Element</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">This element
+			allow indirect references between rules, effectively acting like a pivot through
+			which a rule can see another rule in a different part of the file.  Pivoted references
+			are made by prefixing the rule, e.g., Query="$pivot.rule".
+			</span> </p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>In the configuration file:<p><font size="2" color="#0000FF">&lt;</font><font size="2">Pivot</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Name</font><font size="2" color="#0000FF">=&quot;ControlServer&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key</font><font size="2" color="#0000FF">=&quot;../@Name&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Remote</font><font size="2" color="#0000FF">=&quot;Server&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">KeyRef</font><font size="2" color="#0000FF">=&quot;$szBaselineControl[../../Value=$szExchangeServerNameCaps]&quot;
+			<br>
+			/&gt;</font><br>
+			<br>
+			In an output data file:</p>
+			<p><font size="2" color="#0000FF">&lt;</font><font size="2">Pivot</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Name</font><font size="2" color="#0000FF">=&quot;ControlServer&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key</font><font size="2" color="#0000FF">=&quot;../@Name&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Remote</font><font size="2" color="#0000FF">=&quot;Server&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">KeyRef</font><font size="2" color="#0000FF">=&quot;$szBaselineControl[../../Value=$szExchangeServerNameCaps]&quot;&nbsp;
+			<br>
+			/&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        On input, Pivots are nested under Object elements.</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Instance.html">Instance</a></td><td width="70%">
+        On output, Pivots are nested under Instance elements.</td></tr></table>
+      </div>
+      <h4 class="dtH4">Child Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">None</td><td width="70%">
+        This element has no children.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Attributes</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%">
+				<a href="Schema.Rule.AlwaysEvaluate.html">AlwaysEvaluate</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">If 
+				this is set, this pivot will be evaluated even if rules it 
+				refers to are not run.&nbsp; Otherwise such pivots are skipped.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Pivot.Key.html">Key</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+					This is an XPath statement that should have a unique value
+					for each instance of a given pivot.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Pivot.KeyRef.html">
+				KeyRef</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is an XPath expression whose value should match the value 
+				of the Key of an instance of the remote pivot.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">
+				<a href="Schema.Pivot.KeyRefValue.html">KeyRefValue</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+					On output, the result of the evaluation of the KeyRef attribute.&nbsp; </span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">
+				<a href="Schema.Pivot.KeyValue.html">KeyValue</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+					On output, the result of the evaluation of the Key attribute.&nbsp; </span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Pivot.Name.html">
+				Name</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is a unique identifier of the pivot in the input file, composed of only 
+				letters and digits.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Pivot.Remote.html">
+				Remote</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is used by indirect pivots to specify the name of the remote pivot.
+				Any references using an indirect pivot will actually refer to a rule under
+				the pivot whose Name matches this value, and whose KeyValue matches this pivot's
+				KeyRefValue.</span></td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Restriction.html">
+				&lt;restriction&gt;</a></td>
+				<td width="70%">This is a custom-defined restriction attribute.</td>
+			</tr>
+			</table>
+    </div>
+  </body>
+</html>

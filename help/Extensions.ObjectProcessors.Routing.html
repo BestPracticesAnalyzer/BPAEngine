@@ -1,0 +1,116 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Routing Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Routing Object Processor</td>
+          </tr>
+        </table>
+	</div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		uses ICMP to determine response times and route hops between machines.&nbsp; 
+		This will create a single instance in the output file, with the values 
+		for the setting containing the routing information.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<font SIZE="2" COLOR="#0000ff"><p>
+			&lt;</font><font SIZE="2" COLOR="#800000">ObjectProcessor</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Name</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Routing</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Assembly</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">BPA.NetworkCollector.dll</font><font SIZE="2">&quot;<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Class</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.RoutingObjectProcessor</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+			/&gt;</font><font size="2"><br>
+			<br>
+			</font>An example object:</p>
+			<font SIZE="2" COLOR="#0000ff">
+			<p>&lt;</font><font SIZE="2" COLOR="#800000">Object</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000">Type</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Routing</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000">Name</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Routing</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000">Key1</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">%SRVNAME%</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000">Key2</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">30</font><font SIZE="2">&quot;
+			</font><font SIZE="2" COLOR="#ff0000">Key4</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">60000</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">&gt;<br>
+&nbsp;&nbsp; &lt;</font><font SIZE="2" COLOR="#800000">Setting</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000">Key1</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">RouteMap</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff"> 
+			/&gt;<br>
+			&lt;/</font><font SIZE="2" COLOR="#800000">Object</font><font SIZE="2" COLOR="#0000ff">&gt;</font></td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the name of the server to access</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the max hop count to allow before giving up.</span></td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is no longer used.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key4</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the max response time to allow before giving up (in 
+				milliseconds).</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;WMI&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the command to execute.&nbsp; Currently, only &quot;RouteMap&quot; 
+				is defined.&nbsp; The values returned for this setting will be a 
+				sequence of node name and response time values, in order of 
+				traversal.</span></td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

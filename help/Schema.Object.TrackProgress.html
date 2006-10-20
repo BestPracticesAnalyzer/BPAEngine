@@ -1,0 +1,105 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The TrackProgress Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The TrackProgress Attribute</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		indicates that the engine should track the progress of this object and 
+		provide status updates as processing occurs.&nbsp; The status updates 
+		are sent via the <a href="APIHelp.ExecutionOptions.Status">
+		ExecutionOptions.Status</a> callback.&nbsp; Whenever a new object is 
+		processed underneath an object with this attribute specified, the engine 
+		will issue the callback, providing the name of the parent object being 
+		processed and the percentage complete based on the number of objects 
+		left to process.&nbsp; </span></p>
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">Note 
+		that this percentage may actually get lower on some occasions as 
+		additional instances are created for some objects.&nbsp; For instance, 
+		if an object being tracked has 10 objects underneath it and one has been 
+		processed (and resulted in a single instance being created), the 
+		completion percentage will be 10%.&nbsp; If the second object has two 
+		other objects under it, and processing it results in 11 instances being 
+		created, the total number of objects to process under the tracked object 
+		will rise from 10 to 30, so the percentage will fall to 2/30 or 7%.&nbsp; 
+		This percentage only takes into account the total number of objects to 
+		process - it does not account for estimated times for processing each 
+		object.&nbsp; So this can only provide a hint to the user to indicate 
+		how far along things are.&nbsp; Accuracy is indeterminate.</span></p>
+		<p> <span style="font-family: Times New Roman">The customizable GUI uses 
+		these status messages to present progress bars for each object being 
+		tracked as well as an overall progress bar for the whole run.</span><span style="font-size: 12.0pt; font-family: Times New Roman">&nbsp;&nbsp;
+		</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#800080" size="2">&lt;Object <br>
+&nbsp;&nbsp; Type=&quot;Group&quot; <br>
+&nbsp;&nbsp; Name=&quot;Full Run&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">TrackProgress</font><font size="2" color="#0000FF">=&quot;TrackProgress&quot;
+			</font><font color="#800080" size="2"><br>
+			&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        These attributes are specified on input Object elements.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Value</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">&quot;TrackProgress&quot;</td><td width="70%">
+        This object should have status callbacks issues to track its progress as 
+		it is being processed.&nbsp; Note: by convention, if the
+		<a href="Schema.Object.Name.html">Name</a> of the object is &quot;Full Run&quot;, 
+		then a GUI may consider this to contain status for the run as a whole 
+		rather than an individual object.</td></tr>
+<tr VALIGN="top"><td width="29%">&quot;TrackFailHard&quot;</td><td width="70%">
+        <span style="font-size: 12.0pt; font-family: Times New Roman">Same as 
+		above, but also indicates that a hard failure on this entry should 
+		result in an abort progress tracking status update being sent.</span></td></tr>
+<tr VALIGN="top"><td width="29%">&lt;not present&gt;</td><td width="70%">
+        No progress tracking is to be done.</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

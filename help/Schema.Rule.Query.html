@@ -1,0 +1,107 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Query Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Query Attribute </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		is an XPath expression that is evaluated, with the result placed in
+		<a href="Schema.Result.html">Result</a> nodes under the Rule.&nbsp; If this 
+		evaluates to true, a <a href="Schema.Message.html">Message</a> node will 
+		be generated.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#800080" size="2">&lt;Rule <br>
+&nbsp;&nbsp; Name=&quot;fExPhysicalMachineUp&quot; <br>
+&nbsp;&nbsp; </font><font color="#FF0000" size="2">Query</font><font color="#0000FF" size="2">=&quot;$fClusterServiceRunning and not($szPSWinVer)&quot;</font><font color="#800080" size="2"> <br>
+&nbsp;&nbsp; Error=&quot;Error&quot; <br>
+&nbsp;&nbsp; Sev=&quot;3&quot; <br>
+&nbsp;&nbsp; Title=&quot;Exchange cluster node could not be contacted&quot; <br>
+&nbsp;&nbsp; Text=&quot;Exchange cluster node {2} is down or unreachable. This could 
+			be due to a network or permissions problem.&quot;<br>
+&nbsp;&nbsp; P2=&quot;$szExchangeNodeName&quot; <br>
+&nbsp;&nbsp; GUID=&quot;fa727882-9fdd-4664-9d49-f0ef95193b49&quot; <br>
+&nbsp;&nbsp; AlwaysEvaluate=&quot;True&quot;</font><font size="2" color="#0000FF"> 
+			</font><font color="#800080" size="2"><br>
+			/&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Rule.html">
+	Rule</a></td><td width="70%">
+        This element contains information about a rule to execute on the output data.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Template.html">
+	Template</a></td><td width="70%">
+        This element identifies a rule template that can be applied to other rules so similar rules don't need to be defined separately.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">&lt;any XPath statement&gt;</td><td width="70%">
+        This will be evaluated to determine if the rule fires or not.&nbsp; In 
+		addition to normal XPath, this statement can contain some specialty 
+		references:<ul>
+			<li>&quot;$.&quot; refers to the <a href="Schema.Value.html">Value</a> 
+			elements of the parent setting.&nbsp; It is essentially identical to 
+			the XPath &quot;../Setting/Value&quot; but provides a little easier data 
+			entry.</li>
+			<li>&quot;$&lt;rule name&gt;&quot; refers to the Value elements under the
+			<a href="Schema.Result.html">Result</a> element of the named rule.&nbsp; 
+			This is very useful to avoid having to create complex path 
+			statements that would have to be changed whenever the configuration 
+			hiearchy is modified.&nbsp; It is recommended that this notation be 
+			used in place of path statements whenever possible.</li>
+			<li>&lt;function&gt; refers to one of the built-in or extended functions 
+			supplied.&nbsp; See <a href="Extensions.FunctionProcessors.html">
+			Function Processors</a> for a list of built-in functions.</li>
+		</ul>
+	</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

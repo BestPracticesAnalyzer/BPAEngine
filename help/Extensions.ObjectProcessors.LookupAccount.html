@@ -1,0 +1,126 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The LookupAccount Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The LookupAccount Object Processor</td>
+          </tr>
+        </table>
+      </div>
+		<p><span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		method will perform a lookup of the given account name and retrieve the 
+		SID associated with it, or the other way around.</span></p>
+		<p><span style="font-size: 12.0pt; font-family: Times New Roman">There 
+		will be zero or one <a href="Schema.Instance.html">Instance</a> 
+		elements created, depending on whether the lookup succeeded.&nbsp; 
+		The <a href="Schema.Instance.Name.html">Name</a> attribute for a
+		successful instance will be the account name or sid supplied.&nbsp;
+		For each <a href="Schema.Setting.html">Setting</a> requested, 
+		a <a href="Schema.Value.html">Value</a> element will be 
+		generated from the corresponding account data retrieved.</span></p>
+		<p><span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+		<table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+			<tr>
+				<td>The ObjectProcessor definition:<p><font size="2">
+				<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+				<br>&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;LookupAccount&quot;
+				<br>&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.ConfigCollector.dll&quot;<br>&nbsp;&nbsp; 
+				</font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.LookupAccountObjectProcessor&quot;
+				<br>/&gt;</font><br><br></font>An example object definition:</p>
+				<p><font size="2" color="#0000FF">&lt;</font><font size="2">Object</font><font size="2" color="#0000FF">
+				<br>&nbsp;&nbsp; </font><font size="2" color="#FF0000">Type</font><font size="2" color="#0000FF">=&quot;LookupAccount&quot;
+				<br>&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;Name&quot;
+				<br>&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key3</font><font size="2" color="#0000FF">=&quot;%NBDOMNAME%\Administrator&quot;<br>&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font size="2">Setting</font><font size="2" color="#0000FF">
+				</font><font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;Sid&quot;/&gt;<br>&lt;/</font><font size="2">Object</font><font size="2" color="#0000FF">&gt;</font></p>
+				</td>
+			</tr>
+		</table>
+		<h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+		<table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC>
+				<td width="29%">Attribute</td>
+				<td width="70%">Description</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<p class="MsoNormal">This is the type of lookup to perform.&nbsp; It 
+				can have one of the following values:</p>
+				<ul style="margin-top: 0in; margin-bottom: 0in" type="disc">
+					<li class="MsoNormal">&quot;Name&quot; uses <b>Key3</b> as an 
+					account name and it will retrieve account information for 
+					it.</li>
+					<li>
+					<span style="font-size: 12.0pt; font-family: Times New Roman">&quot;Sid&quot; uses 
+					<b>Key3</b> as a string SID and it 
+					will retrieve account information for it.</span></li>
+				</ul></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">This is the system to perform the lookup against.</span></td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">This is the account name or the SID, depending on the value of
+				<b>Key1</b>.</span></td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;LookupAccount&quot;.</td>
+			</tr>
+		</table>
+		<h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+		<table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC>
+				<td width="29%">Attribute</td>
+				<td width="70%">Description</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<p class="MsoNormal">This is the value to retrieve.&nbsp; It can be:</p>
+				<ul style="margin-top: 0in; margin-bottom: 0in" type="disc">
+					<li class="MsoNormal">&quot;Domain&quot; is the domain name the 
+					account is in.</li>
+					<li class="MsoNormal">&quot;Name&quot; is the name of the account.</li>
+					<li class="MsoNormal">&quot;Sid&quot; is a string version of the SID.</li>
+					<li>
+					<span style="font-size: 12.0pt; font-family: Times New Roman">&quot;Type&quot; is the type of the account.</span></li>
+				</ul></td>
+			</tr>
+		</table>    </div>
+  </body>
+</html>

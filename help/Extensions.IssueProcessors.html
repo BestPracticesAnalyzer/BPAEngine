@@ -1,0 +1,69 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" >
+    <title>Issue Processors</title>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>AttributeName Class</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table15">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">Issue Processors</td>
+          </tr>
+        </table>
+    </div>
+    <div id="nstext">
+  </body>
+</html>
+	<html dir="LTR" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+  <body id="bodyID" class="dtBODY">
+      <p>Issue processors are used as a hook into when the engine fires a
+		<a href="Schema.Rule.html">Rule</a>.&nbsp; For each rule fired, each 
+		issue processor will be called and given a chance to take action based 
+		on that rule.&nbsp; An alternative method of dealing with this is to 
+		wait for the analysis phase to complete, and then parse out all the 
+		Message elements from the resulting document.&nbsp; Which option you 
+		choose is up to you.&nbsp; Issue processors are defined use
+		<a href="Schema.IssueProcessor.html">IssueProcessor</a> elements in the 
+		configuration.</p>
+	<p>A couple of different issue processors have been defined:</p>
+        <table class="dtTABLE" cellspacing="0" id="table16" border="1" style="margin-left: 16"  width="600">
+<tr VALIGN="top"><td width="29%">Message Generation</td><td width="70%">
+        This is the basic function that causes a message to be generated when a 
+		rule fires.&nbsp; This message will be created as a
+		<a href="Schema.Message.html">Message</a> element in the output data 
+		file.&nbsp; This issue processor is built-in and so does not need to be 
+		defined in the configuration.</td></tr>
+<tr VALIGN="top"><td width="29%">Events</td><td width="70%">
+        This will cause an event log message to be created for each rule that 
+		fires and has an <a href="Schema.Rule.EventID.html">EventID</a> 
+		attribute defined for it.</td></tr>
+		</table>
+		<p>&nbsp;</div>
+      </body>
+</html>

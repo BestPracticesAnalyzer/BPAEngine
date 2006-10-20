@@ -1,0 +1,134 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The CommandLine Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The CommandLine Object Processor</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		will launch a command line executable and wait for it to finish.&nbsp; 
+		Note: this can only be used to launch an executable on the local 
+		machine.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<p><font size="2">
+			<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;Command&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.ConfigCollector.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.CommandLineObjectProcessor&quot;
+			<br>
+			/&gt;</font><br>
+			<br>
+			</font>An example object:	</p>
+			<p><font size="2" color="#0000FF">&lt;</font><font size="2">Object</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Type</font><font size="2" color="#0000FF">=&quot;Command&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key2</font><font size="2" color="#0000FF">=&quot;cmd&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key3</font><font size="2" color="#0000FF">=&quot;dir 
+			/b c:\&quot; <br>
+			&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font size="2">Setting</font><font size="2" color="#0000FF">
+			</font><font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;Output&quot; </font><font size="2" color="#FF0000">Key2</font><font size="2" color="#0000FF">=&quot;stdout&quot;&nbsp; 
+			/&gt;</font></p>
+			</td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the executable to run.&nbsp; </span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This specifies the command line parameters to pass to the 
+				executable.</span></td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;Command&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the command key that describes how it should deal witht 
+				he output.&nbsp; It can be one of the follow values:</span><ul>
+					<li><span style="font-family: Times New Roman"><b>Output</b>.&nbsp; 
+					This will retrieve the data written to the output stream 
+					specified in Key2.</span></li>
+					<li><span style="font-family: Times New Roman"><b>Regex</b>.&nbsp; 
+					This will process the regular expression defined in Key2 
+					against the output stream specified in Key3.</span></li>
+					<li><span style="font-family: Times New Roman"><b>
+					ReturnValue</b>.&nbsp; This will retrieve the value returned 
+					by the executable.</span></li>
+				</ul>
+				</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key2</a></td>
+				<td width="70%">
+				The meaning of this attribute depends on the value of Key1.&nbsp; 
+				If Key1 is &quot;Output&quot;, this can be either &quot;stderr&quot; or &quot;stdout&quot; 
+				(with the latter being the default).&nbsp; If Key1 is &quot;Regex&quot;, 
+				this should be the regular expression to process against the 
+				output stream specified in Key3.&nbsp; If Key1 is &quot;ReturnValue&quot;, 
+				this attribute is not used.</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key3</a></td>
+				<td width="70%">
+				If Key1 is &quot;Regex&quot;, then this can be either &quot;stderr&quot; or &quot;stdout&quot; 
+				(with the latter being the default).&nbsp; If Key1 is anything 
+				else, this attribute is not used. </td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

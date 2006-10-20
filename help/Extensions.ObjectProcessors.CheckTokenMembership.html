@@ -1,0 +1,96 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The CheckTokenMembership Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The CheckTokenMemberShip Object Processor</td>
+          </tr>
+        </table>
+	</div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		will create a single instance if the given SID is a member of the 
+		currently logged on token of the thread processing the object.&nbsp; If 
+		it is not, no instances will be returned. </span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<font SIZE="2" COLOR="#0000ff"><p>
+			&lt;</font><font SIZE="2" COLOR="#800000">ObjectProcessor</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Name</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">CheckTokenMembership</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp; Assembly</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">BPA.ConfigCollector.dll</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff"><br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Class</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.CheckTokenMembershipObjectProcessor</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff"> 
+			/&gt;</font><font size="2"><br>
+			<br>
+			</font>An example object:</p>
+			<font SIZE="2" COLOR="#0000ff">
+			<p>&lt;</font><font SIZE="2" COLOR="#800000">Object</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp; Type</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">CheckTokenMembership</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Key1</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">S-1-5-32-544</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp; Name</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">LocalAdmin</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff"><br>
+			&gt;<br>
+			</font><font SIZE="2" color="#808080">&nbsp;&nbsp; &lt;Rule <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name=&quot;fNotLocalAdmin&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Query=&quot;count(../Instance[@Name='LocalAdmin'])=0&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Error=&quot;Error&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Text=&quot;The logged-on user ({1}) is not a member of 
+			the local Administrators group.&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S1=&quot;%CURRENTLOGON%&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ErrorID=&quot;1008&quot; <br>
+&nbsp;&nbsp; /&gt;</font><font SIZE="2" COLOR="#0000ff"><br>
+			&lt;/</font><font SIZE="2" COLOR="#800000">Object</font><font SIZE="2" COLOR="#0000ff">&gt;</font></td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is a stringified version of a SID to look for.</span></td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;CheckTokenMembership&quot;.</td>
+			</tr>
+			</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+		<p class="dtH4">&nbsp;&nbsp;&nbsp; None - all settings will just be 
+		copied over to the data file with a single value containing an empty 
+		string.</p>
+    	<p>&nbsp;</div>
+  </body>
+</html>

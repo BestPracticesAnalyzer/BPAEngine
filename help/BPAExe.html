@@ -1,0 +1,145 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>Sample GUI Wrapper</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+span.m1
+	{color:blue}
+span.t1
+	{color:#990000}
+span.b1
+	{font-family:"Courier New";
+	color:red;
+	font-weight:bold;
+	text-decoration:none;
+	text-underline:none;
+	text-decoration:none;
+	text-line-through:none}
+span.tx1
+	{font-weight:bold}
+ div.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table1">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">Sample GUI Wrapper</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <font size="5"><b>Overview</b></font></p>
+		<p>This topic describes the sample GUI wrapper that is supplied with the 
+		BPA SDK: BPA.exe.&nbsp; This wrapper is designed to be used as a test 
+		application, a code sample, and for early experimentation with 
+		configurations.&nbsp; It is not intended that product teams ship this 
+		directly to customers - you should take a snapshot of the code, make any 
+		needed customizations, and build it yourself.</p>
+      <p> <font size="5"><b>BPA.cs</b></font></p>
+		<p>This file contains the majority of the standard code that drives the 
+		common GUI.&nbsp; Most of this file can be used as is<span style="font-family: Times New Roman">.&nbsp; 
+		The following are the things that need to be done to customize it for a 
+		given implementation:</span></p>
+		<ul>
+			<li><span style="font-family: Times New Roman"><b>
+			BPA.InitializeCustomizations</b>.&nbsp; This method sets the 
+			properties in the BPACustomizations class (which is defined in 
+			BPA.UserInterface.dll).&nbsp; These properties are used to control 
+			the behavior of both the common GUI and the core engine.&nbsp; They 
+			are all fully documented within the code comments.&nbsp; There are 
+			several strings defined here that should be changed for each 
+			individual implementation.&nbsp; There are also a number of flags 
+			that control things like whether code and XML files should be 
+			verified for proper signing, whether auto-downloading is enabled, 
+			etc.&nbsp; Another thing that is controlled here are the custom 
+			screen definitions.&nbsp; Custom screens are used to allow you to 
+			add your own screens to present to the user to get run time 
+			parameters that will affect the run. For more information on how to 
+			create these yourself, see the <a href="GUIExtensions.Example1.html">
+			Creating a New Selection Screen</a> topic for an example.&nbsp; The 
+			BPA sample GUI provides one generic custom screen (described below).</span></li>
+			<li><span style="font-family: Times New Roman"><b>BPA.GetBPAScanInfo</b>.&nbsp; 
+			This method is called before a scan is run and is meant to handle 
+			extracting data from the custom screens and setting that data for 
+			the run.&nbsp; This is also described in more detail in the Creating 
+			a New Selection Screen topic.</span></li>
+			<li><span style="font-family: Times New Roman"><b>
+			BPARegistrySettings.Initialize</b>.&nbsp; If your application has 
+			any special requirements for storing data in the registry, you can 
+			do that work in this method (for example, if you want to save off 
+			the value of a property ona&nbsp; custom screen so it can be 
+			defaulted the next time the application is run).&nbsp; The idea is 
+			you would load in the current registry values here and provide 
+			accessors for them, and then your custom screens can reference those 
+			as needed.</span></li>
+			<li><span style="font-family: Times New Roman"><b>GenericStrings</b>.&nbsp; 
+			This class contains all the strings used by the application that are 
+			displayed to users.&nbsp; This is kind of a halfway point towards 
+			globalization of the tool.&nbsp; All of these strings should be 
+			moved to a resource file to properly globalize the tool, and then 
+			they can be localized as required.</span></li>
+		</ul>
+		</div>
+	<div id="nstext">
+      <p> <font size="5"><b>ScanOptions.cs</b></font></p>
+		<p>This <span style="font-family: Times New Roman">file contains the 
+		code for the sample/test custom screen.&nbsp; While this isn't meant as 
+		an end in itself, this screen does provide good sample code as well as 
+		something that is very useful from a test perspective.&nbsp; It 
+		generates the following fields:</span></p>
+		<ul>
+			<li><span style="font-family: Times New Roman"><b>Label</b>.&nbsp; 
+			This is a textbox that allows the user to enter a label for the run.&nbsp; 
+			This label is saved in the data file and will show up in the Select 
+			Scan screen for that report.</span></li>
+			<li><span style="font-family: Times New Roman"><b>AD Server</b>.&nbsp; 
+			This is a special parameter that will only be displayed if any
+			<a href="Extensions.ObjectProcessors.Directory.html">Directory</a> 
+			object types exist in the configuration.&nbsp; It identifies the AD 
+			server that the AD queries should use by default.</span></li>
+			<li><span style="font-family: Times New Roman"><b>Substitutions</b>.&nbsp; 
+			This will create one textbox for each global
+			<a href="Schema.Substitution.html">Substitution</a> found in the 
+			configuration.&nbsp; The values entered here will then be passed 
+			into the engine at run time.</span></li>
+			<li><span style="font-family: Times New Roman"><b>Restrictions</b>.&nbsp; 
+			This will create one combobox for each
+			<a href="Schema.RestrictionType.html">RestrictionType</a> found in 
+			the configuration.&nbsp; Each combobox will be populated based on 
+			the <a href="Schema.Option.html">Option</a> elements under the 
+			RestrictionType.</span></li>
+			<li><span style="font-family: Times New Roman"><b>Credentials</b>.&nbsp; 
+			This will create three textboxes and a checkbox for prompting for 
+			credentials for each unique
+			<a href="Schema.Object.SecurityContext.html">SecurityContext</a> 
+			value in the configuration.&nbsp; The checkbox determines whether 
+			the credentials should be passed in or not, and the textboxes allow 
+			for entering the user name, domain, and password.&nbsp; </span></li>
+		</ul>
+		<p>&nbsp;</p>
+		</div>
+	<p class="MsoNormal">&nbsp;</p>
+  </body>
+</html>

@@ -1,0 +1,250 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The BPA Configuration Authoring Tool Overview</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table1">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The BPA Configuration Authoring Tool Overview</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <font size="5"><b>About the Tool</b></font></p>
+		<p> The configuration authoring tool was created to simplify the process 
+		of constructing and modifying a BPA configuration.&nbsp; The tools 
+		simplifies things by indicating what the valid elements and attributes 
+		are and how they fit together.&nbsp; It also does some on the fly 
+		validation to ensure the file is internally consistent.&nbsp; </p>
+      <p> <b><font size="5">Getting Started</font></b></p>
+		<p> The tool executable is BPAAuthor.exe.&nbsp; Before using it, that 
+		file and all standard BPA libraries should be copied locally to the 
+		machine you want to craft configurations with.&nbsp; There is no MSI for 
+		this tool.&nbsp; Just run BPAAuthor.exe to start it.&nbsp; No command 
+		line options are available.</p>
+		<p> The GUI is divided in two major sections: the tree view (on the 
+		left) and the editing screens (on the right).&nbsp; The first screen 
+		that is shown allows you to create or open a BPA configuration.&nbsp; 
+		Once you have a configuration, the tree view will be populated with all 
+		the elements in that configuration.&nbsp; As you select nodes in the 
+		tree view, the editing screen will change to have the appropriate 
+		attributes and values for the currently selected node.&nbsp; You can 
+		then use the editing screen to modify the attributes.&nbsp; Each screen 
+		has a &quot;Commit Changes&quot; link at the bottom.&nbsp; This will commit any 
+		changes you have made to the in-memory copy of the document.&nbsp; You 
+		can save all committed changes back to disk using the Save option on the 
+		Configuration main menu, or by selecting the root node (which will show 
+		you the initial screen again) and selecting the save or save as link.&nbsp; 
+		If you attempt to exit the application or open a new configuration with 
+		unsaved committed changes, you will be prompted to indicate whether you 
+		want to save those changes or not.</p>
+		<p> In addition to the two main sections, there is a main menu that 
+		contains all the available options at any given time, and a set of 
+		controls for searching the document.&nbsp; The text box takes a regular 
+		expression and selected next or previous will navigate to the next or 
+		previous node in the document that contains any matching data.&nbsp; If 
+		no node is selected, this will go from the start or the end, depending 
+		on the direction specified.&nbsp; Any data in any attribute on each 
+		element may be used to match, including the element and attribute names 
+		themselves.</p>
+    <div id="nstext3">
+      <font size="5"><b>The Main Menu</b></font><p> The options on the main menu 
+		are:</p>
+		</div>
+		<ul>
+			<li><b>Configuration</b>.&nbsp; These menu items control opening and 
+			saving configuration files (these controls are also available as 
+			links on the main page).</li>
+			<li><b>Edit</b>.&nbsp; These menu items are for specific editing 
+			functions for the configuration.&nbsp; The actual menu subitems will 
+			vary depending on what type of element is selected in the tree view, 
+			and they will be the same as the context menu described in the tree 
+			view below.</li>
+			<li><b>Options</b>.&nbsp; This contains general options controlling 
+			the behavior of the tool.&nbsp; This currently contains one option 
+			relating to SDM hinting attribute verification.&nbsp; If this is 
+			enabled and SDM hinting attributes are not specified on an Object, 
+			Setting, or Rule, the tool will prompt the user to let them know 
+			this at the time they try to commit the changes.&nbsp; There is more 
+			on the SDM hinting attributes below.</li>
+			<li><b>Help</b>.&nbsp; This contains an Overview subitem, which will 
+			bring up the bpahelp.chm file.</li>
+		</ul>
+		</div>
+    <div id="nstext0">
+      <font size="5"><b>The Tree View</b></font><p> Once a configuration has 
+		been selected, the tree view will contain all the elements in the 
+		configuration, arranged in the same hierarchical fashion that they are 
+		in the XML file.&nbsp; Selecting an element will bring up an edit screen 
+		appropriate to that element.&nbsp; If you right-click on an element, it 
+		will provide you with a list of options that are available.&nbsp; These 
+		options will be:</p>
+		<ul>
+			<li><b>Add &lt;element&gt;</b>.&nbsp; One of these options will exist for 
+			every valid type of child element that can be added under the 
+			currently selected element.&nbsp; Every element will also have an&nbsp; 
+			&quot;Add Custom Element&quot; option to allow you to add any type of element 
+			you may want.&nbsp; Such custom elements will be ignored by the BPA 
+			engine, but they be accessed with an extension, such as a
+			<a href="Schema.ConfigProcessor.html">Configuration Preprocessor</a>.&nbsp; 
+			Note: when a new element is added to the configuration, that add 
+			will be done to the in-memory document immediately.&nbsp; Even if 
+			the &quot;Commit Changes&quot; link is not selected in the edit screen, the 
+			newly created element will remain.&nbsp; This can also be selected 
+			from the Edit main menu.</li>
+			<li><b>Delete</b>.&nbsp; This will exist as long as the element can 
+			validly be deleted (the only ones that aren't are the root node and 
+			the Configuration element).&nbsp; If chosen, the element and all its 
+			child elements will be removed from the in-memory copy of the 
+			document.&nbsp; </li>
+			<li><b>Cut</b>.&nbsp; This is like delete, but it will also make a 
+			copy of the element and all its children in memory.&nbsp; This can 
+			also be selected from the Edit main menu or by hitting Shift-Delete 
+			or Control-X.</li>
+			<li><b>Copy</b>.&nbsp; This will make a copy of the element and all 
+			its children in memory.&nbsp; This is also not present on the root 
+			or Configuration element because you cannot have more than one of 
+			those.&nbsp; This can also be selected from the Edit main menu or by 
+			hitting Control-Insert or Cntrl-C.</li>
+			<li><b>Paste</b>.&nbsp; This will be present if an element has been 
+			previously copied and it is a valid child of the currently selected 
+			element.&nbsp; This can also be selected from the Edit main menu or 
+			by hitting Shift-Insert or Control-V.</li>
+			<li><b>&lt;element&gt; Help</b>.&nbsp; This will be present if a context 
+			sensitive help topic exists for the chosen element.&nbsp; It will 
+			bring up a help file showing details on what the element means and 
+			how it should be defined.&nbsp; This can also be selected from the 
+			Edit main menu or by hitting Shift-F1.</li>
+			<li><b>Expand all</b>.&nbsp; This will expand the entire tree 
+			underneath the currently selected node.&nbsp; Control-E will also do 
+			this.</li>
+		</ul>
+		</div>
+    <div id="nstext1">
+      <font size="5"><b>The Editing Screens</b></font><p> There will be 
+		different screens presented depending on the type of element currently 
+		selected in the tree view.&nbsp; There are some common characteristics 
+		of these screens:</p>
+		<ul>
+			<li><b>Comments</b>.&nbsp; Each edit screen starts with a comments 
+			section.&nbsp; The data in this text control will actually be saved 
+			to an XML comment node immediately preceding the currently selected 
+			node.&nbsp; It has no affect on processing.</li>
+			<li><b>Attribute fields</b>.&nbsp; All the standard attribute fields 
+			will be listed.&nbsp; Several different types of controls are used 
+			for this, depending on the possible values of the field.&nbsp; If it 
+			is a true/false field, a check box will be used.&nbsp; If it is a 
+			free form text field, it will just be a text box.&nbsp; If a 
+			specific set of values are valid, it will be a drop down list of 
+			values.&nbsp; Note that most of the drop down lists will also be 
+			editable so any particular custom values can be added if needed.&nbsp; 
+			For all attributes, additional validations and other actions may be 
+			taken based on the specific content entered.</li>
+			<li><b>Other attributes</b>.&nbsp; Every edit screen also allows 
+			other custom attributes to be specified.&nbsp; Like custom elements, 
+			these will also be ignored by the engine but they will get passed 
+			around appropriately.&nbsp; So - for instance - a custom attribute 
+			added to an Object element will be visible to the object processor 
+			that is dispatched for that Object.&nbsp; All unrecognized 
+			attributes and their values will be listed in this field, and any 
+			changes made in this field will be applied after all the standard 
+			attribute changes have been applied.&nbsp; This means that if you 
+			add a standard attribute to this field, it will override any changes 
+			made in the standard field for that attribute.</li>
+			<li><b>Commit changes link</b>.&nbsp; This will commit the changes 
+			made on the screen to the in-memory document.&nbsp; If you switch 
+			off an element without selecting this, all such changes will be 
+			lost.&nbsp; Note that committed changes are only made in memory, and 
+			not saved to disk until the user elects to.</li>
+			<li><b>Advanced attributes</b>.&nbsp; Several screens have an 
+			advanced attributes screen containing addition, less-used 
+			attributes.</li>
+			<li><b>SDM Hinting Attributes</b>.&nbsp; Several screens have SDM 
+			Hint Attribute edit screens.&nbsp; These contain hinting attributes 
+			that can be specified.&nbsp; These attributes are not used by the 
+			BPA engine, but are for future conversion to an SDM document.&nbsp; 
+			See <a href="Schema.Object.SDMName.html">SDMName</a>,
+			<a href="Schema.Object.SDMMultiplicity.html">SDMMultiplicity</a>,
+			<a href="Schema.Object.SDMElement.html">SDMElement</a>, and
+			<a href="Schema.Setting.SDMDataType.html">SDMDataType</a> for 
+			details.</li>
+			<li><b>Substitutions</b>.&nbsp;
+			<a href="Schema.Setting.Substitution.html">Substitutions</a> are the 
+			BPA equivalent of variable assignments.&nbsp; They are specified on 
+			Setting elements, and can then be referenced by all objects below it 
+			in the hierarchy.&nbsp; Where applicable, the authoring tool 
+			provides a list of substitutions that are in the scope of the 
+			currently selected element.&nbsp; You can copy a substitution name 
+			out of the list using Control-Insert or Control-C, and then paste 
+			them into a text box using standard clipboard commands.&nbsp; When 
+			pasted in, the tool will automatically enclose the name in percent 
+			signs, which is the standard why they should be referenced.</li>
+		</ul>
+		<p>In addition to the standard controls, some screens have very 
+		specialized features:</p>
+		<ul>
+			<li><b>Setting Advanced Attributes: Format and SubstitutionFormat 
+			testing</b>.&nbsp; When the &quot;&lt;match&gt;----&lt;replace&gt;&quot; format type is 
+			selected, you are then expected to enter a regular expression string 
+			to match the appropriate data, and a replacement string to replace 
+			it with.&nbsp; <a href="Schema.ExtFormat.html">Formats</a> of the 
+			match and replace strings in regular expressions can be found in 
+			MSDN.&nbsp; Because these can be somewhat complex, once this has 
+			been selected a test button and a text box will be enabled.&nbsp; If 
+			you enter a text string and then select the test link, it will alter 
+			the string according to the match and replace strings specified.</li>
+			<li><b>Rule, Template and Processor Names</b>.&nbsp; These names 
+			need to be unique, so if you enter a name that already exists the 
+			Commit Changes link will be disabled.</li>
+			<li><b>Rule Advanced Attributes: Next EventID assigning</b>.&nbsp; 
+			When a configuration is opened, the tool will look for all
+			<a href="Schema.Rule.EventID.html">EventID</a> attributes and it 
+			will determine what the highest number currently specified is.&nbsp; 
+			You can then use the next link to get the next available number to 
+			assign to a new EventID.&nbsp; </li>
+			<li><b>Rule Advanced Attributes: P vs S parameters</b>.&nbsp;
+			<a href="Schema.Rule.Pn.html">Pn</a> and
+			<a href="Schema.Rule.Sn.html">Sn</a> attributes are used for passing 
+			parameters to rule text, and only one of each value may be 
+			specified.&nbsp; So, for example, if P5 has a value, then S5 will be 
+			disabled.&nbsp; </li>
+			<li><b>Rule Advanced Attributes: Create Template from currently 
+			specified attributes link</b>.&nbsp; <a href="Schema.Template.html">
+			Templates</a> are used to allow redundant rule properties to be 
+			specified in a single place.&nbsp; If you choose to create a 
+			template from a given rule, it will create a template with the 
+			specified name, copy all the attributes specified for the rule to 
+			the template, remove all the rule attributes except for the rule 
+			name and the Template value, which will be filled in with the newly 
+			created template name.&nbsp; Note: when viewing a rule, any template 
+			attributes will automatically be filled in; when saving a rule, it 
+			will not save any attributes to the rule that have the same value as 
+			the specified template.</li>
+			<li><b>Rules</b>.&nbsp; On the rules edit and advanced edit screens, 
+			a control similar to the Substitutions list will be supplied that 
+			lists all available rules (unlike substitutions, rules are globally 
+			accessible, so this will always contain all rules specified in the 
+			file).&nbsp; This list also supports Control-Insert or Control-C for 
+			copying the rules, and uses the clipboard for pasting them back.&nbsp; 
+			However instead of enclosing the rule name in percent signs, it 
+			precedes them with dollar signs, which is the appropriate syntax.</li>
+			<li><b>Processor and Custom Types</b>.&nbsp; The processor and 
+			custom edit screens allow for specifying the actual name of the 
+			element as well as the attributes of it.&nbsp; This is only allowed, 
+			however, when a new element is created.&nbsp; Once a name as been 
+			assigned and committed, further changes are not allowed and the type 
+			field will be disabled.</li>
+		</ul>
+		</div>
+  </body>
+</html>

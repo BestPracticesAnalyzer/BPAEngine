@@ -1,0 +1,109 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The list-average Function Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The list-average Function Processor</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		function processor can be used to get the average value of the integer 
+		nodes in a comma-separated list.</span>
+		<span style="font-size: 12.0pt; font-family: Times New Roman">
+		&nbsp;This was designed specifically for use with the
+		<a href="Extensions.ObjectProcessors.Pdh.html">Pdh object processor</a> 
+		to get an average value across performance samples, but it can be 
+		applied to any list of integers.</span><p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><p>The FunctionProcessor definition:</p><p>
+			<font SIZE="2" COLOR="#0000ff">&lt;</font><font SIZE="2" COLOR="#800000">ExtFunction</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Name</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">list-average</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Assembly</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">BPA.ConfigCollector.dll</font><font SIZE="2">&quot;</font><br>
+			<font SIZE="2" color="#0000FF">&nbsp;&nbsp; </font>
+			<font SIZE="2" COLOR="#ff0000">Class</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.PdhObjectProcessor</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Function</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Average</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Returns</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Number</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp; Parameters</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">String</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+			/&gt;</font><p>An example usage:</p>
+			<font SIZE="2" COLOR="#808080">
+			<p>&lt;Setting <br>
+&nbsp;&nbsp; Key1=&quot;SMTP Server&quot; <br>
+&nbsp;&nbsp; Key2=&quot;Cat: Categorizations in progress&quot; <br>
+&nbsp;&nbsp; Key3=&quot;_Total&quot; <br>
+			&gt;<br>
+&nbsp;&nbsp; &lt;Rule <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name=&quot;fAvgCatInProgAt1000&quot; </font>
+			<font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Query</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">list-average($.)
+			</font><font SIZE="2" COLOR="#0000FF">&amp;gt;</font><font SIZE="2" COLOR="#0000ff">800 
+			and list-average($.) </font><font SIZE="2" COLOR="#0000FF">&amp;lt;</font><font SIZE="2" COLOR="#0000ff">1200</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+			</font><font SIZE="2" color="#808080">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			Error=&quot;Error&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sev=&quot;2&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title=&quot;Messages are submitted faster than 
+			categorizer can process&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Text=&quot;The 'Cat: Categorizations in progress' 
+			counter on server {2} stays steady around 1000.&quot;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S2=&quot;%varExName%&quot; <br>
+&nbsp;&nbsp; /&gt;<br>
+			&lt;/Setting&gt;</font></td></tr></table>
+      <h4 class="dtH4">Specific ExtFunction Attributes (see
+		<a href="Schema.Object.html">ExtFunction</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top"><td width="29%">Function</td>
+				<td width="70%">
+				<p class="MsoNormal" style="margin-right:.05in">This 
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				must be set to &quot;Average&quot;.</span></p>
+				</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%">Returns</td>
+				<td width="70%">This must be set to &quot;Number&quot;.&nbsp; 
+				This returns the average value.</td>
+			</tr>
+			<tr>
+				<td width="29%">Parameters</td>
+				<td width="70%">This must be set to &quot;String&quot;.&nbsp; This takes a 
+				comma-separated list of integers.</td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

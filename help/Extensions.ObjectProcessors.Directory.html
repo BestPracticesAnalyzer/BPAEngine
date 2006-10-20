@@ -1,0 +1,151 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Directory Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+       <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Directory Object Processor</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		object processor can be used to collect data from an Active Directory 
+		server.&nbsp; It uses LDAP queries to perform this access.&nbsp; It is 
+		implemented using the System.DirectoryServices .NET frameworks class.</span></p>
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">For 
+		each AD object found that matches the given query, an
+		<a href="Schema.Instance.html">Instance</a> element will be created and 
+		all the elements under the original <a href="Schema.Object.html">Object</a> 
+		will be duplicated in each Instance.&nbsp; The
+		<a href="Schema.Instance.Name.html">Name</a> attribute for each instance 
+		will be set to the cn of the directory object.&nbsp; Each <a href="Schema.Setting.html">Setting</a> element 
+		will be processed separately per Instance and will have zero or more
+		<a href="Schema.Value.html">Value</a> elements added to them based on 
+		the contents of the corresponding AD property.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<p><font size="2">
+			<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;Directory&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.ConfigCollector.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.DirectoryObjectProcessor&quot;
+			<br>
+			/&gt;</font><br>
+			<br>
+			</font>An example directory object:</p>
+			<p>
+			<font size="2" color="#0000FF">&lt;</font><font size="2">Object</font><font size="2" color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Type</font><font size="2" color="#0000FF">=&quot;Directory&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key2</font><font size="2" color="#0000FF">=&quot;%DN%&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key3</font><font size="2" color="#0000FF">=&quot;(&amp;amp;(objectCategory=msExchExchangeServer)%SERVER%)&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Class</font><font size="2" color="#0000FF">=&quot;Server&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">GroupingClass</font><font size="2" color="#0000FF">=&quot;True&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Async</font><font size="2" color="#0000FF">=&quot;%65&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">TrackProgress</font><font size="2" color="#0000FF">=&quot;TrackProgress&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">MaxTime</font><font size="2" color="#0000FF">=&quot;ALL,1&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">MaxFailures</font><font size="2" color="#0000FF">=&quot;WMI,1&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">MaxTimeouts</font><font size="2" color="#0000FF">=&quot;ALL,1&quot;<br>
+			&gt;<br>
+			&lt;/</font><font size="2">Object</font><font size="2" color="#0000FF">&gt;<br>
+			</font></td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the prefix to apply to the given DN.&nbsp; For root level 
+				entries, this will default to LDAP://&lt;gc&gt;/rootDSE, and LDAP:// 
+				for other entries.&nbsp; The &lt;gc&gt; value comes from a global 
+				substitution</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">
+				This is the DN to use.&nbsp; It will get appended to Key1.</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is an LDAP filter string to be applied to the search for 
+				this object.&nbsp; Note that parentheses will be added to this string 
+				automatically.</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key4</a></td>
+				<td width="70%">
+				<p class="MsoNormal">This is a search scope to use.&nbsp; It can have 
+				one of the following values:</p>
+				<ul style="margin-top: 0in; margin-bottom: 0in" type="disc">
+					<li class="MsoNormal">&quot;Base&quot; is just the exact object 
+					defined by the given DN.&nbsp; This is the default if no filter 
+					is specified.</li>
+					<li class="MsoNormal">&quot;OneLevel&quot; means to just match against 
+					the immediate child directory objects under this one.</li>
+					<li>
+					<span style="font-size: 12.0pt; font-family: Times New Roman">
+					&quot;Subtree&quot; means to match against the whole directory tree 
+					under this object.&nbsp; This is the default if a filter is 
+					specified.</span></li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;Directory&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">This is the name of the property to retrieve.</td>
+			</tr>
+			</table>
+    	</div>
+  </body>
+</html>

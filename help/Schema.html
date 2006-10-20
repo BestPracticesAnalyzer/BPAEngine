@@ -1,0 +1,199 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Schema Definition</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Schema Definition</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> This section described all the elements and attributes that comprise 
+		the configuration that the BPA engine consumes. </p>
+      <h4 class="dtH4">Top Level Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table1" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Configuration.html">
+	Configuration</a></td><td width="70%">
+        This element contains some general meta-information about the input configuration or the output data.
+      </td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        This element contains information about a single item to be 
+		processed.
+      </td></tr>
+<tr>
+	<td width="29%"><a href="Schema.Reference.html">Reference</a></td><td width="70%">
+        This element refers to a <a href="Schema.Type.html">Type</a> element to be included in that position.
+      </td>
+</tr>
+<tr>
+	<td width="29%"><a href="Schema.Type.html">Type</a></td><td width="70%">
+        This element defines a reusable configuration fragment.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">All Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" border="1" style="margin-left: 16" id="table2" width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.ConfigProcessor.html">ConfigPreprocessor</a></td><td width="70%">
+        This element identifies a managed class that will be used to preprocess the configuration.<b>&nbsp;</b></td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Configuration.html">
+	Configuration</a></td><td width="70%">
+        This element contains some general meta-information about the input configuration or the output data.
+      </td>
+</tr>
+<tr>
+	<td width="29%"><a href="Schema.Customize.html">Customize</a></td><td width="70%">
+        This element can be used to alter specific portions of referenced types.
+      </td>
+</tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.DataPostprocessor.html">
+	DataPostprocessor</a></td><td width="70%">
+        This element identifies a managed class that will be used to postprocess 
+		the data document after collection and analysis has been completed.
+	</td>
+</tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.ExtFormat.html">
+	ExtFormat</a></td><td width="70%">
+        This element maps an <a href="Schema.Setting.Format.html">Setting.Format</a> to a managed class.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.ExtFunction.html">
+	ExtFunction</a></td><td width="70%">
+        This element maps an custom rule function to a managed class.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.IssueProcessor.html">
+	IssueProcessor</a></td><td width="70%">
+        This element identifies a managed class that will be invoked when a rule fires.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Instance.html">
+	Instance</a></td><td width="70%">
+        This output element contains an instance of an input <a href="Schema.Object.html">Object</a>.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Log.html">
+	Log</a></td><td width="70%">
+        This output element contains the text of a single logged message.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Message.html">
+	Message</a></td><td width="70%">
+        This output element is generated when a rule fires.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        This element contains information about a single item to be 
+		processed.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.ObjectProcessor.html">
+	ObjectProcessor</a></td><td width="70%">
+        This element maps an <a href="Schema.Object.Type.html">Object.Type</a> to a managed class.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Option.html">Option</a></td><td width="70%">
+        This element identifies an option of a restriction.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Pivot.html">
+	Pivot</a></td><td width="70%">
+This element allows a indirect referencing between rules.
+      </td>
+</tr>
+<tr>
+	<td width="29%"><a href="Schema.Reference.html">Reference</a></td><td width="70%">
+        This element refers to a <a href="Schema.Type.html">Type</a> element to be included in that position.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.RestrictionType.html">RestrictionType</a></td><td width="70%">
+        This element identifies a restriction to apply to the configuration.</td>
+</tr>
+<tr VALIGN="top">
+		<td width="29%"><a href="Schema.Result.html">
+	Result</a></td><td width="70%">
+        This output element contains the results of a rule that got processed.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Rule.html">
+	Rule</a></td><td width="70%">
+        This element contains information about a rule to execute on the output data.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Run.html">
+	Run</a></td><td width="70%">
+        This output element contains general information about a particular run.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Setting.html">
+	Setting</a></td><td width="70%">
+        This element identifies a property to be retrieved from an <a href="Schema.Object.html">Object</a>.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Substitution.html">
+	Substitution</a></td><td width="70%">
+        This element contains a parameter value that can be references elsewhere in the configuration.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Template.html">
+	Template</a></td><td width="70%">
+        This element identifies a rule template that can be applied to other rules so similar rules don't need to be defined separately.
+      </td>
+</tr>
+<tr>
+	<td width="29%"><a href="Schema.Type.html">Type</a></td><td width="70%">
+        This element defines a reusable configuration fragment.
+      </td>
+</tr>
+<tr VALIGN="top">
+	<td width="29%"><a href="Schema.Value.html">
+	Value</a></td><td width="70%">
+        This output element contains the string contents of a single value of a <a href="Schema.Setting.html">Setting</a>.
+      </td>
+</tr>
+      </table>
+      </div>
+      <p>These elements are all arranged in a hierarchical fashion to form the 
+		BPA configuration or the output data file (some elements appear in both 
+		the input configuration and the output data files, and some just appear 
+		in one or the other).&nbsp; Each element description defines the purpose 
+		of the element, all the valid attributes, and what are valid child 
+		elements are.</div>
+  </body>
+</html>

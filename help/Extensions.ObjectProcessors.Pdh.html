@@ -1,0 +1,177 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Pdh Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Pdh Object Processor</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This is 
+		used to do simple performance counter sampling over time using the Performance
+		Data Helper library.&nbsp; It can execute the performance data gathering 
+		in real time, or it can process data from an already created blg file 
+		(such a file can be created with the
+		<a href="Extensions.ObjectProcessors.PdhCollect.html">PdhCollect</a> 
+		object processor.</span></p>
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		will create <a href="Schema.Instance.html">Instance</a> 
+		elements for each unique category/instance pair
+		introduced by the settings (including wildcard expansion).&nbsp; It can 
+		also create Instance elements per time range when processing an existing 
+		blg file.&nbsp;
+		The <a href="Schema.Instance.Name.html">Name</a> attribute for these
+		instances will read &quot;Category(Instance)&quot;.&nbsp;
+		Each instance will have an extra attribute stamped on it 
+		of &quot;SampleTime&quot; which will indicate when the sample was begun.&nbsp; Each
+		<a href="Schema.Setting.html">Setting</a> will have one
+		<a href="Schema.Value.html">Value</a> element added, and the value will 
+		be a comma-separated list of counter values taken at each sample 
+		interval.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<p><font size="2">
+			<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;Pdh&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.ConfigCollector.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.PdhObjectProcessor&quot;
+			<br>
+			/&gt;</font><br>
+			</font>
+			<p>An example object:<p><font size="2"><font color="#0000FF">&lt;</font>Object<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Type</font><font color="#0000FF">=&quot;Pdh&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Key1</font><font color="#0000FF">=&quot;%SRVNAME%&quot; <br>
+&nbsp;&nbsp; </font><font color="#FF0000">Key2</font><font color="#0000FF">=&quot;10&quot; <br>
+&nbsp;&nbsp; </font><font color="#FF0000">Key3</font><font color="#0000FF">=&quot;10&quot; <br>
+			&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font>Setting<font color="#0000FF">
+			</font><font color="#FF0000">Key1</font><font color="#0000FF">=&quot;Processor&quot; 
+			</font><font color="#FF0000">Key2</font><font color="#0000FF">=&quot;% Processor Time&quot; 
+			</font><font color="#FF0000">Key3</font><font color="#0000FF">=&quot;*&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font>Setting<font color="#0000FF">
+			</font><font color="#FF0000">Key1</font><font color="#0000FF">=&quot;Processor&quot; 
+			</font><font color="#FF0000">Key2</font><font color="#0000FF">=&quot;% Privileged Time&quot; 
+			</font><font color="#FF0000">Key3</font><font color="#0000FF">=&quot;*&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font>Setting<font color="#0000FF">
+			</font><font color="#FF0000">Key1</font><font color="#0000FF">=&quot;Processor&quot; 
+			</font><font color="#FF0000">Key2</font><font color="#0000FF">=&quot;% User Time&quot; 
+			</font><font color="#FF0000">Key3</font><font color="#0000FF">=&quot;*&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font>Setting<font color="#0000FF">
+			</font><font color="#FF0000">Key1</font><font color="#0000FF">=&quot;System&quot;
+			</font><font color="#FF0000">Key2</font><font color="#0000FF">=&quot;Context 
+			Switches/sec&quot;
+			</font><font color="#FF0000">Key3</font><font color="#0000FF">=&quot;&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font>Setting<font color="#0000FF">
+			</font><font color="#FF0000">Key1</font><font color="#0000FF">=&quot;System&quot;
+			</font><font color="#FF0000">Key2</font><font color="#0000FF">=&quot;System 
+			Calls/sec&quot;
+			</font><font color="#FF0000">Key3</font><font color="#0000FF">=&quot;&quot;/&gt;<br>
+			</font><font size="2" color="#0000FF">&lt;/</font><font size="2">Object</font><font size="2" color="#0000FF">&gt;</font><br>
+			</font></td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				The name of the server to access.&nbsp; If processing an already 
+				created blg file, this can also be set to &quot;*&quot;, in which case it 
+				will only process the first server found in the file.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">The number of samples to take.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">When collecting live data, this is the period between samples (in seconds).&nbsp; 
+				When processing from a blg file, this is the file name.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key4</a></td>
+				<td width="70%">When processing from a blg file, this can be the 
+				starting sample number, or it can be a time range in the format 
+				&lt;date/time string&gt;-&lt;data/time string&gt;.&nbsp; This parameter is 
+				ignored when collecting live data.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key5</a></td>
+				<td width="70%">When processing from a blg file, this can be the 
+				name of a cached query to create a use (if the query does not 
+				yet exist, it will be created and saved under that name, if it 
+				already exists, it will be reused).&nbsp; Also, this can be of 
+				the form &quot;ResetCache: &lt;query name&gt;&quot; in which case it will clear 
+				that query, or it can just be &quot;ResetCache&quot;, in which case it 
+				will clear all queries.&nbsp; This parameter is ignored when 
+				collecting live data.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;Pdh&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">The Perfmon counter category.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Object.Key.html">
+				Key2</a></td>
+				<td width="70%">The Perfmon counter name.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Object.Key.html">
+				Key3</a></td>
+				<td width="70%">The Perfmon counter instance.  It may contain wildcards.</td>
+			</tr>
+			</table>
+    	<p>Note: to reduce the amount of information saved in the XML due to 
+		large performance samples, use the 
+		<a href="Extensions.FormatProcessors.AverageFormat.html">AverageFormat</a>, 
+		<a href="Extensions.FormatProcessors.MinFormat.html">MinFormat</a>, 
+		<a href="Extensions.FormatProcessors.MaxFormat.html">MaxFormat</a>, 
+		<a href="Extensions.FormatProcessors.NineteeithPercentileFormat.html">NineteeithPercentileFormat</a>, 
+		<a href="Extensions.FormatProcessors.SigmaFormat.html">SigmaFormat</a>, or 
+		<a href="Extensions.FormatProcessors.MinNonZeroFormat.html">MinNonZeroFormat</a> if 
+		appropriate.</div>
+  </body>
+</html>

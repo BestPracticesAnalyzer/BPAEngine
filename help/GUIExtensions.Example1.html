@@ -1,0 +1,328 @@
+<html dir="LTR" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" >
+    <title>Example 1: Creating a Server Selection Screen</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table1">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">Example 1: Creating a Server Selection Screen</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <p> <font size="5"><b>Overview</b></font></p>
+		<p> If you are going to create a best practices analyzer, one of the 
+		first things you will need to do is allow a user to specify what server 
+		or set of servers to run the scan against (unless you are going to only 
+		allow local, single server runs).&nbsp; Ideally, the set of servers 
+		should be auto-populated from some data store somewhere, and the user 
+		would then just need select the ones they want.&nbsp; If this is not 
+		possible for some reason, the user would have to be allowed to enter the 
+		server names manually.&nbsp; In the manual entry case when a single 
+		server is selected, the simplest way to communicate the selected server 
+		to the configuration is by using a global
+		<a href="Schema.Substitution.html">Substitution</a>.&nbsp; In the manual 
+		entry case when multiple servers may be selected, some other way is 
+		required because the configuration will have to somehow iterate over 
+		those entries.&nbsp; While there are a number of ways this can be 
+		accomplished, this example stores the servers in registry keys which 
+		allows the <a href="Extensions.Registry.html">Registry Object Processor</a> 
+		to do the iteration.</p>
+		<p> <font size="5"><b>Step 1: Creating the custom screen</b></font></p>
+		<p> The base class for custom screens is BPAScreen (which itself is 
+		derived from Windows.Forms.Panel).&nbsp; The minimum methods you will 
+		need to define to implement your screen are:</p>
+		<p><b>The Constructor</b>.&nbsp; This does some minor initialization of 
+		the panel.&nbsp; It can also be used to determine if a left pane 
+		navigational link will go directly to this panel or not.&nbsp; Here is a 
+		sample implementation:</p>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#808000">/// &lt;summary&gt;<br>
+			/// This class is provided here just for purposes of this example.&nbsp; 
+			By putting all string references in a<br>
+			/// separate class, it will make globalizing your code easier if you 
+			ever decide to go that route.&nbsp; The<br>
+			/// strings defined here are used throughout this sample code.<br>
+			/// &lt;/summary&gt;<br>
+			</font><font color="#0000FF">public</font> <font color="#0000FF">
+			class</font> GUIStrings<br>
+			{<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">public const string</font> 
+			Button_ScanOptions = &quot;Scan Options&quot;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">public const string</font> 
+			Label_SSTitle = &quot;Server Selection Screen&quot;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">public const string</font> 
+			Label_SSLabel = &quot;Enter Server List&quot;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">public const string</font> 
+			LinkLabel_SSStartScan = &quot;Start scanning&quot;;<br>
+			}<p><font color="#808000">/// &lt;summary&gt;<br>
+			/// This creates the scan options screen.<br>
+			/// &lt;/summary&gt;<br>
+			/// &lt;param name=&quot;bpa&quot;&gt;The main form.&lt;/param&gt;</font><font color="#0000FF"><br>
+			public</font> ScanOptions(BPA bpa) :
+			<font color="#0000FF">base</font>()<br>
+			{<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">this</font>.Dock = DockStyle.Fill;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">this</font>.AutoScroll =
+			<font color="#0000FF">true</font>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">this</font>.BackColor = 
+			Color.White;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">this</font>.bpa = bpa;<br>
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; LinkName = GUIStrings.Button_ScanOptions;<br>
+			}</td></tr></table>
+      <p><b>Initialize</b>.&nbsp; This is called on each screen as the first 
+		step after MainGUI.Start is called.&nbsp; This can be used to create any 
+		fixed controls you want to add to the screen, and any other 
+		initialization you may want to do.&nbsp; Here is a sample 
+		implementation:</p>
+        <table class="dtTABLE" cellspacing="0" id="table3" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#808000">/// &lt;summary&gt;<br>
+			/// This initializes the controls on the scan options screen.<br>
+			/// &lt;/summary&gt;<br>
+			/// &lt;param name=&quot;mainGUI&quot;&gt;This object contains all the shared GUI 
+			information.&lt;/param&gt;<br>
+			</font><font color="#0000FF">public override void</font> 
+			Initialize(MainGUI mainGUI)<br>
+			{<br>
+&nbsp;&nbsp;&nbsp; <font color="#808000">&nbsp;// Standard initialization</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">base</font>.Initialize(mainGUI);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; int nextTabIndex = mainGUI.StartingTabIndex;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; Point nextLocation = MainGUI.BorderCorner;<br>
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#808000">// Set up the controls.&nbsp; 
+			This is the main title.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp; BPATitle title = <font color="#0000FF">new</font> 
+			BPATitle <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (GUIStrings.Label_SSTitle,nextLocation,bpa.CommonGUI.FullWidth,<font color="#0000FF">this</font>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; title.TabIndex = nextTabIndex++;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; nextLocation = Navigate.Below(title);<br>
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#808000">// This label is for the combo 
+			box control.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp; BPALabel selectServer = <font color="#0000FF">new</font> 
+			BPALabel(GUIStrings.Label_SSLabel,nextLocation,250,<font color="#0000FF">this</font>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; selectServer.TabIndex = nextTabIndex++;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; nextLocation = Navigate.NextTo(selectServer);<br>
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#808000">// This is a text box for 
+			entering a list of servers.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp; BPATextBox servers = new 
+			BPATextBox(nextLocation,2,this);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; servers.TabIndex = nextTabIndex++;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; servers.Leave += new EventHandler(SaveServers);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; PopulateServers(servers);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; nextLocation = Navigate.Below(selectServer);<br>
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#808000">// This link will start the scan.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp; nextLocation = Navigate.Indent(nextLocation);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; BPALink linkStart = <font color="#0000FF">new</font> 
+			BPALink(bpa.CommonGUI,MainGUI.Actions.StartScan,false,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			GUIStrings.LinkLabel_SSStartScan,bpa.CommonGUI.ArrowPic,nextLocation,0,<font color="#0000FF">this</font>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; linkStart.SetTabIndex(nextTabIndex++);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; nextLocation = Navigate.Below(linkStart);<br>
+			}</td></tr></table>
+      <div id="nstext0">
+      <b><br>
+		Start</b>.&nbsp; This is called when the screen is navigated to.&nbsp; 
+		It can do any additional initialization that is necessary given the 
+		current context (for instance, if one screen has settings that must be 
+		referenced to populate controls on this screen).&nbsp; This is the most basic implementation:<br>
+&nbsp;<table class="dtTABLE" cellspacing="0" id="table4" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#808000">/// &lt;summary&gt;<br>
+			/// This starts the scan options screen for viewing.<br>
+			/// &lt;/summary&gt;<br>
+			</font><font color="#0000FF">public</font> <font color="#0000FF">
+			override</font> <font color="#0000FF">bool</font> Start()<br>
+			{<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">return</font>
+			<font color="#0000FF">true</font>; <font color="#808000">// The 
+			screen is successfully started.</font><br>
+			}</td></tr></table>
+      <p> <font size="5"><b>Step 2: Processing the server selection control</b></font></p>
+		In the Initialize example shown above, the servers text box acts as the 
+		selection control.&nbsp; For the purposes of this example, this will be 
+		very simple and just be a comma separated list of server names.&nbsp; 
+		<p><b>PopulateServers</b>.&nbsp; This method is used to load the saved 
+		list of servers from the registry.&nbsp; Here is the implementation:</p>
+		<table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#808000">/// &lt;summary&gt;<br>
+			/// This fills in the servers text box control with the contents of 
+			the registry.<br>
+			/// &lt;/summary&gt;<br>
+			/// &lt;param name=&quot;serversControl&quot;&gt;The text box control to populate.&lt;/param&gt;<br>
+			</font><font color="#0000FF">private</font> <font color="#0000FF">
+			void</font> PopulateServers(BPATextBox serversControl)<br>
+			{<br>
+&nbsp;&nbsp;&nbsp;&nbsp; serversControl.Text = &quot;&quot;;<br>
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#808000">// This will open or create the 
+			subkey to contain the list of servers.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp; Microsoft.Win32.RegistryKey serverKey = 
+			bpa.RegSettings.BPAKey.OpenSubKey(&quot;Servers&quot;,true); <br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">if</font> (serverKey ==
+			<font color="#0000FF">null</font>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverKey = 
+			bpa.RegRoot.CreateSubKey(&quot;Servers&quot;);<br>
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#808000">// Now get the list of registry 
+			subkeys.&nbsp; Each subkey represents one server.&nbsp; Note that we 
+			are using<br>
+&nbsp;&nbsp;&nbsp;&nbsp; // individual keys rather than something simpler 
+			because this puts it into a format that the engine can<br>
+&nbsp;&nbsp;&nbsp;&nbsp; // iterate over with the existing Registry object 
+			processor.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">string[] </font>servers = 
+			serverKey.GetSubKeyNames();<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">foreach</font> (<font color="#0000FF">string</font> 
+			server <font color="#0000FF">in</font> servers)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">if</font> 
+			(serversControl.Text.Length == 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			serversControl.Text = server;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">
+			else</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			serversControl.Text += &quot;,&quot; + server;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; serverKey.Close();<br>
+			}</td></tr></table>
+	</div>
+	</div>
+    <div id="nstext1">
+      <font size="5"><b><br>
+		</b></font><b>SaveServers</b>.&nbsp; This method is called when the user 
+		moves focus off the text box and it will save the server list back out 
+		to the registry.&nbsp; Here is the implementation:<br>
+&nbsp;<table class="dtTABLE" cellspacing="0" id="table7" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#808000">/// &lt;summary&gt;<br>
+			/// This saves off the contents of the servers text box control to 
+			the registry.<br>
+			/// &lt;/summary&gt;<br>
+			/// &lt;param name=&quot;control&quot;&gt;The servers text box control.&lt;/param&gt;<br>
+			/// &lt;param name=&quot;e&quot;&gt;The event specific arguments (not used).&lt;/param&gt;<br>
+			</font><font color="#0000FF">private void</font> SaveServers(<font color="#0000FF">object</font> 
+			control, EventArgs e)<br>
+			{<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#808000">// Get the server list from the 
+			control.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp; BPATextBox serversControl = (BPATextBox)control;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">string[] </font>servers = 
+			serversControl.Text.Split(',');<br>
+			<br>
+&nbsp;&nbsp;&nbsp; <font color="#808000">&nbsp;// Open up the servers key.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp; Microsoft.Win32.RegistryKey serverKey = 
+			bpa.RegSettings.BPAKey.OpenSubKey(&quot;Servers&quot;,<font color="#0000FF">true</font>);
+			<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; /<font color="#808000">/ Write out the servers to the 
+			registry.&nbsp; We use subkeys so the Registry object processor can 
+			iterate<br>
+&nbsp;&nbsp;&nbsp;&nbsp; // over them, and add values so it can retrieve each 
+			one in turn.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">foreach</font> (<font color="#0000FF">string</font> 
+			server <font color="#0000FF">in</font> servers)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			Microsoft.Win32.RegistryKey srvKey = 
+			serverKey.CreateSubKey(server.Trim());<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			srvKey.SetValue(&quot;Server&quot;,server);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; srvKey.Close();<br>
+&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp; serverKey.Close();<br>
+			}</td></tr></table>
+      <p><font size="5"><b>Step 3: Adding the screen to the GUI</b></font></p>
+		<p> The ScanOptions screen can be added to the GUI through the 
+		BPACustomizations class which should be created during application 
+		initialization.&nbsp; Here is a code fragment that shows how to do this:</p>
+		<table class="dtTABLE" cellspacing="0" id="table8" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>...<br>
+			<br>
+			BPACustomizations customizations = <font color="#0000FF">new</font> 
+			BPACustomizations(&quot;BPA&quot;,<font color="#0000FF">null</font>);<br>
+			...<br>
+			<br>
+			ScanOptions scanOptions = <font color="#0000FF">new</font> 
+			ScanOptions(<font color="#0000FF">this</font>);<br>
+			customizations.CustomScreens.Add(scanOptions);<br>
+			...<br>
+			<br>
+			MainGUI mainGUI = <font color="#0000FF">new</font> MainGUI(<font color="#0000FF">this</font>,args,customizations);<br>
+			mainGUI.Start();<br>
+			...</td></tr></table>
+    <div id="nstext2">
+      <font size="5"><b><br>
+		Step 4: Crafting the configuration to iterate over the 
+		servers</b></font><p>The first three steps pretty much take care of 
+		creating the custom screen to allow the user to specify a list of 
+		servers and to save them in the registry.&nbsp; Now we need to write the 
+		configuration that will iterate over these servers.&nbsp; Here is what 
+		that fragment might look like:</p>
+		<table class="dtTABLE" cellspacing="0" id="table9" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font size="2"><font color="#0000FF">&lt;</font>Configuration<font color="#0000FF">
+			</font><font color="#FF0000">ConfigVersion</font><font color="#0000FF">=&quot;2.0.0.0&quot;&nbsp;
+			</font><font color="#FF0000">ConfigName</font><font color="#0000FF">=&quot;Sample 
+			BPA Configuration&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font>ObjectProcessor<font color="#0000FF"> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+			<font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;Registry&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+			<font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.ConfigCollector.dll&quot;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+			<font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.RegistryObjectProcessor&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ...<br>
+			&lt;/</font>Configuration<font color="#0000FF">&gt;<br>
+			<br>
+			&lt;</font>Object<font color="#0000FF"> <br>
+&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#FF0000">Type</font><font color="#0000FF">=&quot;Registry&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#FF0000">Key1</font><font color="#0000FF">=&quot;&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#FF0000">Key2</font><font color="#0000FF">=&quot;HKEY_CURRENT_USER&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#FF0000">Key3</font><font color="#0000FF">=&quot;Software\Microsoft\BPA\Servers&quot;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#FF0000">Key4</font><font color="#0000FF">=&quot;.*&quot;<br>
+			&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font>Setting<font color="#0000FF"> </font>
+			<font color="#FF0000">Key1</font><font color="#0000FF">=&quot;Server&quot;
+			</font><font color="#FF0000">Substitution</font><font color="#0000FF">=&quot;SRVNAME&quot; 
+			/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; ...<br>
+			&lt;/</font>Object<font color="#0000FF">&gt;</font></font></td></tr></table>
+	</div>
+	</div>
+      </body>
+</html>

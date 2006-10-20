@@ -1,0 +1,109 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Resolve Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Resolve Object Processor</td>
+          </tr>
+        </table>
+	</div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		object type can be used to automatically choose between resolution 
+		methods (WINS or DNS) depending on which one succeeds.</span></p>
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">It 
+		expects a single <a href="Schema.Setting.html">Setting</a> element which 
+		it will provide with the value of the resolved name.&nbsp; Any other Setting 
+		elements will also be copied over and given the same value.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<p><font size="2">
+			<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;Resolve&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.Common.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Common.ResolveObjectProcessor&quot;
+			<br>
+			/&gt;</font><br>
+			<br>
+			</font>An example object:	</p>
+			<p><font color="#0000FF" size="2">&lt;</font><font size="2">Object</font><font color="#0000FF" size="2">
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Type</font><font color="#0000FF" size="2">=&quot;Resolve&quot;
+			<br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Name</font><font color="#0000FF" size="2">=&quot;Server 
+			Name&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">Key1</font><font color="#0000FF" size="2">=&quot;%SRVNAME%,%EXSRVNAME%&quot;<br>
+			&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font size="2">Setting</font><font color="#0000FF" size="2">
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+			<font size="2" color="#FF0000">Key1</font><font color="#0000FF" size="2">=&quot;Dns&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+			<font size="2" color="#FF0000">Substitution</font><font color="#0000FF" size="2">=&quot;SRVNAME&quot;
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+			<font size="2" color="#FF0000">Format</font><font color="#0000FF" size="2">=&quot;^$----%EXSRVNAME%&quot;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &gt;</font></p>
+			</td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This contains a comma-separated list of names to be resolved.&nbsp; 
+				For instance, you might pass in the short name of a server and 
+				the FQDN as well.</span></td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;Resolve&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%">None</td>
+				<td width="70%">The <a href="Schema.Setting.Key.html">Key</a> 
+				attributes of the setting don't matter for this object.&nbsp; 
+				Any setting will be given the same value, which is the resolved 
+				name.</td>
+			</tr>
+			</table>
+    	</div>
+  </body>
+</html>

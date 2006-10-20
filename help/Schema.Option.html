@@ -1,0 +1,123 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Option Element</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Option Element</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		element identifies a single option of a given restriction.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>In the configuration file:<p><font size="2" color="#0000FF">&lt;</font><font size="2">Option</font><font size="2" color="#0000FF"> <br>
+			&nbsp;&nbsp; </font><font size="2" color="#FF0000">Name</font><font size="2" color="#0000FF">=&quot;Health&quot; <br>
+			&nbsp;&nbsp; </font><font size="2" color="#FF0000">Display</font><font size="2" color="#0000FF">=&quot;Health Check&quot; <br>
+			&nbsp;&nbsp; </font><font size="2" color="#FF0000">Description</font><font size="2" color="#0000FF">=&quot;Perform checks for 
+			common problems and misconfiguration.&quot; <br>
+			&nbsp;&nbsp; </font><font size="2" color="#FF0000">Cost</font><font size="2" color="#0000FF">=&quot;90&quot; <br>
+			&nbsp;&nbsp; </font><font size="2" color="#FF0000">Includes</font><font size="2" color="#0000FF">=&quot;General,3&quot; <br>
+			/&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr>
+	<td width="29%"><a href="Schema.RestrictionType.html">RestrictionType</a></td><td width="70%">
+        This element identifies a restriction to apply to the configuration.</td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Child Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">none</td><td width="70%">
+        This element has no children.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Attributes</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Option.Cost.html">Cost</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This provides a hint to the application how long each object 
+				that matches the restriction is expected to take.&nbsp; This can 
+				be used to come up with rough estimates of run time.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Option.Description.html">Description</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is an informational description of the purpose of this 
+				option.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%">
+				<a href="Schema.Option.Display.html">Display</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the value that should be displayed through the UI to 
+				allow a user to choose this option or not.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%">
+				<a href="Schema.Option.Group.html">Group</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This identifies a parent restriction option.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%">
+				<a href="Schema.Option.Includes.html">Includes</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is a comma-separated list of options of other restrictions that should 
+				be included when this option is enabled.  This effect is transitive.</span></td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%"><a href="Schema.Option.Name.html">Name</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the name of the option.  It must be unique among all options specified in the configuration.</span></td>
+			</tr>
+			</table>
+    </div>
+  </body>
+</html>

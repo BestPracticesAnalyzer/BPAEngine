@@ -1,0 +1,145 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The DNS Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The DNS Object Processor</td>
+          </tr>
+        </table>
+	</div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		retrieves data through Win32 DnsQuery call. </span></p>
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">For 
+		each DNS query instance found that matches the given query, an
+		<a href="Schema.Instance.html">Instance</a> element will be created and 
+		all the elements under the original <a href="Schema.Object.html">Object</a> 
+		will be duplicated in each Instance.&nbsp; Each <a href="Schema.Setting.html">Setting</a> will be 
+		processed separately per Instance and will have zero or more
+		<a href="Schema.Value.html">Value</a> elements added to them based on 
+		the contents of the corresponding DNS property.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<font SIZE="2" COLOR="#0000ff"><p>
+			&lt;</font><font SIZE="2" COLOR="#800000">ObjectProcessor</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Name</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">DNS</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp; Assembly</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">BPA.NetworkCollector.dll</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff"><br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Class</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Extensions.DNSObjectProcessor</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+			/&gt;</font><font size="2"><br>
+			<br>
+			</font>An example object:</p>
+			<font SIZE="2" COLOR="#0000ff">
+			<p>&lt;</font><font SIZE="2" COLOR="#800000">Object</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp; Type</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">DNS</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Name</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">DNS</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			<br>
+&nbsp;&nbsp; </font><font SIZE="2" COLOR="#ff0000">Key1</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">%DNSSRVIPS%</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp; Key2</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">%SRVNAME%</font><font SIZE="2">&quot;
+			</font><font SIZE="2" COLOR="#ff0000"><br>
+&nbsp;&nbsp; Key3</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">%Options%</font><font SIZE="2">&quot;<br>
+			</font><font SIZE="2" COLOR="#0000ff">&gt;<br>
+&nbsp;&nbsp; &lt;</font><font SIZE="2" COLOR="#800000">Setting</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000">Key1</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">A</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff"> 
+			/&gt;<br>
+&nbsp;&nbsp; &lt;</font><font SIZE="2" COLOR="#800000">Setting</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000">Key1</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">PTR</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000">Key2</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">%EXIPADDRESS%</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">/&gt;<br>
+&nbsp;&nbsp; &lt;</font><font SIZE="2" COLOR="#800000">Setting</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000">Key1</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">MX</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff"> 
+			/&gt;<br>
+&nbsp;&nbsp; &lt;</font><font SIZE="2" COLOR="#800000">Setting</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000">Key1</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">SRV</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">
+			</font><font SIZE="2" COLOR="#ff0000">Key2</font><font SIZE="2" COLOR="#0000ff">=</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">_LDAP._TCP.</font><font SIZE="2">&quot;</font><font SIZE="2" COLOR="#0000ff">/&gt;<br>
+			&lt;/</font><font SIZE="2" COLOR="#800000">Object</font><font SIZE="2" COLOR="#0000ff">&gt;</font></td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the </span><span style="font-family: Times New Roman">
+				DNS server IP address.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key2</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the name of the server to look for.</span></td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">Key3</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the query options, such as UseTCPOnly. All options are seperated by comma.</span></td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;DNS&quot;.</td>
+			</tr>
+			</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This can be one of the following:</span><ul>
+					<li><span style="font-family: Times New Roman">&quot;A&quot; returns 
+					the fully qualified domain name (FQDN) of the given server.</span></li>
+					<li><span style="font-family: Times New Roman">&quot;PTR&quot; returns 
+					the FQDN of the specific NIC given in Key2.</span></li>
+					<li><span style="font-family: Times New Roman">&quot;MX&quot; returns 
+					the primary domain name of the given server.</span></li>
+					<li><span style="font-family: Times New Roman">&quot;SRV&quot;</span> 
+					returns the primary domain name of the given server using 
+					the protocol specified in Key2.</li>
+				</ul>
+				</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key2</a></td>
+				<td width="70%">
+				If Key1 is &quot;PTR&quot;, this should be the IP address of the NIC you 
+				are looking for.&nbsp; If Key1 is &quot;SRV&quot;, this should be the 
+				protocol to use.</td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

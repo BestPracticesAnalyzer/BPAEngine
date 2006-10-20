@@ -1,0 +1,95 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The ObjectsTracked Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The ObjectsTracked Attribute </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-family: Times New Roman">The returns the number of 
+		instances of <a href="Schema.Object.html">Object</a> elements that had
+		<a href="Schema.Object.TrackProgress.html">TrackProgress</a> enabled for 
+		them in the run.&nbsp; This can be used for informational purposes.&nbsp; 
+		For example, ExBPA tracks progress on each Exchange server it analyzes.&nbsp; 
+		So this count becomes the number of servers processed in the run (the 
+		count is actually one greater than that because it also tracks progress 
+		on the whole run).</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font color="#800080" size="2">&lt;Run <br>
+&nbsp;&nbsp; ConfigName=&quot;ExBPA Master Input File&quot; <br>
+&nbsp;&nbsp; ConfigVersion=&quot;1.5.6.1&quot; <br>
+&nbsp;&nbsp; AppVersion=&quot;1.0.7408.1&quot; <br>
+&nbsp;&nbsp; StartTime=&quot;09/30/2004 23:20:39&quot; <br>
+&nbsp;&nbsp; Timeout=&quot;240&quot; <br>
+&nbsp;&nbsp; Threads=&quot;25&quot; <br>
+&nbsp;&nbsp; Operations=&quot;collect,analyze&quot; <br>
+&nbsp;&nbsp; DC=&quot;CONTOPGC01&quot; <br>
+&nbsp;&nbsp; EndTime=&quot;09/30/2004 23:25:48&quot; <br>
+&nbsp;&nbsp; Completed=&quot;OK&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000" size="2">ObjectsTracked</font><font color="#0000FF" size="2">=&quot;9&quot;</font><font color="#800080" size="2"><br>
+			&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+        Description</td></tr>
+<tr>
+	<td width="29%"><a href="Schema.Configuration.html">
+	Configuration</a></td><td width="70%">
+        This element contains some general meta-information about the input 
+		configuration or the output data.
+      </td>
+</tr>
+<tr>
+			<td width="29%"><a href="Schema.Run.html">
+	Run</a></td><td width="70%">
+        This output element contains general information about a particular run.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Value</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">&lt;number&gt;</td><td width="70%">
+        This is a count of instances that had TrackProgress enabled.</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

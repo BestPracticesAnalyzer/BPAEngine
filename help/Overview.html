@@ -1,0 +1,207 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>Overview</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table1">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">Overview</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <b><font size="5">History</font></b></p>
+		<p> The best practices analyzer core library was first developed for 
+		Exchange, which has an exceedingly complex configuration that spans 
+		several different types of data sources and requires very complex rules 
+		to validate.&nbsp; Because of the complexity in just dealing with 
+		Exchange requirements, the tool (ExBPA) was developed to be very 
+		flexible and extensible, which makes it suitable to use as an engine by 
+		other products.&nbsp; Development began in early February of 2004 and 
+		delivery to the web occurred on September 21, 2004.&nbsp; The 
+		development effort involved two full time developers, 2 more part time 
+		developers, 2 part time testers, and one full time PM.</p>
+		<p> The tool has been well&nbsp;received by customers, support 
+		engineers, and the press.&nbsp; It is being incorporated as part of a 
+		standard PSS support call.&nbsp; It has already made a number of good 
+		catches and as the configuration is enhanced over time its impact will 
+		continue to grow.&nbsp;&nbsp; </p>
+      <p> <b><font size="5">Getting Started</font></b></p>
+		<p> The Best Practices Analyzer Core Library provides a set of methods 
+		that can be used to perform best practices analysis on a specific 
+		deployment of a product.&nbsp; The library is comprised of a core 
+		engine, a set of common engine extensions, a set of common UI functions, 
+		a customizable GUI and command line application, and a full set of 
+		documentation on how to tailor it for a specific product's needs.</p>
+		<p>There are many ways a product team can use this library to do their 
+		own best practices analyses:</p>
+		<ul>
+			<li><b>Engine only</b>.&nbsp; The engine can be leveraged directly 
+			by a product or administrative application and a completely 
+			integrated experience can be implemented.</li>
+			<li><b>Engine and common UI functions</b>.&nbsp; The common UI 
+			functions, when used in conjunction with the engine, can provide a 
+			rich set of functionality so individual product teams don't need to 
+			reinvent a lot of code.</li>
+			<li><b>Engine, common UI, and customizable GUI and command line 
+			applications</b>.&nbsp; This leverages the most common code from the 
+			library and requires the smallest amount of effort from a product 
+			team.&nbsp; It will mean the UI created will have a very similar 
+			look and feel to the Exchange Best practices Analyzer, the SQL Best 
+			Practices Analyzer, and the Microsoft Baseline Security Analyzer 
+			(these tools all use different technology but have similar looking 
+			GUI's).</li>
+		</ul>
+		<p>Note that in all cases the product team will still have to craft the 
+		configuration themselves, and this is likely to take some effort.&nbsp; 
+		The Exchange configuration contains over 1200 data points and nearly 
+		1000 rules and has been crafted over several months with input from many 
+		customers, support engineers, and product team members.&nbsp; It 
+		continues to evolve as more data comes in from both customers and 
+		internal engineers about specific system requirements.&nbsp; Exchange 
+		has been adding about 50 rules a month since the product was introduced.</p>
+		<p>In addition to the ways product teams can use the code, there are a 
+		couple of options for how the code can be delivered to them:</p>
+		<ul>
+			<li><b>As external binaries</b>.&nbsp; We will have 
+			regular tested drops of this code.&nbsp; There is a Windows Server 
+			System Product Studio database that will track bugs and work items 
+			for this code.&nbsp; The core BPA team will be responsible for all 
+			changes made.&nbsp; </li>
+			<li><b>As an open source project</b>.&nbsp; A second option is take 
+			delivery of the source code and make changes themselves.&nbsp; When 
+			appropriate, such changes should be incorporated back into the core 
+			code base.&nbsp; The product team making such changes will be 
+			responsible for creating a Product Studio issue to track 
+			incorporation of the change, and the core BPA team will be 
+			responsible for making the determination whether it should be 
+			accepted or not, and then integrating it in if it is.&nbsp; Note: 
+			the preferred method would be to use the binaries directly rather 
+			then make custom changes to the source code.</li>
+		</ul>
+		<p>This document outlines the specific steps needed for by a product 
+		team to take advantage of this code.&nbsp; All questions can be directed 
+		to the wssbpa DL.&nbsp; For the latest information, check
+		<a href="http://team/sites/wssbpa/default.aspx">
+		http://team/sites/wssbpa/default.aspx</a> periodically.</p>
+		<p> <font size="5"><b>General </b></font><b><font size="5">Development 
+		Steps</font></b></p>
+		<p> The exact steps to take depend on what method is chosen for 
+		leveraging the BPA library, but this section outlines the basics.&nbsp; </p>
+		<p> <u><font size="4">Step 1: Experimenting with the configuration</font></u></p>
+		<p> To evaluate the library and determine if it will be useful for a 
+		product's needs, the simplest way to start (in addition to reading 
+		through this documentation and the video presentations on the web site) 
+		is to install our generic test tool (which can be downloaded from
+		<a href="file://firebird1/wssbpa/bpa.msi">BPA Configuration Tester - MSI 
+		Package</a>) and configuration authoring tool (which is installed from 
+		the same package) and begin crafting a configuration.&nbsp; There is a video 
+		presentation on the web site that steps you through understanding the 
+		configuration, and you can consult the <a href="Schema.html">Schema help</a> 
+		for more specific information.&nbsp; This will allow you to get a feel 
+		for what the tool can do through direct experience.</p>
+		<p> <u><font size="4">Step 2: Taking delivery of the code</font></u></p>
+		<p> You will need to determine which delivery method you will be 
+		choosing: binaries only or the open source method.&nbsp; If you choose 
+		binaries only you should download the files from \\wssbpa\drop\v2.&nbsp; The core BPA team will be responsible for testing and placing new drops at this 
+		location, and archiving and backing up previous drops.&nbsp; The drops 
+		will not be tested for each product prior to the drop, however - it's up 
+		to each product team to test them on their own.&nbsp; The product team 
+		is responsible for moving these binaries into their own build system.</p>
+		<p> If open source is chosen, on the same drop site a zipped file will 
+		also be available containing all the source code and a Visual Studio 
+		solution for performing the build.&nbsp; If another build method is 
+		required, it is up to the product team to create and maintain it.&nbsp; 
+		Any customizations made by the product team that have not been 
+		integrated into the core code will have to be reintegrated by the 
+		product team with each new source drop they choose to accept.</p>
+		<p> <u><font size="4">Step 3: Creating the UI wrappers</font></u></p>
+		<p> This step will vary depending on what method the product team has 
+		chosen to leverage the core BPA code.&nbsp; If only the engine is being 
+		leveraged or if the engine and the common UI code is being leveraged, 
+		then the work is all up to the product team at this point.&nbsp;&nbsp; 
+		The engine and common UI interfaces are fully documented in this help 
+		document.&nbsp; 
+		If the product team will be leveraging the customizable UI, then they 
+		just need to take a copy of the main skeleton (this is the BPA project 
+		located in the main share), fill in 
+		their specifics, and build it.</p>
+		<p> <u><font size="4">Step 4: Creating any specialty extensions required</font></u></p>
+		<p> While the common extensions that are delivered by the core BPA team 
+		cover a wide variety of needs, it may be the case that a product has a 
+		particular requirement, such as a new data source, that needs to be 
+		developed.&nbsp; See <a href="extensions.html">Extensions</a> for a 
+		complete list of the libraries capabilities, as well as a list of extensions that are already 
+		available.&nbsp; The core BPA team will assist a product team 
+		in such development when it is needed, but the majority of the 
+		development effort will be on the product team.</p>
+		<p> <u><font size="4">Step 5: Crafting the configuration and detailed 
+		content</font></u></p>
+		<p> This step should basically be a continuation of the work started in 
+		step 1.&nbsp; This process will likely have the following requirements:</p>
+		<ul>
+			<li><b>It will take time</b>.&nbsp; Depending on the complexity of 
+			the product configuration, this step will take the vast majority of 
+			the product team's time and effort.&nbsp; The Exchange configuration 
+			took six months to develop the first version, but we were also 
+			developing the engine as we were going and were basically starting 
+			from scratch instead of working with other engineers with 
+			configuration experience.&nbsp; Also, Exchange's configuration needs 
+			are likely to be more complex than most other products.&nbsp; Still, 
+			expect this to take some time to complete.</li>
+			<li><b>It will take domain expertise</b>.&nbsp; While crafting the 
+			configuration can be done by developers, testers, support engineers 
+			or PM's, to create it correctly and so it is actually useful to 
+			customers will require input from the people most experienced with 
+			deploying and supporting the product.&nbsp; While using less 
+			experienced people may work, the process will be greatly streamlines 
+			by using experts directly.&nbsp; The success of the Exchange version 
+			is a direct result of the expertise that went into creating the 
+			configuration.</li>
+			<li><b>It will require a feedback loop</b>.&nbsp; For Exchange, and 
+			likely most other products, the deployment expertise does not exist 
+			in any one person's head, but in many people, knowledge base 
+			articles, white papers, etc.&nbsp; There also likely to be all sorts 
+			of interesting and unexpected customer usage scenarios out there.&nbsp; 
+			It is therefore important that the configuration be available for as 
+			wide an audience to use as possible prior to shipping and channels 
+			in place to receive feedback from the beta users and use that 
+			feedback to make adjustments and enhancements.&nbsp; The common UI 
+			code supports doing auto downloading of configuration changes, which 
+			greatly simplifies and speeds up pushing changes back out for more 
+			feedback.&nbsp; For Exchange, the tool was delivered early on in the 
+			product cycle to support and on-site engineers to use at customers 
+			or in test facilities under close observation.&nbsp; This also 
+			created a number of &quot;champions&quot; of the tool within the support 
+			group, and they later helped evangelize and support the tool itself.&nbsp; 
+			After a couple months of that, we also released it to a select group 
+			of early adopter customers for their feedback.</li>
+			<li><b>It will continue to evolve after shipping</b>.&nbsp; No 
+			matter how much work is done up front, specific customer scenarios 
+			and additional data gathered through other means, or even product 
+			changes themselves will result in best practices needing to be 
+			adjusted or enhanced.&nbsp; Changes should continue to take place 
+			after the tool is shipped.&nbsp; If the common UI code is leveraged, 
+			it will make publishing those changes back out to customers very 
+			simple.</li>
+		</ul>
+		<p>In addition to the configuration, it is strongly advised that most 
+		issues have detailed articles that accompany them.&nbsp; Without 
+		adequate documentation on the issues reported, an analysis tool could 
+		create more support calls than it saves.&nbsp; In Exchange, the BPA team 
+		worked with the usability and content teams to create several hundred 
+		small articles covering most of the issues that it finds.&nbsp; The 
+		common UI code provides mechanisms that make it easy to link the issues 
+		found to the detailed articles.</p></div>
+  </body>
+</html>

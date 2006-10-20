@@ -1,0 +1,103 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" >
+    <title>Configuration Preprocessors</title>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>AttributeName Class</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table15">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">Configuration Preprocessors</td>
+          </tr>
+        </table>
+    </div>
+    <div id="nstext">
+  </body>
+</html>
+	<html dir="LTR" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+  <body id="bodyID" class="dtBODY">
+      <p>Configuration preprocessors can be used to manipulate the configuration 
+		data before the engine processes it.&nbsp; These are defined using
+		<a href="Schema.ConfigProcessor.html">ConfigPreprocessor</a> elements 
+		and they will be executed in the order they are defined.&nbsp; Each 
+		implementation can do whatever it likes to the configuration file as 
+		long as the result conforms to the BPA schema.</p>
+	<p>There are two built-in configuration preprocessor defined (the first doesn't 
+	actually use the extensible interface so it does not need to be defined in 
+	the configuration, but it gives you an idea of what can be done with this 
+	type of extension):</p>
+	</div>
+		<table class="dtTABLE" cellspacing="0" id="table16" border="1" style="margin-left: 16"  width="600">
+			<tr VALIGN="top">
+				<td width="29%">Restriction</td>
+				<td width="70%">This limits the collection to run on only part of
+					the configuration, based on which options are specified.  The types
+					and possible options of a restriction are defined at the top of the configuration
+					file.  Attributes can be specified on any element.  In general, if the options
+					specified match the attributes set on the node, the node, its ancestors, and its descendants
+					are run (though additional restriction attributes may take precedence on descendants).
+					Each type of restriction is independent, removing or filtering elements that do not
+					match the options specified. <br/> Exchange defines four 
+					restrictions: Category, Level, Scope, and Task.
+					Category is used to control what sort of information is collected.  Level controls the
+					amount of detail, with the more-specific options including the less-specific ones.  Scope
+					limits a scan to a particular set of servers or admin groups.  Unlike the others, it
+					specifies instances to be filtered out during the collection.  Finally, Task options
+					include collections of other restriction options, but do not actually restrict the
+					configuration themselves.  There are three 
+					tasks defined for an Exchange configuration: a full health check, which 
+					does everything; a connectivity test, which does the minimum checks to 
+					see if a user has all the access they need; and a baseline scan which is 
+					a specialized comparison of settings against custom values.</td>
+			</tr>
+			<tr VALIGN="top">
+				<td width="29%">Type</td>
+				<td width="70%">This preprocessor will go through a 
+				configuration file and process <a href="Schema.Reference.html">
+				Reference</a>, <a href="Schema.Type.html">Type</a> and
+				<a href="Schema.Customize.html">Customize</a> elements.&nbsp; 
+				When it is done, all the referenced types will be inserted 
+				properly into the configuration and the processed elements will 
+				be removed (since the core engine doesn't know or care about 
+				them).&nbsp; Configuration information for the Type 
+				preprocessor:<p><font size="2">
+			<font color="#0000FF">&lt;</font>ConfigPreprocessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">
+				Name</font><font color="#0000FF">=&quot;0 Type Preprocessor&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.Common.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=<br>
+				&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Common.TypeConfigPreprocessor&quot;
+			<br>
+			/&gt;</font></font></td>
+			</tr>
+		</table>
+      </body>
+</html>

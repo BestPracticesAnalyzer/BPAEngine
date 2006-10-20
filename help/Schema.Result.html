@@ -1,0 +1,98 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Result Element</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Result Element</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		element identifies the result of a rule evaluation</span><span style="font-family: Times New Roman">.&nbsp; 
+		It is only created in an output data file.&nbsp; It does not exist in 
+		the input configuration.</span></p>
+		<p> <span style="font-size: 12.0pt; font-family: Times New Roman">The 
+		inner text of this element is the result of evaluating the
+		<a href="Schema.Rule.Query.html">Query</a> of the parent
+		<a href="Schema.Rule.html">Rule</a>.&nbsp; If the Query returns an XPath-type 
+		boolean, string, or number, a Rule will have a single Result node 
+		containing only text.&nbsp; If it returns a node-set, there may be multiple
+		<a href="Schema.Value.html">Value</a> elements under the Result element, 
+		each containing one value from the node-set.&nbsp; The Result of a Rule may 
+		be referenced by the <a href="Schema.Rule.Pn.html">Pn</a> and Query 
+		attributes of other Rule nodes.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>In an output data file:<p><font color="#800080">&lt;Rule <br>
+&nbsp;&nbsp; Name=&quot;szExchangeServerNameCaps&quot; <br>
+&nbsp;&nbsp; Query=&quot;upper-case($.)&quot; <br>
+&nbsp;&nbsp; Pass=&quot;Unknown&quot;<br>
+			&gt;</font><font color="#0000FF"><br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font>Result<font color="#0000FF">&gt;</font><font color="#808000">EXAMER01</font><font color="#0000FF">&lt;/</font>Result<font color="#0000FF">&gt;</font><br>
+&nbsp;</td></tr></table>
+      <h4 class="dtH4">Parent Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Rule.html">Rule</a></td><td width="70%">
+        Result elements are nested under the Rule that generated them.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Child Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">none</td><td width="70%">
+        If the Rule evaluation does not result in a node-set, then there will be 
+		no children and the inner text of the Result element itself will be the 
+		data.</td></tr>
+		<tr>
+			<td width="29%"><a href="Schema.Value.html">Value</a></td><td width="70%">
+        If the Rule evaluation results in a node-set, there will be one of these 
+		elements per node.</td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Attributes</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%">none</td>
+				<td width="70%">This element has no attributes.</td>
+			</tr>
+			</table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Engine Object Processor</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table8">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Engine Object Processor</td>
+          </tr>
+        </table>
+      </div>    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		will retrieve meta-data about the run itself and the execution 
+		environment.&nbsp; This will always create a single
+		<a href="Schema.Instance.html">Instance</a> element.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>The ObjectProcessor definition:<p><font size="2">
+			<font color="#0000FF">&lt;</font>ObjectProcessor<font color="#0000FF">
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">ObjectType</font><font color="#0000FF">=&quot;Engine&quot;
+			<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Assembly</font><font color="#0000FF">=&quot;BPA.Common.dll&quot;<br>
+&nbsp;&nbsp; </font><font color="#FF0000">Class</font><font color="#0000FF">=&quot;Microsoft.WindowsServerSystem.BestPracticesAnalyzer.Common.EngineObjectProcessor&quot;
+			<br>
+			/&gt;</font><br>
+			<br>
+			</font>An example object:	</p>
+			<p><font size="2" color="#0000FF">&lt;</font><font size="2">Object</font><font size="2" color="#0000FF">
+			</font><font size="2" color="#FF0000">Type</font><font size="2" color="#0000FF">=&quot;Engine&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;</font><font size="2">Setting</font><font size="2" color="#0000FF">
+			</font><font size="2" color="#FF0000">Key1</font><font size="2" color="#0000FF">=&quot;EnvironmentVariable&quot;&nbsp; </font><font size="2" color="#FF0000">Key2</font><font size="2" color="#0000FF">=&quot;PATH&quot;/&gt;</font></p>
+			</td></tr></table>
+      <h4 class="dtH4">Specific Object Attributes (see
+		<a href="Schema.Object.html">Object</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Type.html">Type</a></td>
+				<td width="70%">This must be set to &quot;Engine&quot;.</td>
+			</tr>
+		</table>
+      <h4 class="dtH4">Specific Setting Attributes (see
+		<a href="Schema.Setting.html">Setting</a> for a full attribute list)</h4>
+        <table class="dtTABLE" cellspacing="0" id="table7" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key1</a></td>
+				<td width="70%">
+				<span style="font-size: 12.0pt; font-family: Times New Roman">
+				This is the name of the property to retrieve.&nbsp; This can be:</span><ul>
+					<li><span style="font-family: Times New Roman"><b>AppVersion</b>.&nbsp; 
+					This will return the w.x.y.z version of the application.</span></li>
+					<li><span style="font-family: Times New Roman"><b>
+					ConfigVersion</b>.&nbsp; This will return the w.x.y.z 
+					version of the main configuration file.</span></li>
+					<li><span style="font-family: Times New Roman"><b>
+					DataFileName</b>.&nbsp; This will return the name of the 
+					data file that will be created for this run.</span></li>
+					<li><span style="font-family: Times New Roman"><b>
+					ExecutionDirectory</b>.&nbsp; This will return the path to 
+					the executable wrapper currently running the scan.</span></li>
+					<li><span style="font-family: Times New Roman"><b>
+					ApplicationName</b>.&nbsp; This will return the name of the 
+					executable wrapper currently running the scan.</span></li>
+					<li><span style="font-family: Times New Roman"><b>StartTime</b>.&nbsp; 
+					This will return the time the scan was started.</span></li>
+					<li><span style="font-family: Times New Roman"><b>
+					ExecutionCulture</b>.&nbsp; This will return the locale 
+					being used for the current scan.</span></li>
+					<li><span style="font-family: Times New Roman"><b>
+					EnvironmentVariable</b>.&nbsp; This will return the value of 
+					the environment variable that is specified in Key2.</span></li>
+				</ul>
+				</td>
+			</tr>
+			<tr VALIGN="top"><td width="29%"><a href="Schema.Object.Key.html">
+				Key2</a></td>
+				<td width="70%">
+				If Key1 is set to &quot;EnvironmentVariable&quot;, then this should be set 
+				to the name of the environment variable to be retrieved.</td>
+			</tr>
+			</table>
+    	<p>&nbsp;</div>
+  </body>
+</html>

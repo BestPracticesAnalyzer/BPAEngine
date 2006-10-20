@@ -1,0 +1,91 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Sort Attribute</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Sort Attribute</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		indicates how the instances should be ordered in the output</span><span style="font-family: Times New Roman">.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td><font size="2" color="#800080">&lt;</font><font size="2">Object</font><font size="2" color="#800080">
+			<br>
+&nbsp;&nbsp; Type=&quot;WMI&quot; <br>
+&nbsp;&nbsp; Key3=&quot;Win32_NTLogEvent&quot; <br>
+&nbsp;&nbsp; Key4=&quot;Logfile='Application' and EventType=1&quot; <br>
+&nbsp;&nbsp; </font><font size="2" color="#FF0000">
+			Sort</font><font size="2" color="#0000FF">=&quot;TimeWritten&quot;</font><font size="2" color="#800080"><br>
+			&gt;</font></td></tr></table>
+      <h4 class="dtH4">Parent Element</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        Sort attributes are specified on input Object elements.</td></tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Possible Values</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Value</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%">&quot;&lt;property&gt; [ASC | DESC] &lt;key&gt;&quot;</td><td width="70%">
+        This indicates how the instances are to be ordered:<ul>
+			<li>&lt;property&gt; defines the property name to use to do the ordering.</li>
+			<li>ASC indicates the order should be ascending.&nbsp; The ASCENDING 
+			keyword also works.&nbsp; This is the default.</li>
+			<li>DESC indicates the order by be descending.&nbsp; The DESCENDING 
+			keyword also works.</li>
+			<li>&lt;key&gt; is the <a href="Schema.Object.Key.html">Key</a> attribute 
+			to use on each Setting to get the property name from.&nbsp; This 
+			defaults to Key1 (which is what most object processors require the 
+			property name to be specified in).</li>
+		</ul>
+		<p>Whenever an instance is processed, the engine will look through all 
+		the <a href="Schema.Setting.html">Setting</a> elements for it and find 
+		the one that has the value of the &lt;key&gt; attribute set to &lt;property&gt;.&nbsp; 
+		It will then extract the first <a href="Schema.Value.html">Value</a> of 
+		that Setting and use that value to insert the instance in the correct 
+		position.&nbsp; Note that all values will be treated as strings.</p>
+		<p>If this attribute is not given, the order of instances will be 
+		determined by the data source.</td></tr>
+		</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,161 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" >
+    <title>Format Processors</title>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>AttributeName Class</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF id="table15">
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">Format Processors</td>
+          </tr>
+        </table>
+    </div>
+    <div id="nstext">
+  </body>
+</html>
+	<html dir="LTR" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+  <body id="bodyID" class="dtBODY">
+      <p>Format processors are used to convert retrieved data to a usable 
+		format.&nbsp; Everything the BPA engine deals with is a string, so these 
+		extensions allow for converting binary or other types of data to strings 
+		for further use.&nbsp; These processors are defined using
+		<a href="Schema.ExtFormat.html">ExtFormat</a> elements in the 
+		configuration and they are referenced through the Format and 
+		SubstitutionFormat attributes on <a href="Schema.Setting.html">Setting</a> 
+		elements.</p>
+	<p>A number of built-in format processors are supplied in the SDK (these do 
+	not actually use the extension logic so they do not need to be defined in 
+	the configuration, but the concept is the same):</p>
+        <table class="dtTABLE" cellspacing="0" id="table16" border="1" style="margin-left: 16"  width="600">
+<tr VALIGN="top"><td width="29%">Sid</td><td width="70%">
+        <span style="font-size: 12.0pt; font-family: Times New Roman">This
+		will convert a binary SID to a string SID if specified.</span></td></tr>
+<tr VALIGN="top"><td width="29%">SecurityDescriptor</td><td width="70%">
+        <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		currently defaults to the same functionality as System.Byte[] when storing the data.&nbsp;
+		When rendering the data, the security descriptor is presented as a set of properties and aces.</span></td></tr>
+<tr VALIGN="top"><td width="29%">System.Byte[]</td><td width="70%">
+        <span style="font-size: 12.0pt; font-family: Times New Roman">This will 
+		display any value as a byte string, which will simply be of the form 
+		nnnnnn..&nbsp; where each nn pair is the hex value of a byte.</span></td></tr>
+<tr VALIGN="top"><td width="29%">System.DateTime</td><td width="70%">
+        <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		display a timestamp property in GMT.</span></td></tr>
+<tr VALIGN="top"><td width="29%">System.DateTime.Local</td><td width="70%">
+        <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		display a local timestamp property in GMT.</span></td></tr>
+<tr VALIGN="top"><td width="29%">System.Guid</td><td width="70%">
+        <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		converts a byte array into a displayable GUID of the format 
+		xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.&nbsp; Note: if something is a GUID 
+		type to begin with, this will be its default display format.&nbsp; This 
+		was created if the setting was mistyped in the data store it is being 
+		retrieved from (this is the case with some properties in the Active 
+		Directory).</span></td></tr>
+<tr VALIGN="top"><td width="29%">.*</td><td width="70%">
+        <span style="font-size: 12.0pt; font-family: Times New Roman">This will 
+		perform a regex transformation on the given data, which is expected to 
+		be a string.&nbsp; The content of the Format attribute on a Setting is 
+		expected to be “&lt;match&gt;----&lt;modify&gt;” where the first string is a regular 
+		expression that matches values in the data string, and the second string 
+		is a regular expression that indicates how that data should be 
+		modified.&nbsp; The four dashes are used to separate the two expressions.</span></td></tr>
+		</table>
+		</div>
+	<p><span style="font-family: Times New Roman">These additional format 
+	processors use the extension logic and so need to be configured to be 
+	accessible:</span></p>
+	<table class="dtTABLE" cellspacing="0" id="table11" border="1" style="margin-left: 16"  width="600">
+		<tr VALIGN="top">
+			<td width="29%">
+			<a href="Extensions.FormatProcessors.AverageFormat.html">
+			AverageFormat</a></td>
+			<td width="70%">This will return an average of all the numeric 
+			values for the Setting.&nbsp; It is designed to work in conjunction 
+			with the <a href="Extensions.ObjectProcessors.Pdh.html">Pdh</a> 
+			object processor to reduce the amount of data that needs to be 
+			stored in the XML.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%">
+			<a href="Extensions.FormatProcessors.LowerCase.html">LowerCase</a></td>
+			<td width="70%">This will convert all text to lowercase.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%">
+			<a href="Extensions.FormatProcessors.MaxFormat.html">MaxFormat</a></td>
+			<td width="70%">This will return the maximum value of all the numeric 
+			values for the Setting.&nbsp; It is designed to work in conjunction 
+			with the <a href="Extensions.ObjectProcessors.Pdh.html">Pdh</a> 
+			object processor to reduce the amount of data that needs to be 
+			stored in the XML.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%">
+			<a href="Extensions.FormatProcessors.MinFormat.html">MinFormat</a></td>
+			<td width="70%">This will return the minimum value of all the numeric 
+			values for the Setting.&nbsp; It is designed to work in conjunction 
+			with the <a href="Extensions.ObjectProcessors.Pdh.html">Pdh</a> 
+			object processor to reduce the amount of data that needs to be 
+			stored in the XML.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%">
+			<a href="Extensions.FormatProcessors.MinNonZeroFormat.html">
+			MinNonZeroFormat</a></td>
+			<td width="70%">This will return the minimum non-zero value of all the numeric 
+			values for the Setting.&nbsp; It is designed to work in conjunction 
+			with the <a href="Extensions.ObjectProcessors.Pdh.html">Pdh</a> 
+			object processor to reduce the amount of data that needs to be 
+			stored in the XML.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%">
+			<a href="Extensions.FormatProcessors.NineteeithPercentileFormat.html">
+			NineteeithPercentileFormat</a></td>
+			<td width="70%">This will return the value at the nineteeith 
+			percentile of all the numeric 
+			values for the Setting.&nbsp; It is designed to work in conjunction 
+			with the <a href="Extensions.ObjectProcessors.Pdh.html">Pdh</a> 
+			object processor to reduce the amount of data that needs to be 
+			stored in the XML.</td>
+		</tr>
+		<tr VALIGN="top">
+			<td width="29%">
+			<a href="Extensions.FormatProcessors.SigmaFormat.html">SigmaFormat</a></td>
+			<td width="70%">This will return the sigma value of all the numeric 
+			values for the Setting.&nbsp; It is designed to work in conjunction 
+			with the <a href="Extensions.ObjectProcessors.Pdh.html">Pdh</a> 
+			object processor to reduce the amount of data that needs to be 
+			stored in the XML.</td>
+		</tr>
+		</table>
+		</body>
+</html>

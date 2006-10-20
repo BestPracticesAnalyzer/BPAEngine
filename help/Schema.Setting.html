@@ -1,0 +1,196 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>The Setting Element</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  	<style>
+<!--
+table.MsoTableGrid
+	{border:1.0pt solid windowtext;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+ li.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+-->
+</style>
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0" bgcolor=#00CCFF>
+          <tr id="hdr" style="font-style: italic">
+            <td class="runninghead">Best Practices Analyzer Core Library</td>
+          </tr>
+          <tr style="font-size: 18pt">
+            <td class="product">The Setting Element</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> <span style="font-size: 12.0pt; font-family: Times New Roman">This 
+		element identifies a property or other concept such as a command that 
+		needs to be processed for the parent Object.&nbsp; The exact meaning is up to 
+		the object processor that handles it.</span></p>
+		<p> <span style="font-family: Times New Roman; font-weight: 700">Example 
+		Configuration Fragment</span></p>
+        <table class="dtTABLE" cellspacing="0" id="table6" border="0" style="margin-left: 16"  width="650" bgcolor=#CCCCCC>
+		<tr><td>In the configuration file:<p><font size="2">
+			<font color="#800080">&lt;Object <br>
+&nbsp;&nbsp; Type=&quot;Directory&quot; <br>
+&nbsp;&nbsp; Key2=&quot;%DN%&quot; <br>
+&nbsp;&nbsp; Key3=&quot;(&amp;amp;(objectCategory=msExchExchangeServer)%SERVER%)&quot; <br>
+&nbsp;&nbsp; Async=&quot;%65&quot; <br>
+&nbsp;&nbsp; Class=&quot;Server&quot; <br>
+&nbsp;&nbsp; GroupingClass=&quot;True&quot; <br>
+&nbsp;&nbsp; TrackProgress=&quot;TrackProgress&quot; <br>
+&nbsp;&nbsp; MaxTime=&quot;ALL,120;WMI,60&quot; <br>
+&nbsp;&nbsp; MaxFailures=&quot;Metabase,2&quot; <br>
+&nbsp;&nbsp; MaxTimeouts=&quot;WMI,5&quot;<br>
+			&gt;</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">&lt;</font>Setting<font color="#0000FF">
+			<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#FF0000">
+			Key1</font><font color="#0000FF">=&quot;cn&quot; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#FF0000">
+			Substitution</font><font color="#0000FF">=&quot;EXSRVNAME&quot;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;</font></font></p>
+			<p>In an output data file:</p>
+			<p><font size="2">Same as input.</font></td></tr></table>
+      <h4 class="dtH4">Parent Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table3" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr VALIGN="top"><td width="29%"><a href="Schema.Instance.html">Instance</a></td><td width="70%">
+        On output, Settings are nested under the specific instance associated 
+		with them.</td></tr>
+<tr>
+	<td width="29%"><a href="Schema.Object.html">
+	Object</a></td><td width="70%">
+        On input, Settings are nested under the parent object.</td>
+</tr>
+<tr>
+	<td width="29%"><a href="Schema.Reference.html">Reference</a></td><td width="70%">
+        This element refers to a <a href="Schema.Type.html">Type</a> element to be included in that position.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Child Elements</h4>
+		<div class="tablediv">
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Element</td><td width="70%">
+        Description</td></tr>
+<tr valign="top">
+	<td width="29%"><a href="Schema.Message.html">
+	Message</a></td><td width="70%">
+        This output element is generated when a rule fires.
+      </td>
+</tr>
+<tr valign="top">
+	<td width="29%"><a href="Schema.Rule.html">
+	Rule</a></td><td width="70%">
+        This contains information about a rule to execute on the output data.
+      </td>
+</tr>
+<tr valign="top">
+	<td width="29%"><a href="Schema.Value.html">
+	Value</a></td><td width="70%">
+        This output element contains the string contents of a single value.
+      </td>
+</tr>
+		</table>
+      </div>
+      <h4 class="dtH4">Attributes</h4>
+        <table class="dtTABLE" cellspacing="0" id="table2" border="1" style="margin-left: 16"  width="650">
+			<tr VALIGN="top" bgcolor=#CCCCCC><td width="29%">Attribute</td><td width="70%">
+		        Description</td></tr>
+			<tr valign="top">
+				<td width="29%">
+				<a href="Schema.Reference.CustomId.html">CustomId</a></td>
+				<td width="70%">This is an identifier that can be referenced by 
+				a <a href="Schema.Customize.html">Customize</a> element to 
+				override its properties.&nbsp; This is only meaningful if the 
+				Setting is nested under a Type.&nbsp; This defaults to the 
+				Key1 attribute of the Setting.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Display.html">Display</a></td>
+				<td width="70%">This property is used as a display hint for the 
+				Setting.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%">Format</td>
+				<td width="70%">This indicates which
+				<a href="Schema.ExtFormat.html">ExtFormat</a> to use 
+				to display the data.&nbsp; See 
+				<a href="Extensions.FormatProcessors.html">Format Processors</a> for a list of built-in format types.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Object.Key.html">Key1 - Key5</a></td>
+				<td width="70%">These values can be given any 
+				meaning by the object processor associated with this type of 
+				parent object.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Setting.NotForExport.html">
+				NotForExport</a></td>
+				<td width="70%">This indicates the value of this data is 
+				sensitive.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Restrict.html">Restrict</a></td>
+				<td width="70%">This is an internal attribute only.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Setting.Retrieve.html">Retrieve</a></td>
+				<td width="70%">This performs special functionality when 
+				retrieving the data.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.Restriction.html">
+				&lt;restriction&gt;</a></td>
+				<td width="70%">This is a custom-defined restriction attribute.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Setting.SDMDataType.html">
+				SDMDataType</a></td>
+				<td width="70%">This provides a hint to be used during 
+				conversion of a BPA Object element to an SDM element.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.SDMMultiplicity.html">
+				SDMMultiplicity</a></td>
+				<td width="70%">This provides a hint to be used during 
+				conversion of a BPA Object element to an SDM element.</td>
+			</tr>
+			<tr>
+				<td width="29%"><a href="Schema.Object.SDMName.html">SDMName</a></td>
+				<td width="70%">This provides a hint to be used during 
+				conversion of a BPA Object element to an SDM element.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%"><a href="Schema.Setting.Substitution.html">
+				Substitution</a></td>
+				<td width="70%">This provides a simple variable setting 
+				mechanism within a configuration.</td>
+			</tr>
+			<tr valign="top">
+				<td width="29%">
+				SubstitutionFormat</td>
+				<td width="70%">Like Format, but applies to the value set in the 
+				substitution only.</td>
+			</tr>
+		</table>
+    </div>
+  </body>
+</html>
