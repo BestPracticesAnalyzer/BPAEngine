@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="LinkLabel_SEViewScan"><value>View other scan</value></data>
+  <data name="Label_AConfigVersion"><value>Configuration File Version:</value></data>
+  <data name="Label_PSHDeleteError"><value>Error deleting the scheduled task.  Please make sure you have sufficient rights to perform the task.</value></data>
+  <data name="Sample_AG"><value>Test Admin Group</value></data>
+  <data name="Label_SSTitle"><value>Start a New Best Practices scan</value></data>
+  <data name="Label_SSLabel"><value>Enter an identifying label for this scan:</value></data>
+  <data name="Label_SSSpeed"><value>Select the speed of the network to adjust estimated time value:</value></data>
+  <data name="Button_SelectScan"><value>Select a scan to view</value></data>
+  <data name="Button_ViewScan"><value>View a report</value></data>
+  <data name="File_RTFFiles"><value>Rich Text Format Files</value></data>
+  <data name="Label_SEScanEntryTasks"><value>Tasks: {0}</value></data>
+  <data name="LinkLabel_NVContinue"><value>Continue without making any updates</value></data>
+  <data name="Label_NVNoConfig"><value>No configuration file has been found on the web or locally.  Please reinstall this tool.</value></data>
+  <data name="Lavel_GVDesc"><value>The scan you have requested is being prepared.  Depending on the amount of data in the scan, this may take several minutes to complete.</value></data>
+  <data name="Tool_FullName"><value>Microsoft Best Practices Analyzer</value></data>
+  <data name="Label_PCPassword"><value>Password:</value></data>
+  <data name="Label_SEImportTypeAll"><value>All files</value></data>
+  <data name="Label_SEImportTypeXML"><value>XML files</value></data>
+  <data name="Label_IPServerStatusInProgress"><value>In progress {0}%</value></data>
+  <data name="Label_SEHeaderTask"><value>Scans of {0}</value></data>
+  <data name="LinkLabel_VSDisableInstance"><value>Do not show me this item again for this instance only.</value></data>
+  <data name="Label_SHRunFrequencyDaily"><value>Run daily</value></data>
+  <data name="Label_CSSourceCustomer"><value>CUSTOM{0}</value></data>
+  <data name="Label_DEstimatedTime"><value>Estimated time remaining: </value></data>
+  <data name="Label_IPTimeInMinutes"><value>{0} minutes, {1} seconds</value></data>
+  <data name="Label_PADConnectError"><value>Error connecting to Active Directory.  Please try entering a different server name.</value></data>
+  <data name="Label_CSSourceObject"><value>Source object:</value></data>
+  <data name="Label_SSSelectTypeOptions"><value>Optional checks for {0}:</value></data>
+  <data name="ComboBox_SEArrangeScope"><value>Scan Scope</value></data>
+  <data name="Label_VSTreeReports"><value>Tree Reports</value></data>
+  <data name="LinkLabel_VSMore"><value>Tell me more about this issue and how to resolve it.</value></data>
+  <data name="Error_FileInvalid"><value>Specified data file is in an invalid format.</value></data>
+  <data name="Label_SHRunFrequencyOnce"><value>Run once</value></data>
+  <data name="Label_DVDownloadError"><value>An error occurred downloading or executing the new MSI package.  Please do this manually instead (the manual download package can be found at {0}).</value></data>
+  <data name="LinkLabel_SHExit"><value>Exit this tool</value></data>
+  <data name="ComboBox_SSSpeedLAN"><value>LAN (10 mbps)</value></data>
+  <data name="ComboBox_SSSpeedWAN"><value>WAN (64 kbps)</value></data>
+  <data name="Label_VSSelectReportType"><value>Select Report Type:</value></data>
+  <data name="Label_IPServerStatusCompletedWithWarning"><value>Completed with warning</value></data>
+  <data name="Label_VSADServer"><value>Active Directory Server: {0}</value></data>
+  <data name="Label_SEScanEntryFullScope"><value>Organization</value></data>
+  <data name="Sample_Server"><value>Test Server</value></data>
+  <data name="Label_SHStartTime"><value>Start time:</value></data>
+  <data name="File_TextFiles"><value>Text Files</value></data>
+  <data name="Label_IPTimeUndetermined"><value>undetermined</value></data>
+  <data name="Label_NVDescCanceled"><value>Version check has been canceled.</value></data>
+  <data name="LinkLabel_NVExit"><value>Exit the tool so you can manually install the update from {0}</value></data>
+  <data name="Label_IPPleaseWait"><value>Please wait while the {0} creates a Best Practices report by gathering data from the specified servers and analyzing it.</value></data>
+  <data name="Label_IPTotalServersCompleted"><value>{0} completed</value></data>
+  <data name="Button_SelectAnalyzer"><value>Select an Analyzer</value></data>
+  <data name="ComboBox_VSReportDifferences"><value>Comparison Report</value></data>
+  <data name="RadioButton_UODisableSQM"><value>I don't want to join the program at this time</value></data>
+  <data name="Label_IPServerStatusAborted"><value>Aborted</value></data>
+  <data name="Label_PSHViewError"><value>Error retrieving the scheduled task.  Please make sure you have sufficient rights to perform the task.</value></data>
+  <data name="Label_CPleaseWait"><value>Please wait while we check for updates.</value></data>
+  <data name="Label_SHNotAllowedNoContext"><value>Runs cannot be scheduled because you have not entered security credentials that are required for the run.</value></data>
+  <data name="LinkLabel_CStopCheck"><value>Cancel this check</value></data>
+  <data name="LinkLabel_CSViewResults"><value>View the results of this comparison</value></data>
+  <data name="ComboBox_SSSpeedFastLAN"><value>Fast LAN (100 mbps or more)</value></data>
+  <data name="ComboBox_SSSpeedFastWAN"><value>Fast WAN (1.5 mbps)</value></data>
+  <data name="Label_NVConfigMiscError"><value>The configuration files could not be loaded: {0} </value></data>
+  <data name="LinkLabel_SCViewScan"><value>View a report of this Best Practices scan</value></data>
+  <data name="Label_CSSource"><value>Source:</value></data>
+  <data name="Label_IPDetails"><value>Server scanning details: </value></data>
+  <data name="LinkLabel_UOSQMTellMeMore"><value>Tell me more about the program</value></data>
+  <data name="Label_SEScanDeletePrompt"><value>Are you sure you want to delete this scan?</value></data>
+  <data name="Label_SSScopeWithoutOrg"><value>Scope is set to {0} server(s) and {1} administration group(s).</value></data>
+  <data name="Label_CSTestObjects"><value>Test objects:</value></data>
+  <data name="Label_VSIssueReports"><value>List Reports</value></data>
+  <data name="Label_PPleaseWait"><value>Please wait while the network and permissions are being checked.</value></data>
+  <data name="Label_NVDescError"><value>An error occurred trying to access the web.</value></data>
+  <data name="LinkLabel_VSEnableInstance"><value>Show me this item again for this instance only.</value></data>
+  <data name="Label_IPTotalServersPending"><value>{0} pending</value></data>
+  <data name="Label_VSExportError"><value>Error {0} occurred while trying to export scan.</value></data>
+  <data name="Label_IPTimeInHoursNoSeconds"><value>{0} hours, {1} minutes</value></data>
+  <data name="LinkLabel_NVDownloadConfig"><value>Download the latest updates</value></data>
+  <data name="Button_ConnectToAD"><value>Connect to Active Directory</value></data>
+  <data name="Label_VSOtherReports"><value>Other Reports</value></data>
+  <data name="RadioButton_UOEnableUpdates"><value>Check for updates on startup (recommended)</value></data>
+  <data name="Label_CSTestFile"><value>Test file:</value></data>
+  <data name="Label_SSStartError"><value>Error starting scan, please try again.  If error persists, please send mail to ddcpxsln@microsoft.com.</value></data>
+  <data name="LinkLabel_PCCheck"><value>Connect to the Active Directory server</value></data>
+  <data name="Label_ConfigFileInvalid"><value>The configuration file is invalid.  Please download a new version from {0}.</value></data>
+  <data name="ComboBox_VSReportLog"><value>Run-Time Log</value></data>
+  <data name="Label_DVTitle"><value>Downloading new version...</value></data>
+  <data name="Label_SHRunFrequencyMonthly"><value>Run monthly</value></data>
+  <data name="Search_Find"><value>Look for:</value></data>
+  <data name="ComboBox_VSArrangeIssue"><value>Issue </value></data>
+  <data name="ComboBox_VSArrangeClass"><value>Class</value></data>
+  <data name="Label_SEArrangeBy"><value>Arrange by:</value></data>
+  <data name="Button_About"><value>About the {0}</value></data>
+  <data name="Label_IPTitle"><value>Scanning In Progress...</value></data>
+  <data name="LinkLabel_VSEnableAll"><value>Show me this item again for all instances.</value></data>
+  <data name="Button_OK"><value>OK</value></data>
+  <data name="Label_AAppVersion"><value>Application Version:</value></data>
+  <data name="Label_SEScanEntryRunTime"><value>Run time: {0}</value></data>
+  <data name="Label_SSScopeSummaryOrg"><value>Scope is set to the entire organization.  This organization contains {0} Exchange servers.</value></data>
+  <data name="Label_SelectAnalyzer"><value>Select an Analyzer to load into the BPA</value></data>
+  <data name="Label_IPTotalServers"><value>Total servers: {0}</value></data>
+  <data name="Label_GVTitle"><value>Preparing Scan...</value></data>
+  <data name="Label_SSGetScope"><value>Specify the scope for this scan:</value></data>
+  <data name="Label_DVEstimatedTime"><value>Estimated time remaining: </value></data>
+  <data name="Label_IPTimeInMinutesNoSeconds"><value>{0} minutes</value></data>
+  <data name="CheckBox_PCExAGLogon"><value>For access to the Exchange administrative group {0}, please specify an account for the {0} to run under.  The account should have Exchange Administrator View Only permissions at the organizational level.</value></data>
+  <data name="Label_SCStatusAborted"><value>Scanning has has been aborted by the user, but you can still view the data captured up to that point.</value></data>
+  <data name="Label_SHRunFrequency"><value>Run frequency:</value></data>
+  <data name="Label_SCTitleCompleted"><value>Scanning Completed</value></data>
+  <data name="ComboBox_VSReportDetail"><value>Detailed View</value></data>
+  <data name="Label_PNoAGsFoundError"><value>No Exchange administrative groups found in organization.</value></data>
+  <data name="Label_NVDescNoneFound"><value>No new updates have been found.</value></data>
+  <data name="Label_PSHSubmitError"><value>Error submitting the scheduled task.  Please make sure you have sufficient rights to perform the task and that the Windows schedule service is started.</value></data>
+  <data name="CheckBox_PCExLogon"><value>For Exchange server access, please specify an account for the {0} to run under. The account should have at least Exchange administrator View Only permissions at the organization level, and be a member of the built-in administrators group on each Exchange server.</value></data>
+  <data name="Label_PExCredError"><value>Error validating Exchange logon credentials.  Please try entering a different set of credentials.</value></data>
+  <data name="LinkLabel_SSStartScan"><value>Start scanning</value></data>
+  <data name="Label_SHNotAllowedNotLocalAdmin"><value>Runs cannot be scheduled because you are not logged on as a local administrator.</value></data>
+  <data name="Label_VSHeaderServer"><value>Items found on server {0}</value></data>
+  <data name="Button_Help"><value>The {0} Help</value></data>
+  <data name="Label_SSScopeSummaryAG"><value>Scope is set to the {0} administration group.  This administration group contains {1} Exchange servers.</value></data>
+  <data name="Label_PADCredError"><value>Error validating Active Directory logon credentials.  Please try entering a different set of credentials.</value></data>
+  <data name="Label_LoadAnalyzer"><value>Load Selected Analyzer</value></data>
+  <data name="Label_SCTitleAborted"><value>Scanning Aborted</value></data>
+  <data name="Label_SSScopeWithOrg"><value>Scope is set to {0} server(s), {1} administration group(s), and the organization.</value></data>
+  <data name="Label_VSPrint"><value>Print report</value></data>
+  <data name="Label_VSTitle"><value>View Best Practices Report</value></data>
+  <data name="Label_VSTasks"><value>Tasks: {0}</value></data>
+  <data name="Label_VSRegex"><value>Use regular expressions</value></data>
+  <data name="Button_Schedule"><value>Schedule a scan</value></data>
+  <data name="Label_CSLabel"><value>Enter the label for this compare or select an existing one:</value></data>
+  <data name="ContextMenu_SelectAll"><value>Select&amp;All</value></data>
+  <data name="Label_CSValue"><value>Value:</value></data>
+  <data name="Label_CSTitle"><value>Compare Scan Data</value></data>
+  <data name="Title_Main"><value>The {0}</value></data>
+  <data name="Label_VSHeaderTask"><value>Items for task {0}</value></data>
+  <data name="Label_SCStatusSuccess"><value>Scanning has completed successfully.</value></data>
+  <data name="Label_PDesc"><value>The {0} is verifying that you have network connectivity and permissions to access Active Directory.  The tool needs read access to the Active Directory schema as well as to the Configuration and Users containers.  The tool also requires read access to each domain controller, global catalog server and Exchange server that will be scanned.  These permissions will be checked after you select where the scan will run.</value></data>
+  <data name="Label_VSOrg"><value>Organization</value></data>
+  <data name="Label_WDesc"><value>This is the Best Pratice Analyzer. It can be used to test configuration files and also servers as a skeleton for creating other BPA's.
+
+. Click the "Select an Analyzer" button to load and analyzer and begin scanning.</value></data>
+  <data name="Label_DDesc"><value>The latest configuration file is being downloaded from {0}.  The configuration file contains all the properties that the {1} retrieves and all of the rules it uses to analyze those properties. The configuration file is updated frequently as system changes occur and refinements are made to improve the analysis output.</value></data>
+  <data name="ComboBox_VSReportRecent"><value>Recent Changes</value></data>
+  <data name="LinkLabel_VSDisableAll"><value>Do not show me this item again for all instances.</value></data>
+  <data name="Label_CDesc"><value>The {0} is connecting to {1} to check for updates. There may be updates to the tool, or there may be updates to the configuration file. The configuration file contains all the properties that this tool retrieves and all of the rules it uses to analyze those properties. The configuration file is updated frequently and can be downloaded, installed, and used without restarting the tool. If a newer version of the tool is found, you will need to update and restart the tool.</value></data>
+  <data name="Label_SEScanEntryDate"><value>Date: {0}</value></data>
+  <data name="Label_SEScanEntryType"><value>Type: {0}</value></data>
+  <data name="Label_SEImport"><value>Import scan</value></data>
+  <data name="Label_SEListTitle"><value>The {0} Scans</value></data>
+  <data name="ComboBox_VSReportNonDefault"><value>Non-Default Settings</value></data>
+  <data name="Label_DPleaseWait"><value>Please wait while the latest updates are being downloaded.</value></data>
+  <data name="Label_CEstimatedTime"><value>Estimated time to complete:</value></data>
+  <data name="Label_SSEstimatedTime"><value>This scan will take approximately {0}</value></data>
+  <data name="LinkLabel_SHSaveAndExit"><value>Save and Exit this tool</value></data>
+  <data name="Label_SeeAlso"><value>See also</value></data>
+  <data name="Label_VSRoutingGroup"><value>Routing Group: {0}</value></data>
+  <data name="LinkLabel_VSMoreNonError"><value>Tell me more about this setting.</value></data>
+  <data name="ComboBox_VSArrangeSeverity"><value>Severity</value></data>
+  <data name="Label_PCDomain"><value>Domain:</value></data>
+  <data name="Label_VSAdminGroup"><value>Administration Group: {0}</value></data>
+  <data name="ComboBox_VSArrangeTask"><value>Task</value></data>
+  <data name="LinkLabel_SEScanEntryExportScan"><value>Export this scan</value></data>
+  <data name="Label_IPServerStatusPending"><value>Pending</value></data>
+  <data name="Label_SCDetails"><value>Server scanning summary:</value></data>
+  <data name="Button_Exchange"><value>The {0} Web site</value></data>
+  <data name="Sample_FileName"><value>output.{0}.xml</value></data>
+  <data name="Label_IPTimeInSeconds"><value>{0} seconds</value></data>
+  <data name="Label_IPTotalServersInProgress"><value>{0} in progress</value></data>
+  <data name="GroupBox_SSScope"><value>Summary:</value></data>
+  <data name="ComboBox_VSReportDisabled"><value>Hidden Items</value></data>
+  <data name="CheckBox_SHEnable"><value>Enable scan scheduling</value></data>
+  <data name="Label_NVTitle"><value>Update the {0}</value></data>
+  <data name="Button_Welcome"><value>Welcome</value></data>
+  <data name="Label_SEScanEntryVersion"><value>Version: {0}</value></data>
+  <data name="Label_SSBaselineControls"><value>Select control servers:</value></data>
+  <data name="Label_SSUnselectAll"><value>Unselect all</value></data>
+  <data name="Error_FileAlreadyExists"><value>A file already exists with the same name as the file being imported.</value></data>
+  <data name="Label_NVDescNewConfig"><value>A new version of the configuration file has been found.  {0}</value></data>
+  <data name="Label_SSBaseline"><value>Baseline Options</value></data>
+  <data name="Label_UOCheckVersion"><value>Check for updates now</value></data>
+  <data name="Label_SEScanEntryFileName"><value>File name: {0}</value></data>
+  <data name="Label_SEScanEntryFileSize"><value>File size: {0}</value></data>
+  <data name="Label_VSServer"><value>Server: {0}</value></data>
+  <data name="Label_SSScopeSummaryServer"><value>Scope is set to server {0} only.</value></data>
+  <data name="LinkLabel_SEScanEntryViewScan"><value>View a report of this scan</value></data>
+  <data name="Label_SEHeaderScope"><value>Scans for {0}</value></data>
+  <data name="ComboBox_VSReportBaseline"><value>Baseline</value></data>
+  <data name="Label_PEstimatedTime"><value>Estimated time to completion:</value></data>
+  <data name="Label_NVDescNewVersion"><value>A new version of the tool has been found.  {0}</value></data>
+  <data name="Label_ConfigFileOld"><value>The configuration file is too old to be run by this version of the {0}.  Please download a new version from {0}.</value></data>
+  <data name="Label_PNoOrgFoundError"><value>No Exchange organization container found in domain.</value></data>
+  <data name="LinkLabel_IPStopScan"><value>Stop Scanning</value></data>
+  <data name="Label_VSArrange"><value>Arrange by:</value></data>
+  <data name="ContextMenu_Save"><value>&amp;Save</value></data>
+  <data name="ContextMenu_Copy"><value>&amp;Copy</value></data>
+  <data name="Label_PCDesc"><value>The {0} must have read access to Active Directory. By default the tool will use the currently logged-on account, and will automatically find and connect to a suitable global catalog server.  The account that you are logged on with will also need administrator or equivalent access to each Exchange server.</value></data>
+  <data name="Label_PCUser"><value>User name:</value></data>
+  <data name="Label_PTitle"><value>Checking Network and Permissions...</value></data>
+  <data name="Label_DVPleaseWait"><value>Please wait while the latest version of this tool is being downloaded.</value></data>
+  <data name="LinkLabel_WSelectOptions"><value>Select options for a new scan</value></data>
+  <data name="Label_VSReport"><value>Select a report: </value></data>
+  <data name="Label_SSSelectType"><value>Select the type of scan to perform:</value></data>
+  <data name="LinkLabel_PCShowAdvancedShow"><value>Show advanced login options</value></data>
+  <data name="LinkLabel_PCShowAdvancedHide"><value>Hide advanced login options</value></data>
+  <data name="ComboBox_VSReportCritical"><value>Critical Issues</value></data>
+  <data name="Label_WTitle"><value>Welcome to the {0}</value></data>
+  <data name="Search_NotFound"><value>Cannot find the requested string.</value></data>
+  <data name="LinkLabel_NVWelcome"><value>Go to Welcome screen</value></data>
+  <data name="ComboBox_VSReportHTML"><value>HTML View</value></data>
+  <data name="ComboBox_VSReportFull"><value>All Issues</value></data>
+  <data name="Label_SEExportTypeSQL"><value>SQL (will save entire data file)</value></data>
+  <data name="Label_SEExportTypeXML"><value>XML (will save entire data file)</value></data>
+  <data name="Label_SEExportTypeCSV"><value>CSV (will save current report only)</value></data>
+  <data name="Label_SEExportTypeHTM"><value>HTML (will save current report only)</value></data>
+  <data name="ContextMenu_Print"><value>&amp;Print</value></data>
+  <data name="Label_SHTitle"><value>Schedule a Scan</value></data>
+  <data name="Label_SHDesc"><value>Scans can be configured to run on a scheduled basis.  If this option is enabled, scans with the currently specified parameters will run at the specified interval.  If this application is closed, scans will continue to run.  The output can be examined by restarting this UI.</value></data>
+  <data name="ComboBox_VSReportSummary"><value>Summary View</value></data>
+  <data name="LinkLabel_SEScanEntryDeleteScan"><value>Delete this scan</value></data>
+  <data name="Tool_LongNameEnd"><value>Best Practices Analyzer</value></data>
+  <data name="Label_PCCreds"><value>To run the {0} under different accounts, click "Show advanced login options."</value></data>
+  <data name="LinkLabel_NVUpdateVersion"><value>Update the tool in place (you will need to restart the tool when this completes)</value></data>
+  <data name="Label_VSTotalItems"><value>({0} items)</value></data>
+  <data name="RadioButton_UOEnableSQM"><value>Join the Microsoft Customer Experience Improvement Program</value></data>
+  <data name="ComboBox_VSArrangeServer"><value>Server</value></data>
+  <data name="Label_SEDeleteAllScans"><value>Delete all scans</value></data>
+  <data name="Label_PCTitle"><value>Connect to Active Directory</value></data>
+  <data name="Label_SHRunFrequencyWeekly"><value>Run weekly</value></data>
+  <data name="Label_SSSelectAll"><value>Select all</value></data>
+  <data name="Sample_Description"><value>This is a sample error message.</value></data>
+  <data name="Label_CSSourceValues"><value>Source values:</value></data>
+  <data name="CheckBox_PCADLogon"><value>For Active Directory server access, please specify an account for the {0} to run under. The account should have computer-level administrator or equivalent permissions to each global catalog server.</value></data>
+  <data name="ComboBox_SEArrangeTime"><value>Scan Label or Run Time</value></data>
+  <data name="ComboBox_SEArrangeTask"><value>Scan Type</value></data>
+  <data name="Button_Compare"><value>Compare scan data</value></data>
+  <data name="Label_DVDesc"><value>The latest version of the {0} is being downloaded from {1}.  When the download completes, the tool will close and you will need to restart it.</value></data>
+  <data name="Label_DTitle"><value>Downloading Best Practices Updates...</value></data>
+  <data name="Search_FindNext"><value>Find</value></data>
+  <data name="ComboBox_VSReportBestPractices"><value>Best Practices</value></data>
+  <data name="Error_FileNotFound"><value>Specified data file does not exist.</value></data>
+  <data name="Label_PCDC"><value>If you are running the {0} in a different domain or want to specify a different global catalog server for the tool to connect to, enter the fully qualified domain name (FQDN) of the global catalog server here:</value></data>
+  <data name="Label_Page"><value>Page {0}</value></data>
+  <data name="Label_IPEstimatedTime"><value>Estimated Time Remaining: </value></data>
+  <data name="Label_SEScanEntryServers"><value>Number of servers: {0}</value></data>
+  <data name="RadioButton_UODisableUpdates"><value>Do not check for updates on startup</value></data>
+  <data name="Label_SETotal"><value>Total number: {0} scans available</value></data>
+  <data name="Label_SETitle"><value>Select a Best Practices Scan to View</value></data>
+  <data name="Label_IPStartError"><value>Error running the scan.  Please try again.</value></data>
+  <data name="Label_UOTitle"><value>Updates and Customer Feedback</value></data>
+  <data name="Label_IPServerStatusCompletedWithError"><value>Completed with error</value></data>
+  <data name="Button_StartScan"><value>Start a new Best Practices scan</value></data>
+  <data name="ComboBox_VSReportItemsOfInterest"><value>Informational Items</value></data>
+  <data name="Label_SSSelectTypeOptionsNone"><value>None</value></data>
+  <data name="Label_VSExport"><value>Export report</value></data>
+  <data name="Label_IPServerStatusCompleted"><value>Completed</value></data>
+  <data name="Sample_Title"><value>Sample Error Title</value></data>
+  <data name="Label_IPServerStatusNotStarted"><value>Not started</value></data>
+  <data name="Label_SSBaselineDesc"><value>When selecting a baseline scan, instead of checking the standard best practices, this tool will compare a pre-defined set of properties between selected sets of servers.  For each control server selected, this tool will generate a report that shows all the differences found in the selected servers to be compared to that control server.</value></data>
+  <data name="Label_UOSQMDescription"><value>Do you want to join the Microsoft Customer Experience Improvement Program?
+
+The program sends to Microsoft anonymous information about your computer hardware and how you use our product, without interrupting you or your users. This helps us identify which features to improve. If you choose to join, this data will be collected from all servers this tool scans. No information collected is used to identify or contact you.</value></data>
+  <data name="LinkLabel_WSelectScan"><value>Select a Best Practices scan to view</value></data>
+  <data name="Label_SSBaselineTargets"><value>Select the servers to be compared to the currently selected control server:</value></data>
+  <data name="Label_VSUnclassifiedHeader"><value>Unclassified Items</value></data>
+  <data name="Label_CTitle"><value>Checking for Updates...</value></data>
+  <data name="Label_CSDesc"><value>This tool can compare settings between two objects in the same run or different runs.  It can also compare object settings to a set of values.</value></data>
+  <data name="Label_IPTimeInHours"><value>{0} hours, {1} minutes, {2} seconds</value></data>
+  <data name="Label_GVPleaseWait"><value>Please wait while the {0} prepares the scan for viewing.</value></data>
+  <data name="Tool_LongNameStart"><value>Microsoft</value></data>
+  <data name="Label_UODescription"><value>The following options control whether this tool will automatically check the Web for a newer version of the configuration or the tool upon startup.  Leave this enabled unless you are having repeated connection difficulties or are running in a closed network.  If this is disabled, you can still check for updates on demand using the "{0}" link on the left pane, or you can manually install updates.  Instructions for manually installing updates can be found in the help file.</value></data>
+  </root>

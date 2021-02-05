@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{F048B013-A8A0-4F73-9476-757B060B1188}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <LangVersion>4</LangVersion>
+    <AssemblyName>BPA.UserInterface</AssemblyName>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Analyzer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnalyzerCollection.cs" />
+    <Compile Include="BaseProgressPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAAnalyzerDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPACheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPACustomizations.cs" />
+    <Compile Include="BPADataGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPADateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAGradiatedBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAIssueListReport.cs" />
+    <Compile Include="BPALabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPALink.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPALinkOnlyScreen.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAListReport.cs" />
+    <Compile Include="BPAListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAListViewWithPreview.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPALoc.cs" />
+    <Compile Include="BPALogListReport.cs" />
+    <Compile Include="BPANumericInput.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPARadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPARadioButtonWithPicture.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPARegistrySettings.cs" />
+    <Compile Include="BPAReport.cs" />
+    <Compile Include="BPAReportType.cs" />
+    <Compile Include="BPARichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAScanInfo.cs" />
+    <Compile Include="BPAScanObjectInfo.cs" />
+    <Compile Include="BPAScreen.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPAShowHide.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPASimpleListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPATabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPATabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPATextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPATextBoxButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPATitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BPATreeReport.cs" />
+    <Compile Include="BPATreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonCallbackBase.cs" />
+    <Compile Include="CheckForUpdates.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckForUpdatesAction.cs" />
+    <Compile Include="ClipboardCopy.cs" />
+    <Compile Include="CommandLineParameters.cs" />
+    <Compile Include="CommonData.cs" />
+    <Compile Include="CommonUIFunctions.cs" />
+    <Compile Include="ConfigurationInfo.cs" />
+    <Compile Include="Crypt.cs" />
+    <Compile Include="Crypt32.cs" />
+    <Compile Include="CustomRegistrySettings.cs" />
+    <Compile Include="DataChange.cs" />
+    <Compile Include="DataChangeType.cs" />
+    <Compile Include="DataConfigPreprocessor.cs" />
+    <Compile Include="DataDataPostprocessor.cs" />
+    <Compile Include="DataGridViewProgressCell.cs" />
+    <Compile Include="DataGridViewProgressColumn.cs" />
+    <Compile Include="DataInfo.cs" />
+    <Compile Include="DataInstance.cs" />
+    <Compile Include="DataInstanceLink.cs" />
+    <Compile Include="DataInstanceSet.cs" />
+    <Compile Include="DataObject.cs" />
+    <Compile Include="DataObjectLink.cs" />
+    <Compile Include="DataObjectProcessor.cs" />
+    <Compile Include="DataParser.cs" />
+    <Compile Include="DataScope.cs" />
+    <Compile Include="DownloadGuiHelper.cs" />
+    <Compile Include="DownloadNewVersion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DownloadNewVersionAction.cs" />
+    <Compile Include="ExceptionCallback.cs" />
+    <Compile Include="GroupingClass.cs" />
+    <Compile Include="HeaderInfo.cs" />
+    <Compile Include="IBPAControlAccess.cs" />
+    <Compile Include="IBPADataControl.cs" />
+    <Compile Include="IndeterminateProgressPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InProgressPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IssueInfo.cs" />
+    <Compile Include="IssueSeverity.cs" />
+    <Compile Include="LoadScan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LoadScanAction.cs" />
+    <Compile Include="MainCmd.cs" />
+    <Compile Include="MainGUI.cs" />
+    <Compile Include="MessageSuppression.cs" />
+    <Compile Include="Navigate.cs" />
+    <Compile Include="NodeInfo.cs" />
+    <Compile Include="OpenFileCallback.cs" />
+    <Compile Include="OpenFolderCallback.cs" />
+    <Compile Include="Pair.cs" />
+    <Compile Include="PluginInfoDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PluginStatus.cs" />
+    <Compile Include="RegistrySettings.cs" />
+    <Compile Include="ReportData.cs" />
+    <Compile Include="RunAnalyzerEventArgs.cs" />
+    <Compile Include="SaveFileCallback.cs" />
+    <Compile Include="ScanCompleted.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ScanOptions.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Schedule.cs" />
+    <Compile Include="ScheduleInfo.cs" />
+    <Compile Include="ScheduleOptions.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ScheduleTask.cs" />
+    <Compile Include="SecureKey.cs" />
+    <Compile Include="SelectAnalyzer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelectScan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ShowDialogCallback.cs" />
+    <Compile Include="StartScan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StatusButtonClickEventArgs.cs" />
+    <Compile Include="StepID.cs" />
+    <Compile Include="TimerThread.cs" />
+    <Compile Include="UpdateInfo.cs" />
+    <Compile Include="UpdateOption.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UpdateTextHandler.cs" />
+    <Compile Include="VersionInfo.cs" />
+    <Compile Include="VersionUpdate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ViewScan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Welcome.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32WindowWrapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommonData.resx" />
+    <EmbeddedResource Include="MainGUI.resx" />
+    <EmbeddedResource Include="obj.BPALoc.resx" />
+    <EmbeddedResource Include="Resource.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{afab5c6a-d2bb-49a0-a91d-ae1bbe5162d8}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Updater\Updater.csproj">
+      <Project>{5db539cd-058f-4eca-a4f1-c5012c2b3360}</Project>
+      <Name>Updater</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
