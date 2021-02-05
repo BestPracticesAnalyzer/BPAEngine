@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="Error_BadFormat"><value>Attribute {0} is not formatted correctly (value is {1}).</value></data>
+  <data name="SeverityHeaderBestPractices"><value>Best Practices</value></data>
+  <data name="Error_ObjectTimeout"><value>Abort for {0} failed.</value></data>
+  <data name="Help_Description"><value>This tool gathers configuration information from a system and analyzes it against best practices.  It then reports on best practice violations.</value></data>
+  <data name="Info_StepPreprocessing"><value>Preprocessing Rules</value></data>
+  <data name="Warn_MultipleSettings"><value>Multiple settings found with query {0}, using first matching setting.</value></data>
+  <data name="SeverityBaseline"><value>Baseline</value></data>
+  <data name="Help_Example"><value>Example: {0}</value></data>
+  <data name="SeverityHeaderNonDefault"><value>Non-Default Settings</value></data>
+  <data name="SeverityBestPractices"><value>Best Practices</value></data>
+  <data name="Error_BadDataParam"><value>Error ({0}) in path for output file {1}.</value></data>
+  <data name="SeverityRecent"><value>Recent change</value></data>
+  <data name="Warn_MultipleObjects"><value>Multiple objects found with query {0}, using first matching object.</value></data>
+  <data name="Info_SkippingDuplicateObject"><value>Skipping duplicate object instance: {0}.</value></data>
+  <data name="Error_ThresholdExceeded"><value>The {0} specified by {1} has been exceeded.  Some objects will be skipped.</value></data>
+  <data name="Error_Signature"><value>Signature on file {0} does not match.</value></data>
+  <data name="Error_DispatchingObject"><value>Error ({0}) trying to dispatch object of type {1}, skipping object.</value></data>
+  <data name="Error_CustomTypeNotFound"><value>Customization Type {0} not recognized.  Skipping customization.</value></data>
+  <data name="SeverityHeaderWarning"><value>Warnings</value></data>
+  <data name="NoValue"><value>&lt;no value&gt;</value></data>
+  <data name="Error_BadCategoryParam"><value>Category restriction does not match data in input configuration file.</value></data>
+  <data name="SeverityHeaderError"><value>Errors</value></data>
+  <data name="Info_Valid"><value>Valid scopes: {0}
+Valid categories: {1}
+Valid levels: {2}
+Valid user contexts: {3}
+</value></data>
+  <data name="Error_ExecuteStep"><value>Error {0} while running {1}.</value></data>
+  <data name="Error_Configuration"><value>Configuration element missing, or too many instances.  Aborting.</value></data>
+  <data name="Error_ProcessingSetting"><value>Error ({0}) trying to process setting {1} on object {2}, skipping setting.</value></data>
+  <data name="Error_SQMUpload"><value>Error uploading SQM data file {0}: {1}</value></data>
+  <data name="Error_XMLRead"><value>Error reading XML file: {0}</value></data>
+  <data name="Error_CustNameMismatch"><value>The customer name specified does not match the name in data file.  Specify the correct customer name, or use a different data file.</value></data>
+  <data name="Info_Status"><value>Processing for {0} is {1}% complete.</value></data>
+  <data name="Error_ConfigNotFound"><value>The configuration file {0} could not be found.</value></data>
+  <data name="Error_ReferencedFileNotInList"><value>File {0}, which contains Type {1}, is not included in the ReferencedFiles attribute of the referencing file {2}.</value></data>
+  <data name="Info_ValidContexts"><value>Valid security contexts: {0}</value></data>
+  <data name="Error_MessageDetailLookup"><value>Could not find one and only one MessageDetail entry for {0}.</value></data>
+  <data name="Error_ImpersonatingUser"><value>Error impersonating {0}: {1}</value></data>
+  <data name="Error_BadDCParam"><value>Error ({0}) while trying to contact DC {1}.</value></data>
+  <data name="SeverityHeader"><value>Items of severity {0}</value></data>
+  <data name="Error_ConfigXml"><value>The configuration file {0} could not be loaded due to a formatting error: {1}</value></data>
+  <data name="Error_BadParam"><value>Error in specifying parameter {0}: too many or too few values specified.</value></data>
+  <data name="SeverityError"><value>Error</value></data>
+  <data name="Error_RuleFormat"><value>Error ({0}) in format of rules in configuration file.</value></data>
+  <data name="Info_ValidRestrictions"><value>Valid restrictions options:</value></data>
+  <data name="SeverityInfo"><value>Informational</value></data>
+  <data name="SeverityNonDefault"><value>Non-default</value></data>
+  <data name="Error_SettingMaxThreads"><value>Error {0} setting max threads.  Default of 25 per proc will be used.</value></data>
+  <data name="SeverityHeaderInfo"><value>Informational Messages</value></data>
+  <data name="Error_ConfigSignature"><value>The configuration file {0} could not be loaded because it has an invalid signature.</value></data>
+  <data name="Error_ConfigMisc"><value>The configuration file {0} could not be loaded: {1} </value></data>
+  <data name="Error_BadUserParam"><value>User information does not match data in input configuration file.</value></data>
+  <data name="Error_Executing"><value>Error {0} while executing.</value></data>
+  <data name="Info_StepCollecting"><value>Collecting Data</value></data>
+  <data name="Info_StepPostprocessing"><value>Postprocessing Rules</value></data>
+  <data name="SeverityHeaderRecent"><value>Recent Changes</value></data>
+  <data name="Error_Parameters"><value>Error parsing command line parameters: {0}</value></data>
+  <data name="Info_ObjectTimeout"><value>Timeout processing {0}, aborting object.</value></data>
+  <data name="Error_CustomIdNotFound"><value>Type {0} does not have CustomId {1} defined.  Skipping customization.</value></data>
+  <data name="Error_LoadingAssembly"><value>Error ({0}) loading {1} with Name={2}, Assembly={3}, Class={4}.  The {1} will be disabled.</value></data>
+  <data name="Info_StepEnd"><value>Completed {0} phase.</value></data>
+  <data name="Error_InvalidParam"><value>Parameter {0} is invalid.</value></data>
+  <data name="SeverityHeaderBaseline"><value>Baseline Differences</value></data>
+  <data name="Error_TypeNotFound"><value>Type {0} not found.  Skipping reference.</value></data>
+  <data name="Info_StepStart"><value>Starting {0} phase.</value></data>
+  <data name="SeverityUnknown"><value>Unknown</value></data>
+  <data name="Warn_MultipleInstances"><value>Unable to distinguish instances based on query={0}, removing all instances.</value></data>
+  <data name="Error_BadScopeParam"><value>Scope restriction does not match data in input configuration file.</value></data>
+  <data name="Error_BadCfgParam"><value>Config file {0} does not exist.</value></data>
+  <data name="Error_MultipleOverrideNodes"><value>Override customization found that does not have a single child node.  Skipping customization.</value></data>
+  <data name="Error_XMLWrite"><value>Error writing XML to file: {0}</value></data>
+  <data name="Error_BadRestrictionParam"><value>Restriction {0} does not exist in input configuration file.</value></data>
+  <data name="Error_DupToken"><value>Duplicate token error</value></data>
+  <data name="Error_ProcessingObject"><value>Error ({0}) trying to process object {1}, skipping object.</value></data>
+  <data name="SeverityWarning"><value>Warning</value></data>
+  <data name="Error_AbortTree"><value>FailHard setting retrieval of {0} failed, tree processing aborted.</value></data>
+  <data name="Error_DataConversion"><value>Error ({0}) converting data to format {1}.  Using ToString() instead.</value></data>
+  <data name="Error_CircularTypeReference"><value>Reference {0} contains a circular reference to Type {1}.</value></data>
+  <data name="Help"><value>Usage: {0} [&lt;options&gt;]
+
+Options:
+  -cfg &lt;file&gt;  Read the settings and rules from configuration &lt;file&gt;.
+               The default is ExBPA.Config.xml in \program files\exbpa\&lt;lang&gt;.
+  -dat &lt;file&gt;  Write the output data to &lt;file&gt;.  The default is
+               output.&lt;label&gt;.&lt;timestamp&gt;.xml in the exbpa output directory.
+  -in &lt;file&gt;   Load the data in &lt;file&gt; prior to the new run.  This can be
+               used to collect data from additional scopes in the same file,
+               or to reanalyze previous data.  If &lt;file&gt; is "$",
+               it will use the output.&lt;label&gt;.&lt;ts&gt;.xml with the most recent
+               timestamp.
+  -d &lt;server&gt;  Access the directory using the global catalog server &lt;server&gt;.
+               If not given, it will bind to the nearest one.
+  -l &lt;label&gt;   Specify a &lt;label&gt; in the output.
+  -u &lt;context&gt; [&lt;domain&gt;\]&lt;user&gt; (&lt;password&gt;|*) ...
+               Provides separate credentials per context.
+  -r &lt;option&gt;[=&lt;value&gt;][,...]
+               Restrict the collection/analysis to include the specified
+               restriction.  The default is {1}.
+  -th &lt;#&gt;      Run a maximum of &lt;#&gt; threads at once (default {2}).
+  -to &lt;#&gt;      Timeout on data access after &lt;#&gt; seconds (default {3}).
+  -c           Collect data specified in the config file.  If no other
+               operation steps are specified, this is enabled by default
+  -a           Analyze the data using the rules from config XML file.
+  -e           Strip off the values of any settings marked NotForExport.
+  -s           Use the parameters stored in the registry by the GUI for
+               scheduled runs.
+  -?           Display this information.
+</value></data>
+  </root>

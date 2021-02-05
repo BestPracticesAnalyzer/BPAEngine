@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{AFAB5C6A-D2BB-49A0-A91D-AE1BBE5162D8}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <LangVersion>4</LangVersion>
+    <AssemblyName>BPA.Common</AssemblyName>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Advapi32.cs" />
+    <Compile Include="AppCmdLineArgumentAttribute.cs" />
+    <Compile Include="AppCmdLineArguments.cs" />
+    <Compile Include="AttributeName.cs" />
+    <Compile Include="BPADocument.cs" />
+    <Compile Include="BPANode.cs" />
+    <Compile Include="CacheObjectProcessor.cs" />
+    <Compile Include="CodeLibraries.cs" />
+    <Compile Include="Collect.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="CommonLoc.cs" />
+    <Compile Include="CompletedCallback.cs" />
+    <Compile Include="ConfigPreprocessor.cs" />
+    <Compile Include="Credentials.cs" />
+    <Compile Include="CustomContext.cs" />
+    <Compile Include="DataPostprocessor.cs" />
+    <Compile Include="DetectProxy.cs" />
+    <Compile Include="DnsApi.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="EdisonSQMDataPostprocessor.cs" />
+    <Compile Include="EngineObjectProcessor.cs" />
+    <Compile Include="EnumeratorObjectProcessor.cs" />
+    <Compile Include="EventProcessor.cs" />
+    <Compile Include="ExDiagAnalyzerException.cs" />
+    <Compile Include="ExDiagRuleFormatException.cs" />
+    <Compile Include="ExecutionEngine.cs" />
+    <Compile Include="ExecutionInterface.cs" />
+    <Compile Include="ExecutionOptions.cs" />
+    <Compile Include="ExecutionStatus.cs" />
+    <Compile Include="ExtFormat.cs" />
+    <Compile Include="ExtFunction.cs" />
+    <Compile Include="ExtVariable.cs" />
+    <Compile Include="GenericCommand.cs" />
+    <Compile Include="GroupObjectProcessor.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="IfObjectProcessor.cs" />
+    <Compile Include="Impersonate.cs" />
+    <Compile Include="IssueProcessor.cs" />
+    <Compile Include="Kernel32.cs" />
+    <Compile Include="LoadedProcessor.cs" />
+    <Compile Include="LogCallback.cs" />
+    <Compile Include="MacroCommand.cs" />
+    <Compile Include="NetApi32.cs" />
+    <Compile Include="Node.cs" />
+    <Compile Include="NodeList.cs" />
+    <Compile Include="NodeSetIterator.cs" />
+    <Compile Include="Ntdsapi.cs" />
+    <Compile Include="NTSD.cs" />
+    <Compile Include="ObjectInstance.cs" />
+    <Compile Include="ObjectInstanceList.cs" />
+    <Compile Include="ObjectParentData.cs" />
+    <Compile Include="ObjectProcessor.cs" />
+    <Compile Include="ObjectProcessorThread.cs" />
+    <Compile Include="ObjectProcessorThreadPool.cs" />
+    <Compile Include="ObjectProgress.cs" />
+    <Compile Include="Ole32.cs" />
+    <Compile Include="OperationsFlags.cs" />
+    <Compile Include="Parameters.cs" />
+    <Compile Include="PluginsManager.cs" />
+    <Compile Include="PostNode.cs" />
+    <Compile Include="PostPivot.cs" />
+    <Compile Include="PostRule.cs" />
+    <Compile Include="PreNode.cs" />
+    <Compile Include="PrePivot.cs" />
+    <Compile Include="PreRule.cs" />
+    <Compile Include="ProcessingInfo.cs" />
+    <Compile Include="ProcessInstanceData.cs" />
+    <Compile Include="ProgressCallback.cs" />
+    <Compile Include="ResolveObjectProcessor.cs" />
+    <Compile Include="RestrictionOption.cs" />
+    <Compile Include="Restrictions.cs" />
+    <Compile Include="RestrictionType.cs" />
+    <Compile Include="RuleExpression.cs" />
+    <Compile Include="RuleReference.cs" />
+    <Compile Include="Rules.cs" />
+    <Compile Include="SQMDataPostprocessor.cs" />
+    <Compile Include="Transforms.cs" />
+    <Compile Include="TreeNodeInfo.cs" />
+    <Compile Include="TypeConfigPreprocessor.cs" />
+    <Compile Include="ValidateConfigurations.cs" />
+    <Compile Include="WinError.cs" />
+    <Compile Include="WinHttp.cs" />
+    <Compile Include="MicrosoftCommonDiagnostics\EdisonSQMLibWrap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqmInteropServices\SqmLibWrap.cs" />
+    <Compile Include="Strings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CopyTemplates.xsl" />
+    <EmbeddedResource Include="Format.xsl" />
+    <EmbeddedResource Include="obj.CommonLoc.resx" />
+    <EmbeddedResource Include="Report.xsl" />
+    <EmbeddedResource Include="Strings.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
