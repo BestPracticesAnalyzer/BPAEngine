@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="urn:schemas-microsoft-com:VSPowerToy:manifest" elementFormDefault="qualified" targetNamespace="urn:schemas-microsoft-com:VSPowerToy:manifest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Manifest" nillable="true" type="Manifest" />  
+  <xs:complexType name="Manifest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Application" type="AppType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Components" type="ManifestComponents" />
+    </xs:sequence>
+    <xs:attribute name="ManifestId" type="xs:string" use="required" />
+  </xs:complexType>  
+  <xs:complexType name="AppType">
+    <xs:sequence>
+      <xs:element name="MainExe" minOccurs="0" maxOccurs="1" type="MainExeType" />
+      <xs:element name="AppDir" minOccurs="0" maxOccurs="1" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="ApplicationId" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="MainExeType">
+    <xs:sequence />
+    <xs:attribute name="file" type="xs:string" use="required" />
+    <xs:attribute name="parameters" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="ManifestComponents">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Component" type="ManifestComponent" />
+    </xs:sequence>
+    <xs:attribute name="base" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ManifestComponent">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Files" type="ManifestFiles" />
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" use="required" />
+    <xs:attribute name="Updated" type="xs:date" use="required" />
+  </xs:complexType>
+  
+  <xs:complexType name="ManifestFiles">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="file" type="ManifestFile" />
+      </xs:sequence>
+    <xs:attribute name="base" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="ManifestFile">
+    <xs:sequence>
+      <xs:element name="InstallTasks" minOccurs="1" maxOccurs="1" type="InstallTasks" />
+    </xs:sequence>
+    <xs:attribute name="Source" type="xs:string" use="required" />
+    <xs:attribute name="Hash" type="xs:string" use="required" />
+    <xs:attribute name="query" type="xs:string" use="optional"/>
+    <xs:anyAttribute namespace="##other" processContents="lax" />
+  </xs:complexType>
+
+   <xs:complexType name="InstallTasks">
+     <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element name="FileMove" type="FileMoveTask" />
+        <xs:element name="FileUnzip" type="FileUnzipTask" />
+      </xs:choice>
+     </xs:sequence>
+   </xs:complexType>
+  
+  
+  <xs:complexType name="FileMoveTask">
+    <xs:sequence />
+    <xs:attribute name="srcFile" type="xs:string" use="optional" />
+    <xs:attribute name="destFile" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="FileUnzipTask">
+    <xs:sequence />
+    <xs:attribute name="srcFile" type="xs:string" use="optional" />
+    <xs:attribute name="destDir" type="xs:string" use="required" />
+  </xs:complexType>
+  
+  </xs:schema>
